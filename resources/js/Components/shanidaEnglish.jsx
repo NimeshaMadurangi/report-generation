@@ -80,22 +80,29 @@ const ShanidaEnglish = ({ name = "Shanida" }) => {
               </div>
             </div>
             <div className="shanida-ticket-special">
-                <div className="shanida-ticket-bottom">
-                  Next Super Jackpot : Rs. {lottery.next_super || "Loading..."}
+            <div className="shanida-ticket-bottom">
+              Next Super Jackpot : Rs. {lottery.next_super || "Loading..."}
+            </div>
+            {/* Special Numbers Section */}
+            {(lottery.special1 || lottery.special2) && (
+              <div className="shanida-ticket-special-prize-container">
+                <img
+                  src="/images/sc.png"
+                  alt="Special Prize"
+                  className="shanida-ticket-special-prize-icon"
+                />
+                <div className="special-numbers">
+                  {lottery.special1 && (
+                    <>
+                      Special number for Rs. 50,000/-: {lottery.special1}
+                      <br />
+                    </>
+                  )}
+                  {lottery.special2 && <>Rs. 40,000/-: {lottery.special2}</>}
                 </div>
-                {lottery.special1 && (
-                  <div className="shanida-ticket-special-prize-container">
-                    <img
-                      src="/images/sc.png"
-                      alt="Special Prize"
-                      className="shanida-ticket-special-prize-icon"
-                    />
-                    <div className="special-numbers">
-                      Special number for Rs. 50,000/- cash prize : {lottery.special1}
-                    </div>
-                  </div>
-                )}
               </div>
+            )}
+          </div>
           </div>
         </div>
       </div>

@@ -33,14 +33,32 @@ const AdakotipathiSinhala = ({ name = "Ada kotipathi" }) => {
   );
 
   const translateColor = (color) => {
-    if (color === "Green") {
+    if (color === "Green" || color === "green") {
       return "කොළ";
     }
-    else if (color === "Red") {
+    else if (color === "Red" || color === "red") {
         return "රතු";
     }
-    else if (color === "Blue") {
+    else if (color === "Blue" || color === "blue") {
       return "නිල්";
+    }
+    else if (color === "Orange" || color === "orange") {
+      return "තැඹිලි";
+    }
+    else if (color === "Pink" || color === "pink") {
+      return "රෝස";
+    }
+    else if (color === "Purple" || color === "purple") {
+      return "දම්";
+    }
+    else if (color === "Brown" || color === "Brown") {
+      return "දුඹුරු";
+    }
+    else if (color === "Light Blue" || color === "light blue" || color === "Light blue") {
+      return "ලා නිල්";
+    }
+    else if (color === "Light Pink" || color === "light pink" || color === "Light pink") {
+      return "ලා රෝස";
     }
     return color;
   };
@@ -57,16 +75,22 @@ const AdakotipathiSinhala = ({ name = "Ada kotipathi" }) => {
             />
           </div>
           <div className="adakotipathi-ticket-draw-number-container">
-            <div className="adakotipathi-ticket-draw-number">
+            
               <div className="adakotipathi-ticket-draw-number-text">
-                දිනුම් වාරය ▶ {lottery.number || "Loading..."}
+                දිනුම් වාරය
               </div>
-            </div>
-            <div className="adakotipathi-ticket-color">
+              <div className="adakotipathi-ticket-draw-number-text1">
+                {lottery.number || "Loading..."}
+              </div>
+            
+           
               <div className="adakotipathi-ticket-colour-text">
-                වර්ණය ▶ {translateColor(lottery.color) || "Loading..."}
+                වර්ණය
               </div>
-            </div>
+              <div className="adakotipathi-ticket-colour-text1">
+                {translateColor(lottery.color) || "Loading..."}
+              </div>
+         
             <div className="adakotipathi-ticket-winning-numbers">
               <div className="adakotipathi-ticket-winning-numbers-title">
                 ----- ජයග්‍රාහී අංක -----
@@ -87,12 +111,29 @@ const AdakotipathiSinhala = ({ name = "Ada kotipathi" }) => {
               </div>
             </div>
             <div className="adakotipathi-ticket-special">
-              <div className="adakotipathi-ticket-bottom">
-                <div className="adakotipathi-ticket-next-jackpot">
-                  මීළඟ සුපිරි ජයමල්ල රු. {lottery.next_super || "Loading..."}
+            <div className="adakotipathi-ticket-bottom">
+              මීළඟ සුපිරි ජයමල්ල රු. {lottery.next_super || "Loading..."}
+            </div>
+            {/* Special Numbers Section */}
+            {(lottery.special1 || lottery.special2) && (
+              <div className="adakotipathi-ticket-special-prize-container">
+                <img
+                  src="/images/sc.png"
+                  alt="Special Prize"
+                  className="adakotipathi-ticket-special-prize-icon"
+                />
+                <div className="special-numbers">
+                  {lottery.special1 && (
+                    <>
+                      රු. 50,000/- සඳහා <br /> විශේෂ අංකය : {lottery.special1 || "Loading..."}
+                      <br />
+                    </>
+                  )}
+                  {lottery.special2 && <>රු. 40,000/-: {lottery.special2}</>}
                 </div>
               </div>
-            </div>
+            )}
+          </div>
           </div>
         </div>
       </div>

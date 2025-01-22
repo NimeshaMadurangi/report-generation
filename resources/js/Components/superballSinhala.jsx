@@ -33,11 +33,29 @@ const SuperballEnglish = ({ name = "Superball" }) => {
   );
 
   const translateColor = (color) => {
-    if (color === "Green") {
+    if (color === "Green" || color === "green") {
       return "කොළ";
     }
-    else if (color === "Red") {
+    else if (color === "Red" || color === "red") {
         return "රතු";
+    }
+    else if (color === "Blue" || color === "blue") {
+      return "නිල්";
+    }
+    else if (color === "Orange" || color === "orange") {
+      return "තැඹිලි";
+    }
+    else if (color === "Pink" || color === "pink") {
+      return "රෝස";
+    }
+    else if (color === "Purple" || color === "purple") {
+      return "දම්";
+    }
+    else if (color === "Light Blue" || color === "light blue" || color === "Light blue") {
+      return "ලා නිල්";
+    }
+    else if (color === "Light Pink" || color === "light pink" || color === "Light pink") {
+      return "ලා රෝස";
     }
     return color;
   };
@@ -55,16 +73,22 @@ const SuperballEnglish = ({ name = "Superball" }) => {
             />
           </div>
           <div className="superball-ticket-draw-number-container">
-            <div className="superball-ticket-draw-number">
+            
               <div className="superball-ticket-draw-number-text">
-                දිනුම් වාරය ▶ {lottery.number || "Loading..."}
+                දිනුම් වාරය
               </div>
-            </div>
-            <div className="superball-ticket-color">
+              <div className="superball-ticket-draw-number-text1">
+                {lottery.number || "Loading..."}
+              </div>
+           
+            
               <div className="superball-ticket-colour-text">
-                වර්ණය ▶ {translateColor(lottery.color) || "Loading..."}
+                වර්ණය
               </div>
-            </div>
+              <div className="superball-ticket-colour-text1">
+                {translateColor(lottery.color) || "Loading..."}
+              </div>
+            
             <div className="superball-ticket-winning-numbers">
               <div className="superball-ticket-winning-numbers-title">
                 ------- ජයග්‍රාහී අංක -------

@@ -54,7 +54,7 @@ const Report = () => {
       const imgData = canvas.toDataURL('image/png');
       const imgWidth = 210; // A4 width in mm
       const pageHeight = 295; // A4 height in mm
-       const imgHeight = (canvas.height * imgWidth) / canvas.width;
+      const imgHeight = (canvas.height * imgWidth) / canvas.width;
       let heightLeft = imgHeight;
       let position = 0;
 
@@ -89,62 +89,55 @@ const Report = () => {
       <button 
         onClick={downloadPDF} 
         className="download-button"
-        style={{
-          padding: '10px 20px',
-          backgroundColor: '#4CAF50',
-          color: 'white',
-          border: 'none',
-          borderRadius: '4px',
-          cursor: 'pointer',
-          marginBottom: '20px'
-        }}
       >
         Download as PDF
       </button>
 
       <div className="report-sections" ref={reportRef}>
-        {/* English Section */}
-        {renderSection(englishRef, [
-          HeaderEnglish,
-          LagnaWasanaEnglish,
-          SasiriEnglish,
-          KaprukaEnglish,
-          ShanidaEnglish,
-          SuperballEnglish,
-          AdakotipathiEnglish,
-          SupiridanaEnglish,
-          FooterEnglish,
-        ])}
+        <div className="column">
+          {/* English Section */}
+          {renderSection(englishRef, [
+            HeaderEnglish,
+            LagnaWasanaEnglish,
+            SasiriEnglish,
+            KaprukaEnglish,
+            ShanidaEnglish,
+            SuperballEnglish,
+            AdakotipathiEnglish,
+            SupiridanaEnglish,
+            FooterEnglish,
+          ])}
+        </div>
 
-        <br />
+        <div className="column">
+          {/* Sinhala Section */}
+          {renderSection(sinhalaRef, [
+            HeaderSinhala,
+            LagnaWasanaSinhala,
+            SasiriSinhala,
+            KaprukaSinhala,
+            ShanidaSinhala,
+            SuperballSinhala,
+            AdakotipathiSinhala,
+            SupiridanaSinhala,
+            FooterSinhala,
+          ])}
+        </div>
 
-        {/* Sinhala Section */}
-        {renderSection(sinhalaRef, [
-          HeaderSinhala,
-          LagnaWasanaSinhala,
-          SasiriSinhala,
-          KaprukaSinhala,
-          ShanidaSinhala,
-          SuperballSinhala,
-          AdakotipathiSinhala,
-          SupiridanaSinhala,
-          FooterSinhala,
-        ])}
-
-        <br />
-
-        {/* Tamil Section */}
-        {renderSection(tamilRef, [
-          HeaderTamil,
-          LagnaWasanaTamil,
-          SasiriTamil,
-          KaprukaTamil,
-          ShanidaTamil,
-          SuperballTamil,
-          AdakotipathiTamil,
-          SupiridanaTamil,
-          FooterTamil,
-        ])}
+        <div className="column">
+          {/* Tamil Section */}
+          {renderSection(tamilRef, [
+            HeaderTamil,
+            LagnaWasanaTamil,
+            SasiriTamil,
+            KaprukaTamil,
+            ShanidaTamil,
+            SuperballTamil,
+            AdakotipathiTamil,
+            SupiridanaTamil,
+            FooterTamil,
+          ])}
+        </div>
       </div>
     </div>
   );

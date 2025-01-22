@@ -14,6 +14,7 @@ const KaprukaSinhala = ({ name = "Kapruka" }) => {
     ball6: null,
     next_super: null,
     special1: null,
+    special2: null,
   });
 
   useEffect(() => {
@@ -30,19 +31,34 @@ const KaprukaSinhala = ({ name = "Kapruka" }) => {
   }, [name]);
 
   // Combine individual balls into an array
-  const balls = [lottery.ball1,lottery.ball2,lottery.ball3,lottery.ball4].filter(
+  const balls = [lottery.ball5, lottery.ball6, lottery.ball1,lottery.ball2,lottery.ball3,lottery.ball4].filter(
     (ball) => ball !== null
   );
 
   const translateColor = (color) => {
-    if (color === "Green") {
+    if (color === "Green" || color === "green") {
       return "කොළ";
     }
-    else if (color === "Red") {
+    else if (color === "Red" || color === "red") {
         return "රතු";
     }
-    else if (color === "Blue") {
+    else if (color === "Blue" || color === "blue") {
       return "නිල්";
+    }
+    else if (color === "Orange" || color === "orange") {
+      return "තැඹිලි";
+    }
+    else if (color === "Pink" || color === "pink") {
+      return "රෝස";
+    }
+    else if (color === "Purple" || color === "purple") {
+      return "දම්";
+    }
+    else if (color === "Light Blue" || color === "light blue" || color === "Light blue") {
+      return "ලා නිල්";
+    }
+    else if (color === "Light Pink" || color === "light pink" || color === "Light pink") {
+      return "ලා රෝස";
     }
     return color;
   };
@@ -59,16 +75,22 @@ const KaprukaSinhala = ({ name = "Kapruka" }) => {
             />
           </div>
           <div className="kapruka-ticket-draw-number-container">
-            <div className="kapruka-ticket-draw-number">
+            
               <div className="kapruka-ticket-draw-number-text">
-                දිනුම් වාරය ▶ {lottery.number || "Loading..."}
+                දිනුම් වාරය
               </div>
-            </div>
-            <div className="kapruka-ticket-color">
+              <div className="kapruka-ticket-draw-number-text1">
+                {lottery.number || "Loading..."}
+              </div>
+            
+            
               <div className="kapruka-ticket-colour-text">
-                වර්ණය ▶ {translateColor(lottery.color) || "Loading..."}
+                වර්ණය
               </div>
-            </div>
+              <div className="kapruka-ticket-colour-text1">
+                {translateColor(lottery.color) || "Loading..."}
+              </div>
+         
             <div className="kapruka-ticket-winning-numbers">
               <div className="kapruka-ticket-winning-numbers-title">
                 ------- ඉංග්‍රීසි අකුර, සුපිරි අංකය සහ ජයග්‍රාහී අංක -------
@@ -100,24 +122,23 @@ const KaprukaSinhala = ({ name = "Kapruka" }) => {
                     ))
                   : "Loading..."}
               </div>
-            
-            <div className="kapruka-ticket-special">
-              <div className="kapruka-ticket-bottom">
-                <div className="kapruka-ticket-next-jackpot">
+              <div className="kapruka-ticket-special">
+                <div className="kapruka-ticket-bottomsn">
                   මීළඟ සුපිරි ජයමල්ල රු. {lottery.next_super || "Loading..."}
                 </div>
+                {lottery.special1 && (
+                  <div className="kapruka-ticket-special-prize-container">
+                    <img
+                      src="/images/sc.png"
+                      alt="Special Prize"
+                      className="kapruka-ticket-special-prize-icon"
+                    />
+                    <div className="special-numbers">
+                      රු. 50,000/- සඳහා <br /> විශේෂ අංකය : {lottery.special1 || "Loading..."}
+                    </div>
+                  </div>
+                )}
               </div>
-              <div className="kapruka-ticket-special-prize-container">
-                <img
-                  src="/images/sc.png"
-                  alt="Special Prize"
-                  className="kapruka-ticket-special-prize-icon"
-                />
-                <div>
-                  රු. 50,000/- සඳහා <br /> විශේෂ අංකය : {lottery.special1 || "Loading..."}
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>

@@ -53,6 +53,7 @@
     font-weight: 1000;
     font-size: 0.15cm;
     text-align: center;
+    border-left: 0.03cm solid #000000;
   }
   
   /* Color Section */
@@ -77,6 +78,7 @@
     font-weight: 1000;
     font-size: 0.15cm;
     text-align: center;
+    border-left: 0.03cm solid #000000;
   }
   
   /* Winning Numbers Section */

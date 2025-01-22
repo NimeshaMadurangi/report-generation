@@ -9,7 +9,8 @@ const SasiriSinhala = ({ name = "Sasiri" }) => {
     ball1: null,
     ball2: null,
     ball3: null,
-    next_super: null,
+    total: null,
+    count: null,
   });
 
   useEffect(() => {
@@ -31,11 +32,29 @@ const SasiriSinhala = ({ name = "Sasiri" }) => {
   );
 
   const translateColor = (color) => {
-    if (color === "Green") {
+    if (color === "Green" || color === "green") {
       return "කොළ";
     }
-    else if (color === "Red") {
+    else if (color === "Red" || color === "red") {
         return "රතු";
+    }
+    else if (color === "Blue" || color === "blue") {
+      return "නිල්";
+    }
+    else if (color === "Orange" || color === "orange") {
+      return "තැඹිලි";
+    }
+    else if (color === "Pink" || color === "pink") {
+      return "රෝස";
+    }
+    else if (color === "Purple" || color === "purple") {
+      return "දම්";
+    }
+    else if (color === "Light Blue" || color === "light blue" || color === "Light blue") {
+      return "ලා නිල්";
+    }
+    else if (color === "Light Pink" || color === "light pink" || color === "Light pink") {
+      return "ලා රෝස";
     }
     return color;
   };
@@ -52,16 +71,22 @@ const SasiriSinhala = ({ name = "Sasiri" }) => {
             />
           </div>
           <div className="sasiri-ticket-draw-number-container">
-            <div className="sasiri-ticket-draw-number">
+            
               <div className="sasiri-ticket-draw-number-text">
-                දිනුම් වාරය ▶ {lottery.number || "Loading..."}
+                දිනුම් වාරය
               </div>
-            </div>
-            <div className="sasiri-ticket-color">
+              <div className="sasiri-ticket-draw-number-text1">
+                {lottery.number || "Loading..."}
+              </div>
+            
+            
               <div className="sasiri-ticket-colour-text">
-                වර්ණය ▶ {translateColor(lottery.color) || "Loading..."}
+                වර්ණය
               </div>
-            </div>
+              <div className="sasiri-ticket-colour-text1">
+                {translateColor(lottery.color) || "Loading..."}
+              </div>
+           
             <div className="sasiri-ticket-winning-numbers">
               <div className="sasiri-ticket-winning-numbers-title">
                 -------- ජයග්‍රාහී  අංක --------
@@ -79,18 +104,18 @@ const SasiriSinhala = ({ name = "Sasiri" }) => {
                       </div>
                     ))
                   : "Loading..."}
-                  <div className="sasiri-ticket-winner-container">
-                    <div className="sasiri-ticket-winner">
-                        Total no.of <br/> Rs. 200,000 winners : {lottery.total_value || "Loading..."}
-                    </div>
+                  <div className="sasiri-ticket-winner-container">  
+                      අද බිහි වූ දෙලක්ෂපතියන් ගණන : 
+                  </div>
+                  
+                  <div className="sasiri-ticket-winner-container1">
+                    {lottery.count || "Loading..."}  
                   </div>
               </div>
             </div>
             <div className="sasiri-ticket-special">
               <div className="sasiri-ticket-bottom">
-                <div className="sasiri-ticket-next-jackpot">
-                  මීළඟ සුපිරි ජයමල්ල රු. {lottery.next_super || "Loading..."}
-                </div>
+                  දිනා ඇති මුළු මුදල රු. {lottery.total || "Loading..."}  
               </div>
             </div>
           </div>

@@ -1,6 +1,6 @@
 .footeren-image-container {
-    width: 42rem;
-    height: 5rem;
+    width: 9.5cm;
+    max-height: 1.5cm;
     margin: 0 auto;
     display: flex;
     background-color: rgb(255, 255, 255);
@@ -8,40 +8,40 @@
   }
  
 .footeren-logo {
-    margin-top: 0.5rem;
-    margin-left: 0.5rem;
-    width: 6.5rem;
-    height: 3.5rem;
+    margin-top: 0.1cm;
+    margin-left: 0.1cm;
+    width: 1.5cm;
+    height: 1.3cm;
 }
   
 .footeren-header-text {
     color: #000;
-    font-size: 0.5rem;
+    font-size: 0.19cm;
     font-weight: 1000;
     font-family: 'Times New Roman', Times, serif;
-    margin-left: 1rem;
-    margin-top: 0.5rem;
+    margin-left: 0.1cm;
+    margin-top: 0.1cm;
 }
 
 .footeren-header-text1 {
   color: #000;
-  font-size: 0.5rem;
+  font-size: 0.13cm;
   font-weight: 500;
   font-family: 'Times New Roman', Times, serif;
 }
 
 .footeren-header-text2 {
   color: #000;
-  font-size: 0.46rem;
+  font-size: 0.13cm;
   font-weight: 1000;
   font-family: 'Times New Roman', Times, serif;
 }
 
 .footeren-date-container {
-    width: 21.8rem;
-    height: 5rem;
+    width: 4cm;
+    height: 1.5cm;
     display: flex;
-    margin-left: 2.6rem;
+    margin-left: auto;
     background-color: rgb(0, 0, 0);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     clip-path: polygon(10% 0, 100% 0, 100% 100%, 10% 100%, 0 100%);
@@ -50,8 +50,8 @@
   .footeren-date-text {
     color: #ffffff;
     font-family: 'Times New Roman', Times, serif;
-    font-size: 0.9rem;
+    font-size: 0.2cm;
     font-weight: 1000;
-    margin-left: 2.5rem;
+    margin-left: 0.45cm;
   }
 

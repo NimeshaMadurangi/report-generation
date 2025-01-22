@@ -37,19 +37,53 @@ const LagnaWasanaSinhala = ({ name = "Lagna Wasanawa" }) => {
 
   // Function to translate color to Sinhala
   const translateColor = (color) => {
-    if (color === "Green") {
+    if (color === "Green" || color === "green") {
       return "කොළ";
     }
-    else if (color === "Red") {
+    else if (color === "Red" || color === "red") {
         return "රතු";
     }
-    else if (color === "Blue") {
+    else if (color === "Blue" || color === "blue") {
       return "නිල්";
     }
-    else if (color === "Brown") {
+    else if (color === "Orange" || color === "orange") {
+      return "තැඹිලි";
+    }
+    else if (color === "Pink" || color === "pink") {
+      return "රෝස";
+    }
+    else if (color === "Purple" || color === "purple") {
+      return "දම්";
+    }
+    else if (color === "Brown" || color === "Brown") {
       return "දුඹුරු";
     }
+    else if (color === "Light Blue" || color === "light blue" || color === "Light blue") {
+      return "ලා නිල්";
+    }
+    else if (color === "Light Pink" || color === "light pink" || color === "Light pink") {
+      return "ලා රෝස";
+    }
     return color;
+  };
+
+  // Function to translate ball names to Sinhala
+  const translateBallName = (ball) => {
+    const translations = {
+      CAPRICORN: "මකර",
+      AQUARIUS: "කුම්භ",
+      PISCES: "මීන",
+      ARIES: "මේශ",
+      TAURUS: "වෘෂභ",
+      GEMINI: "මිථුන",
+      CANCER: "කර්ක",
+      LEO: "සින්හ",
+      VIRGO: "කන්‍යා",
+      LIBRA: "තුලා",
+      SCORPIO: "වෘශ්චික",
+      SAGITTARIUS: "ධනු",
+    };
+    return translations[ball] || ball;
   };
 
   const ballImageMap = {
@@ -79,54 +113,67 @@ const LagnaWasanaSinhala = ({ name = "Lagna Wasanawa" }) => {
             />
           </div>
           <div className="lagna-ticket-draw-number-container">
-            <div className="lagna-ticket-draw-number">
-              <div className="lagna-ticket-draw-number-text">
-                දිනුම් වාරය ▶ {lottery.number || "Loading..."}
-              </div>
+            <div className="lagna-ticket-draw-number-text">දිනුම් වාරය</div>
+            <div className="lagna-ticket-draw-number-text1">
+              {lottery.number || "Loading..."}
             </div>
-            <div className="lagna-ticket-color">
-              <div className="lagna-ticket-colour-text1">
-                වර්ණය ▶ {translateColor(lottery.color) || "Loading..."}
-              </div>
+            <div className="lagna-ticket-colour-text">වර්ණය</div>
+            <div className="lagna-ticket-colour-text1">
+              {translateColor(lottery.color) || "Loading..."}
             </div>
             <div className="lagna-ticket-winning-numbers">
               <div className="lagna-ticket-winning-numbers-title">
                 ජයග්‍රාහී අංක
               </div>
               <div className="lagna-ticket-winning-numbers-container">
-                  {balls.length > 0
-                    ? balls.map((ball, index) => (
-                        <div key={index} className="lagna-ticket-winning-number">
-                          {index === 4 && ballImageMap[ball] ? ( // Check if it's ball5 and a valid image exists
+                {balls.length > 0
+                  ? balls.map((ball, index) => (
+                      <div key={index} className="lagna-ticket-winning-number">
+                        {index === 4 && ballImageMap[ball] ? (
+                          <>
                             <img
                               src={ballImageMap[ball]}
                               alt={`Ball ${ball}`}
                               className="lagna-ticket-ball-image"
                             />
-                          ) : (
-                            <div className="lagna-ticket-winning-number-text">{ball}</div> // Render text for other balls
-                          )}
-                        </div>
-                      ))
-                    : "Loading..."}
+                            <div className="lagna-ticket-ball-name">
+                              {translateBallName(ball)}
+                            </div>
+                          </>
+                        ) : (
+                          <div className="lagna-ticket-winning-number-text">
+                            {translateBallName(ball)}
+                          </div>
+                        )}
+                      </div>
+                    ))
+                  : "Loading..."}
               </div>
             </div>
             <div className="lagna-ticket-special">
               <div className="lagna-ticket-bottom">
-                <div className="lagna-ticket-next-jackpot">
-                  මීළඟ සුපිරි ජයමල්ල රු. {lottery.next_super || "Loading..."}
-                </div>
+                මීළඟ සුපිරි ජයමල්ල රු. {lottery.next_super || "Loading..."}
               </div>
-              <div className="lagna-ticket-special-prize-container">
-                <img
-                  src="/images/scsinhala.png"
-                  alt="Special Prize"
-                  className="lagna-ticket-special-prize-icon"
-                />
-                <div>
-                  රු. 50,000/- සඳහා <br /> විශේෂ අංකය : {lottery.special1 || "Loading..."}
+              {/* Special Numbers Section */}
+              {(lottery.special1 || lottery.special2) && (
+                <div className="lagna-ticket-special-prize-container">
+                  <img
+                    src="/images/sc.png"
+                    alt="Special Prize"
+                    className="lagna-ticket-special-prize-icon"
+                  />
+                  <div className="special-numbers">
+                    {lottery.special1 && (
+                      <>
+                        රු. 50,000/- සඳහා විශේෂ අංකය :{" "}
+                        {lottery.special1 || "Loading..."}
+                        <br />
+                      </>
+                    )}
+                    {lottery.special2 && <>රු. 40,000/-: {lottery.special2}</>}
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
           </div>
         </div>

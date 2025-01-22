@@ -30,19 +30,38 @@ const KaprukaTamil = ({ name = "Kapruka" }) => {
   }, [name]);
 
   // Combine individual balls into an array
-  const balls = [lottery.ball1,lottery.ball2,lottery.ball3,lottery.ball4].filter(
+  const balls = [lottery.ball5, lottery.ball6, lottery.ball1,lottery.ball2,lottery.ball3,lottery.ball4].filter(
     (ball) => ball !== null
   );
 
   const translateColor = (color) => {
-    if (color === "Green") {
-      return "பச்சை";
+    if (color === "Green" || color === "green") {
+        return "பச்சை";
     }
-    else if (color === "Red") {
-        return "சிவப்பு";
+    else if (color === "Red" || color === "red") {
+        return "சிகப்பு";
+    }
+    else if (color === "Blue" || color === "blue") {
+        return "நீலம்";
+    }
+    else if (color === "Orange" || color === "orange") {
+        return "செம்மஞ்சள்";
+    }
+    else if (color === "Pink" || color === "pink") {
+        return "இளஞ்சிகப்பு";
+    }
+    else if (color === "Purple" || color === "purple") {
+        return "ஊதா";
+    }
+    else if (color === "Light Blue" || color === "light blue" || color === "Light blue") {
+        return "இளநீலம்";
+    }
+    else if (color === "Light Pink" || color === "light pink" || color === "Light pink") {
+        return "இளஞ்சிகப்பு";
     }
     return color;
-  };
+};
+
 
   return (
     <div className="kapruka-ticket-container">
@@ -56,16 +75,22 @@ const KaprukaTamil = ({ name = "Kapruka" }) => {
             />
           </div>
           <div className="kapruka-ticket-draw-number-container">
-            <div className="kapruka-ticket-draw-number">
+            
               <div className="kapruka-ticket-draw-number-text">
-                வெற்றி வாரம் ▶ {lottery.number || "Loading..."}
+                வெற்றி வாரம்
               </div>
-            </div>
-            <div className="kapruka-ticket-color">
+              <div className="kapruka-ticket-draw-number-text1">
+                {lottery.number || "Loading..."}
+              </div>
+            
+            
               <div className="kapruka-ticket-colour-text">
-                வர்ணம் ▶ {translateColor(lottery.color) || "Loading..."}
+                வர்ணம்
               </div>
-            </div>
+              <div className="kapruka-ticket-colour-text1">
+                {translateColor(lottery.color) || "Loading..."}
+              </div>
+           
             <div className="kapruka-ticket-winning-numbers">
               <div className="kapruka-ticket-winning-numbers-title">
                 ஆங்கில எமுத்து, சுப்பர் இலக்கம் ம்ற்றும் வெற்றி இலக்கம்
@@ -97,24 +122,23 @@ const KaprukaTamil = ({ name = "Kapruka" }) => {
                     ))
                   : "Loading..."}
               </div>
-            
-            <div className="kapruka-ticket-special">
-              <div className="kapruka-ticket-bottom">
-                <div className="kapruka-ticket-next-jackpot">
+              <div className="kapruka-ticket-special">
+                <div className="kapruka-ticket-bottomsn">
                   அடுத்த சுப்பர் ஐக்பொட் : ரூ. {lottery.next_super || "Loading..."}
                 </div>
+                {lottery.special1 && (
+                  <div className="kapruka-ticket-special-prize-container">
+                    <img
+                      src="/images/sc.png"
+                      alt="Special Prize"
+                      className="kapruka-ticket-special-prize-icon"
+                    />
+                    <div className="special-numbers">
+                      ரூ 50,000/- பணம் பரிசுகான <br/> வீசேட இலக்கங்கள் : {lottery.special1 || "Loading..."}
+                    </div>
+                  </div>
+                )}
               </div>
-              <div className="kapruka-ticket-special-prize-container">
-                <img
-                  src="/images/sc.png"
-                  alt="Special Prize"
-                  className="kapruka-ticket-special-prize-icon"
-                />
-                <div>
-                  ரூ 50,000/- பணம் பரிசுகான <br/> வீசேட இலக்கங்கள் : {lottery.special1 || "Loading..."}
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>

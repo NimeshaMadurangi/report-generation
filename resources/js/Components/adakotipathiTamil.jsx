@@ -33,14 +33,36 @@ const AdakotipathiTamil = ({ name = "Ada kotipathi" }) => {
   );
 
   const translateColor = (color) => {
-    if (color === "Green") {
-      return "பச்சை";
+    if (color === "Green" || color === "green") {
+        return "பச்சை";
     }
-    else if (color === "Red") {
-        return "சிவப்பு";
+    else if (color === "Red" || color === "red") {
+        return "சிகப்பு";
+    }
+    else if (color === "Blue" || color === "blue") {
+        return "நீலம்";
+    }
+    else if (color === "Orange" || color === "orange") {
+        return "செம்மஞ்சள்";
+    }
+    else if (color === "Pink" || color === "pink") {
+        return "இளஞ்சிகப்பு";
+    }
+    else if (color === "Purple" || color === "purple") {
+        return "ஊதா";
+    }
+    else if (color === "Brown" || color === "Brown") {
+      return "பழுப்பு";
+    }    
+    else if (color === "Light Blue" || color === "light blue" || color === "Light blue") {
+        return "இளநீலம்";
+    }
+    else if (color === "Light Pink" || color === "light pink" || color === "Light pink") {
+        return "இளஞ்சிகப்பு";
     }
     return color;
-  };
+};
+
 
   return (
     <div className="adakotipathi-ticket-container">
@@ -54,16 +76,22 @@ const AdakotipathiTamil = ({ name = "Ada kotipathi" }) => {
             />
           </div>
           <div className="adakotipathi-ticket-draw-number-container">
-            <div className="adakotipathi-ticket-draw-number">
+            
               <div className="adakotipathi-ticket-draw-number-text">
-                வெற்றி வாரம் ▶ {lottery.number || "Loading..."}
+                வெற்றி வாரம்
               </div>
-            </div>
-            <div className="adakotipathi-ticket-color">
+              <div className="adakotipathi-ticket-draw-number-text1">
+                {lottery.number || "Loading..."}
+              </div>
+           
+            
               <div className="adakotipathi-ticket-colour-text">
-                வர்ணம் ▶ {translateColor(lottery.color) || "Loading..."}
+                வர்ணம்
               </div>
-            </div>
+              <div className="adakotipathi-ticket-colour-text1">
+                {translateColor(lottery.color) || "Loading..."}
+              </div>
+            
             <div className="adakotipathi-ticket-winning-numbers">
               <div className="adakotipathi-ticket-winning-numbers-title">
                 ----- வெற்றி எண்கள் -----
@@ -84,12 +112,29 @@ const AdakotipathiTamil = ({ name = "Ada kotipathi" }) => {
               </div>
             </div>
             <div className="adakotipathi-ticket-special">
-              <div className="adakotipathi-ticket-bottom">
-                <div className="adakotipathi-ticket-next-jackpot">
-                  அடுத்த சுப்பர் ஐக்பொட் : ரூ. {lottery.next_super || "Loading..."}
+            <div className="adakotipathi-ticket-bottom">
+              அடுத்த சுப்பர் ஐக்பொட் : ரூ. {lottery.next_super || "Loading..."}
+            </div>
+            {/* Special Numbers Section */}
+            {(lottery.special1 || lottery.special2) && (
+              <div className="adakotipathi-ticket-special-prize-container">
+                <img
+                  src="/images/sc.png"
+                  alt="Special Prize"
+                  className="adakotipathi-ticket-special-prize-icon"
+                />
+                <div className="special-numbers">
+                  {lottery.special1 && (
+                    <>
+                      ரூ. 50,000/- பணம் பரிசுகான <br/> வீசேட இலக்கங்கள் : {lottery.special1 || "Loading..."}
+                      <br />
+                    </>
+                  )}
+                  {lottery.special2 && <>ரூ. 40/-: {lottery.special2}</>}
                 </div>
               </div>
-            </div>
+            )}
+          </div>
           </div>
         </div>
       </div>

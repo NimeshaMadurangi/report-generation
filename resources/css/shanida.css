@@ -54,6 +54,7 @@
     font-weight: 1000;
     font-size: 0.15cm;
     text-align: center;
+    border-left: 0.03cm solid #000000;
   }
   
   /* Color Section */
@@ -78,6 +79,7 @@
     font-weight: 1000;
     font-size: 0.15cm;
     text-align: center;
+    border-left: 0.03cm solid #000000;
   }
   
   /* Winning Numbers Section */
@@ -124,11 +126,11 @@
   .shanida-ticket-bottom {
     display: flex;
     align-items: flex-start;
-    margin-left: -1.2cm;
+    margin-left: -1cm;
     margin-right: 1cm;
     margin-bottom: 0.1cm;
-    width: 3cm;
-    height: auto;
+    width: auto;
+    height: 0.4cm;
     background-color: #2d3748;
     padding: 0.1cm 0.1cm;
     border-radius: 0.1cm;
@@ -147,7 +149,7 @@
     display: flex;
     background-color: #ffffff;
     border-radius: 0.1cm;
-    height: 0.5cm;
+    height: 0.4cm;
     width: auto;
     padding: 0.05cm 0.2cm 0.2cm;
    }

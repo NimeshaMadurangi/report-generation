@@ -33,11 +33,29 @@ const ShanidaSinhala = ({ name = "Shanida" }) => {
   );
 
   const translateColor = (color) => {
-    if (color === "Green") {
+    if (color === "Green" || color === "green") {
       return "කොළ";
     }
-    else if (color === "Red") {
+    else if (color === "Red" || color === "red") {
         return "රතු";
+    }
+    else if (color === "Blue" || color === "blue") {
+      return "නිල්";
+    }
+    else if (color === "Orange" || color === "orange") {
+      return "තැඹිලි";
+    }
+    else if (color === "Pink" || color === "pink") {
+      return "රෝස";
+    }
+    else if (color === "Purple" || color === "purple") {
+      return "දම්";
+    }
+    else if (color === "Light Blue" || color === "light blue" || color === "Light blue") {
+      return "ලා නිල්";
+    }
+    else if (color === "Light Pink" || color === "light pink" || color === "Light pink") {
+      return "ලා රෝස";
     }
     return color;
   };
@@ -54,16 +72,22 @@ const ShanidaSinhala = ({ name = "Shanida" }) => {
             />
           </div>
           <div className="shanida-ticket-draw-number-container">
-            <div className="shanida-ticket-draw-number">
+            
               <div className="shanida-ticket-draw-number-text">
-                දිනුම් වාරය ▶ {lottery.number || "Loading..."}
+                දිනුම් වාරය
               </div>
-            </div>
-            <div className="shanida-ticket-color">
+              <div className="shanida-ticket-draw-number-text1">
+                {lottery.number || "Loading..."}
+              </div>
+            
+            
               <div className="shanida-ticket-colour-text">
-                වර්ණය ▶ {translateColor(lottery.color) || "Loading..."}
+                වර්ණය
               </div>
-            </div>
+              <div className="shanida-ticket-colour-text1">
+                {translateColor(lottery.color) || "Loading..."}
+              </div>
+            
             <div className="shanida-ticket-winning-numbers">
               <div className="shanida-ticket-winning-numbers-title">
                 ------- ජයග්‍රාහී අංක -------
@@ -84,22 +108,29 @@ const ShanidaSinhala = ({ name = "Shanida" }) => {
               </div>
             </div>
             <div className="shanida-ticket-special">
-              <div className="shanida-ticket-bottom">
-                <div className="shanida-ticket-next-jackpot">
-                  මීළඟ සුපිරි ජයමල්ල රු. {lottery.next_super || "Loading..."}
-                </div>
-              </div>
+            <div className="shanida-ticket-bottom">
+              මීළඟ සුපිරි ජයමල්ල රු. {lottery.next_super || "Loading..."}
+            </div>
+            {/* Special Numbers Section */}
+            {(lottery.special1 || lottery.special2) && (
               <div className="shanida-ticket-special-prize-container">
                 <img
                   src="/images/sc.png"
                   alt="Special Prize"
                   className="shanida-ticket-special-prize-icon"
                 />
-                <div>
-                  රු. 50,000/- සඳහා <br /> විශේෂ අංකය
+                <div className="special-numbers">
+                  {lottery.special1 && (
+                    <>
+                        රු. 50,000/- සඳහා විශේෂ අංකය {lottery.special1}
+                      <br />
+                    </>
+                  )}
+                  {lottery.special2 && <>රු. 40,000/-: {lottery.special2}</>}
                 </div>
               </div>
-            </div>
+            )}
+          </div>
           </div>
         </div>
       </div>

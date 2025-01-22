@@ -25,8 +25,37 @@ const ShanidaTamil = ({ name = "Shanida" }) => {
     fetchLottery();
   }, [name]);
 
+  const translateColor = (color) => {
+    if (color === "Green" || color === "green") {
+        return "பச்சை";
+    }
+    else if (color === "Red" || color === "red") {
+        return "சிகப்பு";
+    }
+    else if (color === "Blue" || color === "blue") {
+        return "நீலம்";
+    }
+    else if (color === "Orange" || color === "orange") {
+        return "செம்மஞ்சள்";
+    }
+    else if (color === "Pink" || color === "pink") {
+        return "இளஞ்சிகப்பு";
+    }
+    else if (color === "Purple" || color === "purple") {
+        return "ஊதா";
+    }
+    else if (color === "Light Blue" || color === "light blue" || color === "Light blue") {
+        return "இளநீலம்";
+    }
+    else if (color === "Light Pink" || color === "light pink" || color === "Light pink") {
+        return "இளஞ்சிகப்பு";
+    }
+    return color;
+};
+
+
   // Combine individual balls into an array
-  const balls = [lottery.ball1, lottery.ball2, lottery.ball3].filter(
+  const balls = [lottery.ball1, lottery.ball2, lottery.ball3, lottery.ball4, lottery.ball5].filter(
     (ball) => ball !== null
   );
 
@@ -42,16 +71,22 @@ const ShanidaTamil = ({ name = "Shanida" }) => {
             />
           </div>
           <div className="shanida-ticket-draw-number-container">
-            <div className="shanida-ticket-draw-number">
+            
               <div className="shanida-ticket-draw-number-text">
-                Draw Number ▶ {lottery.number || "Loading..."}
+                Draw Number
               </div>
-            </div>
-            <div className="shanida-ticket-color">
+              <div className="shanida-ticket-draw-number-text1">
+                {lottery.number || "Loading..."}
+              </div>
+            
+           
               <div className="shanida-ticket-colour-text">
-                Colour ▶ {lottery.color || "Loading..."}
+                Colour
               </div>
-            </div>
+              <div className="shanida-ticket-colour-text1">
+                {lottery.color || "Loading..."}
+              </div>
+            
             <div className="shanida-ticket-winning-numbers">
               <div className="shanida-ticket-winning-numbers-title">
                 English Letter, Super Number & Winning Numbers
@@ -72,12 +107,29 @@ const ShanidaTamil = ({ name = "Shanida" }) => {
               </div>
             </div>
             <div className="shanida-ticket-special">
-              <div className="shanida-ticket-bottom">
-                <div className="shanida-ticket-next-jackpot">
-                  Next Super Jackpot : Rs. {lottery.next_super || "Loading..."}
+            <div className="shanida-ticket-bottom">
+              அடுத்த சுப்பர் ஐக்பொட் : ரூ. {lottery.next_super || "Loading..."}
+            </div>
+            {/* Special Numbers Section */}
+            {(lottery.special1 || lottery.special2) && (
+              <div className="shanida-ticket-special-prize-container">
+                <img
+                  src="/images/sc.png"
+                  alt="Special Prize"
+                  className="shanida-ticket-special-prize-icon"
+                />
+                <div className="special-numbers">
+                  ரூ 50,000/-: {lottery.special1 && (
+                    <>
+                         {lottery.special1}
+                      <br />
+                    </>
+                  )}
+                  {lottery.special2 && <>ரூ 40/-: {lottery.special2}</>}
                 </div>
               </div>
-            </div>
+            )}
+          </div>
           </div>
         </div>
       </div>

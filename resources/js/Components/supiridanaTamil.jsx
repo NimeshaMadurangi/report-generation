@@ -30,6 +30,35 @@ const SupiridanaTamil = ({ name = "Supiri Dhana Sampatha" }) => {
   }, [name]);
 
  
+  const translateColor = (color) => {
+    if (color === "Green" || color === "green") {
+        return "பச்சை";
+    }
+    else if (color === "Red" || color === "red") {
+        return "சிகப்பு";
+    }
+    else if (color === "Blue" || color === "blue") {
+        return "நீலம்";
+    }
+    else if (color === "Orange" || color === "orange") {
+        return "செம்மஞ்சள்";
+    }
+    else if (color === "Pink" || color === "pink") {
+        return "இளஞ்சிகப்பு";
+    }
+    else if (color === "Purple" || color === "purple") {
+        return "ஊதா";
+    }
+    else if (color === "Light Blue" || color === "light blue" || color === "Light blue") {
+        return "இளநீலம்";
+    }
+    else if (color === "Light Pink" || color === "light pink" || color === "Light pink") {
+        return "இளஞ்சிகப்பு";
+    }
+    return color;
+};
+
+
   const balls = [lottery.ball1, lottery.ball2, lottery.ball3, lottery.ball4, lottery.ball5, lottery.ball6, lottery.ball7].filter(
     (ball) => ball !== null
   );
@@ -46,16 +75,22 @@ const SupiridanaTamil = ({ name = "Supiri Dhana Sampatha" }) => {
             />
           </div>
           <div className="supiridana-ticket-draw-number-container">
-            <div className="supiridana-ticket-draw-number">
+            
               <div className="supiridana-ticket-draw-number-text">
-                Draw Number ▶ {lottery.number || "Loading..."}
+                Draw Number
               </div>
-            </div>
-            <div className="supiridana-ticket-color">
+              <div className="supiridana-ticket-draw-number-text1">
+                {lottery.number || "Loading..."}
+              </div>
+           
+            
               <div className="supiridana-ticket-colour-text">
-                Colour ▶ {lottery.color || "Loading..."}
+                Colour
               </div>
-            </div>
+              <div className="supiridana-ticket-colour-text1">
+                {lottery.color || "Loading..."}
+              </div>
+         
             <div className="supiridana-ticket-winning-numbers">
               <div className="supiridana-ticket-winning-numbers-title">
                 English Letter, Super Number & Winning Numbers

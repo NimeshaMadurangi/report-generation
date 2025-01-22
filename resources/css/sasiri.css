@@ -59,6 +59,7 @@
   font-weight: 1000;
   font-size: 0.15cm;
   text-align: center;
+  border-left: 0.03cm solid #000000;
 }
 
 /* Color Section */
@@ -84,6 +85,7 @@
   font-weight: 1000;
   font-size: 0.15cm;
   text-align: center;
+  border-left: 0.03cm solid #000000;
 }
 
 
@@ -123,8 +125,39 @@
   text-align: center;
 }
 
-
 .sasiri-ticket-winner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 0.8cm;
+  margin-top: -0.2cm;
+  width: 2cm;
+  background-color: #ffffff;
+  padding: 0.1cm 0.1cm;
+  
+  color: rgb(0, 0, 0);
+  font-size: 0.18cm;
+  font-weight: 1000;
+}
+
+.sasiri-ticket-winner-container1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: -0.3cm;
+  margin-top: -0.2cm;
+  width: 0.6cm;
+  background-color: #ffffff;
+  padding: 0.1cm 0.1cm;
+  
+  color: rgb(0, 0, 0);
+  font-size: 0.3cm;
+  font-weight: 1000;
+
+  border-left: 0.03cm solid #000000; /* Adjust color (#0000ff is blue) */
+}
+
+.sasiri-ticket-winner-containertm {
   display: flex;
   align-items: center;
   margin-left: 0.8cm;
@@ -132,26 +165,55 @@
   width: 2cm;
   background-color: #ffffff;
   padding: 0.1cm 0.1cm;
-  border-radius: 0.1cm;
+  
+  color: rgb(0, 0, 0);
+  font-size: 0.1cm;
+  font-weight: 1000;
 }
 
-/* Next Jackpot */
-.sasiri-ticket-winner {
+.sasiri-ticket-winner-containertm1 {
   display: flex;
+  align-items: center;
+  margin-left: -0.3cm;
+  margin-top: -0.2cm;
+  width: 0.6cm;
+  background-color: #ffffff;
+  padding: 0.1cm 0.1cm;
+  
   color: rgb(0, 0, 0);
-  font-size: 0.14cm;
+  font-size: 0.3cm;
   font-weight: 1000;
+
+  border-left: 0.03cm solid #000000; /* Adjust color (#0000ff is blue) */
 }
 
 
 /* Bottom Section */
+
 .sasiri-ticket-bottom {
   display: flex;
   align-items: flex-start;
   margin-left: -1cm;
   margin-right: 1cm;
-  margin-bottom: 0.05cm;
+  margin-top: -0.1cm;
   width: 2.8cm;
+  height: 0.4cm;
+  background-color: #2d3748;
+  padding: 0.1cm 0.1cm;
+  border-radius: 0.1cm;
+  display: flex;
+  color: white;
+  font-size: 0.14cm;
+}
+
+.sasiri-ticket-bottomtm {
+  display: flex;
+  align-items: flex-start;
+  margin-left: -1cm;
+  margin-right: 1cm;
+  margin-bottom: 0.05cm;
+  margin-top: -0.02cm;
+  width: auto;
   height: 0.4cm;
   background-color: #2d3748;
   padding: 0.1cm 0.1cm;

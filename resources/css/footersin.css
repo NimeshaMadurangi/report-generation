@@ -1,57 +1,57 @@
 .footersin-image-container {
-    width: 40rem;
-    height: 5rem;
-    margin: 0 auto;
-    display: flex;
-    background-color: rgb(255, 255, 255);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 9.5cm;
+  max-height: 1.5cm;
+  margin: 0 auto;
+  display: flex;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
  
 .footersin-logo {
-    margin-top: 0.5rem;
-    margin-left: 0.5rem;
-    width: 6rem;
-    height: 3.5rem;
+  margin-top: 0.1cm;
+  margin-left: 0.1cm;
+  width: 1.5cm;
+  height: 1.3cm;
 }
   
 .footersin-header-text {
-    color: #000;
-    font-size: 0.5rem;
-    font-weight: 1000;
-    font-family: 'Times New Roman', Times, serif;
-    margin-left: 1rem;
-    margin-top: 0.5rem;
+  color: #000;
+  font-size: 0.19cm;
+  font-weight: 1000;
+  font-family: 'Times New Roman', Times, serif;
+  margin-left: 0.1cm;
+  margin-top: 0.1cm;
 }
 
 .footersin-header-text1 {
   color: #000;
-  font-size: 0.5rem;
+  font-size: 0.13cm;
   font-weight: 500;
   font-family: 'Times New Roman', Times, serif;
 }
 
 .footersin-header-text2 {
   color: #000;
-  font-size: 0.5rem;
+  font-size: 0.13cm;
   font-weight: 1000;
   font-family: 'Times New Roman', Times, serif;
 }
 
 .footersin-date-container {
-    width: 20.4rem;
-    height: 5rem;
-    display: flex;
-    margin-left: 0.5rem;
-    background-color: rgb(0, 0, 0);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    clip-path: polygon(10% 0, 100% 0, 100% 100%, 10% 100%, 0 100%);
+  width: 4cm;
+  height: 1.5cm;
+  display: flex;
+  margin-left: auto;
+  background-color: rgb(0, 0, 0);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  clip-path: polygon(10% 0, 100% 0, 100% 100%, 10% 100%, 0 100%);
   }
 
   .footersin-date-text {
     color: #ffffff;
     font-family: 'Times New Roman', Times, serif;
-    font-size: 0.95rem;
+    font-size: 0.2cm;
     font-weight: 1000;
-    margin-left: 2.5rem;
+    margin-left: 0.45cm;
   }
 

@@ -33,14 +33,33 @@ const SuperballTamil = ({ name = "Superball" }) => {
   );
 
   const translateColor = (color) => {
-    if (color === "Green") {
-      return "பச்சை";
+    if (color === "Green" || color === "green") {
+        return "பச்சை";
     }
-    else if (color === "Red") {
-        return "சிவப்பு";
+    else if (color === "Red" || color === "red") {
+        return "சிகப்பு";
+    }
+    else if (color === "Blue" || color === "blue") {
+        return "நீலம்";
+    }
+    else if (color === "Orange" || color === "orange") {
+        return "செம்மஞ்சள்";
+    }
+    else if (color === "Pink" || color === "pink") {
+        return "இளஞ்சிகப்பு";
+    }
+    else if (color === "Purple" || color === "purple") {
+        return "ஊதா";
+    }
+    else if (color === "Light Blue" || color === "light blue" || color === "Light blue") {
+        return "இளநீலம்";
+    }
+    else if (color === "Light Pink" || color === "light pink" || color === "Light pink") {
+        return "இளஞ்சிகப்பு";
     }
     return color;
-  };
+};
+
 
   return (
     <div className="superball-ticket-container">
@@ -54,16 +73,22 @@ const SuperballTamil = ({ name = "Superball" }) => {
             />
           </div>
           <div className="superball-ticket-draw-number-container">
-            <div className="superball-ticket-draw-number">
+            
               <div className="superball-ticket-draw-number-text">
-                வெற்றி வாரம் ▶ {lottery.number || "Loading..."}
+                வெற்றி வாரம்
               </div>
-            </div>
-            <div className="superball-ticket-color">
+              <div className="superball-ticket-draw-number-text1">
+                {lottery.number || "Loading..."}
+              </div>
+           
+          
               <div className="superball-ticket-colour-text">
-                வர்ணம் ▶ {translateColor(lottery.color) || "Loading..."}
+                வர்ணம்
               </div>
-            </div>
+              <div className="superball-ticket-colour-text1">
+                {translateColor(lottery.color) || "Loading..."}
+              </div>
+          
             <div className="superball-ticket-winning-numbers">
               <div className="superball-ticket-winning-numbers-title">
                 ---- வெற்றி எண்கள் ----
