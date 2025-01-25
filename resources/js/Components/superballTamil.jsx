@@ -51,6 +51,9 @@ const SuperballTamil = ({ name = "Superball" }) => {
     else if (color === "Purple" || color === "purple") {
         return "ஊதா";
     }
+    else if (color === "Yellow" || color === "yellow") {
+      return "மஞ்சள்";
+    }
     else if (color === "Light Blue" || color === "light blue" || color === "Light blue") {
         return "இளநீலம்";
     }

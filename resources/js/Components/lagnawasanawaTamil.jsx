@@ -59,6 +59,9 @@ const LagnaWasanaTamil = ({ name = "Lagna Wasanawa" }) => {
     else if (color === "Purple" || color === "purple") {
         return "ஊதா";
     }
+    else if (color === "Yellow" || color === "yellow") {
+      return "மஞ்சள்";
+    }
     else if (color === "Brown" || color === "Brown") {
       return "பழுப்பு";
     }    
@@ -130,7 +133,7 @@ const LagnaWasanaTamil = ({ name = "Lagna Wasanawa" }) => {
 
             <div className="lagna-ticket-winning-numbers">
               <div className="lagna-ticket-winning-numbers-title">
-                வெற்றி எண்கள்
+                --- வெற்றி எண்கள் ---
               </div>
               <div className="lagna-ticket-winning-numbers-container">
                 {balls.length > 0

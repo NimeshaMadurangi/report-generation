@@ -55,6 +55,9 @@ const LagnaWasanaSinhala = ({ name = "Lagna Wasanawa" }) => {
     else if (color === "Purple" || color === "purple") {
       return "දම්";
     }
+    else if (color === "Yellow" || color === "yellow") {
+      return "කහ";
+    }
     else if (color === "Brown" || color === "Brown") {
       return "දුඹුරු";
     }
@@ -123,7 +126,7 @@ const LagnaWasanaSinhala = ({ name = "Lagna Wasanawa" }) => {
             </div>
             <div className="lagna-ticket-winning-numbers">
               <div className="lagna-ticket-winning-numbers-title">
-                ජයග්‍රාහී අංක
+                ---- ජයග්‍රාහී අංක ----
               </div>
               <div className="lagna-ticket-winning-numbers-container">
                 {balls.length > 0

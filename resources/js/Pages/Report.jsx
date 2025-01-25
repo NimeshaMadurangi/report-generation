@@ -1,140 +1,165 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import "../../css/report.css";
 import { jsPDF } from "jspdf";
 import html2canvas from "html2canvas";
 
-// Component Imports
-import LagnaWasanaEnglish from "../Components/LagnaWasanaEnglish";
-import LagnaWasanaTamil from "../Components/lagnawasanawaTamil";
-import LagnaWasanaSinhala from "../Components/lagnawasanawaSinhala";
-import SasiriEnglish from "../Components/sasiriEnglish";
-import SasiriSinhala from "../Components/sasiriSinhala";
-import SasiriTamil from "../Components/sasiriTamil";
-import KaprukaEnglish from "../Components/kaprukaEnglish";
-import KaprukaSinhala from "../Components/kaprukaSinhala";
-import KaprukaTamil from "../Components/kaprukaTamil";
-import ShanidaEnglish from "../Components/shanidaEnglish";
-import ShanidaSinhala from "../Components/shanidaSinhala";
-import ShanidaTamil from "../Components/shanidaTamil";
-import SuperballEnglish from "../Components/superballEnglish";
-import SuperballSinhala from "../Components/superballSinhala";
-import SuperballTamil from "../Components/superballTamil";
-import AdakotipathiEnglish from "../Components/adakotipathiEnglish";
-import AdakotipathiSinhala from "../Components/adakotipathiSinhala";
-import AdakotipathiTamil from "../Components/adakotipathiTamil";
-import SupiridanaEnglish from "../Components/supiridanaEnglish";
-import SupiridanaSinhala from "../Components/supiridanaSinhala";
-import SupiridanaTamil from "../Components/supiridanaTamil";
 import HeaderEnglish from "../Components/headerEnglish";
-import HeaderSinhala from "@/Components/headerSinhala";
-import HeaderTamil from "@/Components/headerTamil";
-import FooterSinhala from "@/Components/footerSinhala";
-import FooterEnglish from "@/Components/footerEnglish";
-import FooterTamil from "@/Components/footerTamil";
+import LagnaWasanaEnglish from "../Components/lagnawasanaEnglish";
+import SasiriEnglish from "../Components/sasiriEnglish";
+import KaprukaEnglish from "../Components/kaprukaEnglish";
+import ShanidaEnglish from "../Components/kaprukaEnglish";
+import SuperballEnglish from "../Components/superballEnglish";
+import AdakotipathiEnglish from "../Components/adakotipathiEnglish";
+import SupiridanaEnglish from "../Components/supiridanaEnglish";
+import JayodaEnglish from "../Components/jayodaEnglish";
+import FooterEnglish from "../Components/footerEnglish";
+
+import HeaderSinhala from "../Components/headerSinhala";
+import LagnaWasanaSinhala from "../Components/lagnawasanawaSinhala";
+import SasiriSinhala from "../Components/sasiriSinhala";
+import KaprukaSinhala from "../Components/kaprukaSinhala";
+import ShanidaSinhala from "../Components/shanidaSinhala";
+import SuperballSinhala from "../Components/superballSinhala";
+import AdakotipathiSinhala from "../Components/adakotipathiSinhala";
+import SupiridanaSinhala from "../Components/supiridanaSinhala";
+import JayodaSinhala from "../Components/jayodaSinhala";
+import FooterSinhala from "../Components/footerSinhala";
+
+import HeaderTamil from "../Components/headerTamil";
+import LagnaWasanaTamil from "../Components/lagnawasanawaTamil";
+import SasiriTamil from "../Components/sasiriTamil";
+import KaprukaTamil from "../Components/kaprukaTamil";
+import ShanidaTamil from "../Components/shanidaTamil";
+import SuperballTamil from "../Components/superballTamil";
+import AdakotipathiTamil from "../Components/adakotipathiTamil";
+import SupiridanaTamil from "../Components/supiridanaTamil";
+import JayodaTamil from "../Components/jayodaTamil";
+import FooterTamil from "../Components/footerTamil";
 
 const Report = () => {
-  const reportRef = useRef(null);
-  const englishRef = useRef(null);
-  const sinhalaRef = useRef(null);
-  const tamilRef = useRef(null);
+  const englishReportRef = useRef(null);
+  const sinhalaReportRef = useRef(null);
+  const tamilReportRef = useRef(null);
 
-  const downloadPDF = async () => {
-    const pdf = new jsPDF('p', 'mm', 'a4');
-    const elements = [reportRef.current];
-    let verticalOffset = 0;
+  const today = new Date().getDay();
+  const isMondayOrWednesday = today === 1 || today === 3;
+  const isSasiriDay = [0, 2, 4, 5, 6].includes(today);
 
-    for (const element of elements) {
-      const canvas = await html2canvas(element, {
-        scale: 2,
-        useCORS: true,
-        logging: false,
-        allowTaint: true
-      });
+  const downloadPDFSeparately = async () => {
+    // English PDF
+    const englishReportElement = englishReportRef.current;
+    const englishCanvas = await html2canvas(englishReportElement, {
+      scale: 2,
+      useCORS: true,
+      backgroundColor: "#fff",
+    });
 
-      const imgData = canvas.toDataURL('image/png');
-      const imgWidth = 210; // A4 width in mm
-      const pageHeight = 295; // A4 height in mm
-      const imgHeight = (canvas.height * imgWidth) / canvas.width;
-      let heightLeft = imgHeight;
-      let position = 0;
+    const englishPdf = new jsPDF("landscape", "mm", "a4");
+    const englishImgData = englishCanvas.toDataURL("image/png");
+    const imgWidth = 297;
+    const imgHeight = (englishCanvas.height * imgWidth) / englishCanvas.width;
+    englishPdf.addImage(englishImgData, "PNG", 0, 0, imgWidth, imgHeight);
+    englishPdf.save("lottery-report-english.pdf");
 
-      pdf.addImage(imgData, 'PNG', 0, position + verticalOffset, imgWidth, imgHeight);
-      heightLeft -= pageHeight;
+    // Sinhala PDF
+    const sinhalaReportElement = sinhalaReportRef.current;
+    const sinhalaCanvas = await html2canvas(sinhalaReportElement, {
+      scale: 2,
+      useCORS: true,
+      backgroundColor: "#fff",
+    });
 
-      while (heightLeft >= 0) {
-        position = heightLeft - imgHeight;
-        pdf.addPage();
-        pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
-        heightLeft -= pageHeight;
-      }
+    const sinhalaPdf = new jsPDF("landscape", "mm", "a4");
+    const sinhalaImgData = sinhalaCanvas.toDataURL("image/png");
+    const sinhalaImgHeight = (sinhalaCanvas.height * imgWidth) / sinhalaCanvas.width;
+    sinhalaPdf.addImage(sinhalaImgData, "PNG", 0, 0, imgWidth, sinhalaImgHeight);
+    sinhalaPdf.save("lottery-report-sinhala.pdf");
 
-      verticalOffset += 10; // Add space between sections
-    }
+    // Tamil PDF
+    const tamilReportElement = tamilReportRef.current;
+    const tamilCanvas = await html2canvas(tamilReportElement, {
+      scale: 2,
+      useCORS: true,
+      backgroundColor: "#fff",
+    });
 
-    pdf.save('lottery-report.pdf');
+    const tamilPdf = new jsPDF("landscape", "mm", "a4");
+    const tamilImgData = tamilCanvas.toDataURL("image/png");
+    const tamilImgHeight = (tamilCanvas.height * imgWidth) / tamilCanvas.width;
+    tamilPdf.addImage(tamilImgData, "PNG", 0, 0, imgWidth, tamilImgHeight);
+    tamilPdf.save("lottery-report-tamil.pdf");
   };
 
-  const renderSection = (ref, components) => (
-    <div ref={ref} className="section-container">
-      {components.map((Component, index) => (
-        <div key={index} className="component-wrapper">
-          <Component />
-        </div>
-      ))}
-    </div>
-  );
+  const renderSection = (components) => {
+    const validComponents = components.filter(Boolean);
+    return validComponents.length > 0 ? (
+      <div className="section-container">
+        {validComponents.map((Component, index) => (
+          <div key={index} className="component-wrapper">
+            <Component />
+          </div>
+        ))}
+      </div>
+    ) : null;
+  };
 
   return (
     <div className="report-wrapper">
-      <button 
-        onClick={downloadPDF} 
-        className="download-button"
-      >
-        Download as PDF
-      </button>
+      <div className="download-container">
+        <button onClick={downloadPDFSeparately} className="download-button">
+          Download PDFs
+        </button>
+      </div>
 
-      <div className="report-sections" ref={reportRef}>
+      {/* English Report */}
+      <div className="report-sections language-report" ref={englishReportRef}>
         <div className="column">
-          {/* English Section */}
-          {renderSection(englishRef, [
+          {renderSection([
             HeaderEnglish,
             LagnaWasanaEnglish,
-            SasiriEnglish,
+            isSasiriDay ? SasiriEnglish : null,
             KaprukaEnglish,
             ShanidaEnglish,
             SuperballEnglish,
             AdakotipathiEnglish,
             SupiridanaEnglish,
+            isMondayOrWednesday ? JayodaEnglish : null,
             FooterEnglish,
           ])}
         </div>
+      </div>
 
+      {/* Sinhala Report */}
+      <div className="report-sections language-report" ref={sinhalaReportRef}>
         <div className="column">
-          {/* Sinhala Section */}
-          {renderSection(sinhalaRef, [
+          {renderSection([
             HeaderSinhala,
             LagnaWasanaSinhala,
-            SasiriSinhala,
+            isSasiriDay ? SasiriSinhala : null,
             KaprukaSinhala,
             ShanidaSinhala,
             SuperballSinhala,
             AdakotipathiSinhala,
             SupiridanaSinhala,
+            isMondayOrWednesday ? JayodaSinhala : null,
             FooterSinhala,
           ])}
         </div>
+      </div>
 
+      {/* Tamil Report */}
+      <div className="report-sections language-report" ref={tamilReportRef}>
         <div className="column">
-          {/* Tamil Section */}
-          {renderSection(tamilRef, [
+          {renderSection([
             HeaderTamil,
             LagnaWasanaTamil,
-            SasiriTamil,
+            isSasiriDay ? SasiriTamil : null,
             KaprukaTamil,
             ShanidaTamil,
             SuperballTamil,
             AdakotipathiTamil,
             SupiridanaTamil,
+            isMondayOrWednesday ? JayodaTamil : null,
             FooterTamil,
           ])}
         </div>

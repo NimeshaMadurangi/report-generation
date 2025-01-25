@@ -3,6 +3,7 @@ import axios from "axios";
 import "../../css/lagna.css";
 
 const LagnaWasanaEnglish = ({ name = "Lagna Wasanawa" }) => {
+
   const [lottery, setLottery] = useState({
     number: null,
     color: null,
@@ -16,7 +17,7 @@ const LagnaWasanaEnglish = ({ name = "Lagna Wasanawa" }) => {
     special2: null,
   });
 
-  // Fetch lottery data on component mount
+  
   useEffect(() => {
     const fetchLottery = async () => {
       try {
@@ -30,7 +31,7 @@ const LagnaWasanaEnglish = ({ name = "Lagna Wasanawa" }) => {
     fetchLottery();
   }, [name]);
 
-  // Combine individual balls into an array
+
   const balls = [lottery.ball1, lottery.ball2, lottery.ball3, lottery.ball4, lottery.ball5].filter(
     (ball) => ball !== null
   );
@@ -80,7 +81,7 @@ const LagnaWasanaEnglish = ({ name = "Lagna Wasanawa" }) => {
            
             <div className="lagna-ticket-winning-numbers">
               <div className="lagna-ticket-winning-numbers-title">
-                Winning Numbers
+                ---- Winning Numbers ----
               </div>
               <div className="lagna-ticket-winning-numbers-container">
               {balls.length > 0

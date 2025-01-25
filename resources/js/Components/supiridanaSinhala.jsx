@@ -48,6 +48,9 @@ const SupiridanaSinhala = ({ name = "Supiri Dhana Sampatha" }) => {
     else if (color === "Purple" || color === "purple") {
       return "දම්";
     }
+    else if (color === "Yellow" || color === "yellow") {
+      return "කහ";
+    }
     else if (color === "Light Blue" || color === "light blue" || color === "Light blue") {
       return "ලා නිල්";
     }

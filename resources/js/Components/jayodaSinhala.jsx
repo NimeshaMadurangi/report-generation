@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "../../css/adakotipathi.css";
+import "../../css/jayoda.css";
 
-const AdakotipathiSinhala = ({ name = "Ada kotipathi" }) => {
+const JayodaSinhala = ({ name = "Jayoda" }) => {
   const [lottery, setLottery] = useState({
     number: null,
     color: null,
@@ -54,9 +54,6 @@ const AdakotipathiSinhala = ({ name = "Ada kotipathi" }) => {
     else if (color === "Yellow" || color === "yellow") {
       return "කහ";
     }
-    else if (color === "Brown" || color === "Brown") {
-      return "දුඹුරු";
-    }
     else if (color === "Light Blue" || color === "light blue" || color === "Light blue") {
       return "ලා නිල්";
     }
@@ -66,46 +63,47 @@ const AdakotipathiSinhala = ({ name = "Ada kotipathi" }) => {
     return color;
   };
 
+
   return (
-    <div className="adakotipathi-ticket-container">
-      <div className="adakotipathi-ticket-card">
-        <div className="adakotipathi-ticket-header">
-          <div className="adakotipathi-ticket-logo-container">
+    <div className="jayoda-ticket-container">
+      <div className="jayoda-ticket-card">
+        <div className="jayoda-ticket-header">
+          <div className="jayoda-ticket-logo-container">
             <img
-              src="/images/adakotipathi.png"
+              src="/images/jayoda.png"
               alt={name}
-              className="adakotipathi-ticket-logo"
+              className="jayoda-ticket-logo"
             />
           </div>
-          <div className="adakotipathi-ticket-draw-number-container">
+          <div className="jayoda-ticket-draw-number-container">
             
-              <div className="adakotipathi-ticket-draw-number-text">
+              <div className="jayoda-ticket-draw-number-text">
                 දිනුම් වාරය
               </div>
-              <div className="adakotipathi-ticket-draw-number-text1">
+              <div className="jayoda-ticket-draw-number-text1">
                 {lottery.number || "Loading..."}
               </div>
-            
            
-              <div className="adakotipathi-ticket-colour-text">
+            
+              <div className="jayoda-ticket-colour-text">
                 වර්ණය
               </div>
-              <div className="adakotipathi-ticket-colour-text1">
+              <div className="jayoda-ticket-colour-text1">
                 {translateColor(lottery.color) || "Loading..."}
               </div>
-         
-            <div className="adakotipathi-ticket-winning-numbers">
-              <div className="adakotipathi-ticket-winning-numbers-title">
-                ----- ජයග්‍රාහී අංක -----
+            
+            <div className="jayoda-ticket-winning-numbers">
+              <div className="jayoda-ticket-winning-numbers-title">
+                ------- ජයග්‍රාහී අංක -------
               </div>
-              <div className="adakotipathi-ticket-winning-numbers-container">
+              <div className="jayoda-ticket-winning-numbers-container">
                 {balls.length > 0
                   ? balls.map((ball, index) => (
                       <div
                         key={index}
-                        className="adakotipathi-ticket-winning-number"
+                        className="jayoda-ticket-winning-number"
                       >
-                        <div className="adakotipathi-ticket-winning-number-text">
+                        <div className="jayoda-ticket-winning-number-text">
                           {ball}
                         </div>
                       </div>
@@ -113,27 +111,29 @@ const AdakotipathiSinhala = ({ name = "Ada kotipathi" }) => {
                   : "Loading..."}
               </div>
             </div>
-            <div className="adakotipathi-ticket-special">
-            <div className="adakotipathi-ticket-bottom">
-              මීළඟ සුපිරි ජයමල්ල රු. {lottery.next_super || "Loading..."}
+            <div className="jayoda-ticket-special">
+            <div className="jayoda-ticket-bottom">
+                මීළඟ සුපිරි ජයමල්ල රු. {lottery.next_super || "Loading..."}
             </div>
             {/* Special Numbers Section */}
             {(lottery.special1 || lottery.special2) && (
-              <div className="adakotipathi-ticket-special-prize-container">
+              <div className="jayoda-ticket-special-prize-container">
                 <img
                   src="/images/sc.png"
                   alt="Special Prize"
-                  className="adakotipathi-ticket-special-prize-icon"
+                  className="jayoda-ticket-special-prize-icon"
                 />
                 <div className="special-numbers">
-                  {lottery.special1 && (
-                    <>
-                      රු. 50,000/- සඳහා <br /> විශේෂ අංකය : {lottery.special1 || "Loading..."}
-                      <br />
-                    </>
-                  )}
-                  {lottery.special2 && <>රු. 40,000/-: {lottery.special2}</>}
-                </div>
+                    {lottery.special1 && (
+                      <>
+                        විශේෂ අංකය <br />
+                        රු. 50,000/- සඳහා :{" "}
+                        {lottery.special1 || "Loading..."}
+                        <br />
+                      </>
+                    )}
+                    {lottery.special2 && <>රු. 40/-: {lottery.special2}</>}
+                  </div>
               </div>
             )}
           </div>
@@ -144,4 +144,4 @@ const AdakotipathiSinhala = ({ name = "Ada kotipathi" }) => {
   );
 };
 
-export default AdakotipathiSinhala;
+export default JayodaSinhala;

@@ -1,4 +1,4 @@
-.shanida-ticket-container {
+.jayoda-ticket-container {
     width: 9.5cm;
     height: auto;
     max-height: 2cm;
@@ -9,33 +9,31 @@
   }
     
     /* Header Section */
-  .shanida-ticket-header {
+  .jayoda-ticket-header {
     display: flex;
   }
     
     /* Logo Section */
-  .shanida-ticket-logo-container {
+  .jayoda-ticket-logo-container {
       display: flex;
       align-items: flex-start;
     }
     
-  .shanida-ticket-logo {
+  .jayoda-ticket-logo {
     height: 2cm;
-    width: 2cm;
+    width: 9.5cm;
   }
   
   /* Draw Number Section */
-  .shanida-ticket-draw-number-container {
+  .jayoda-ticket-draw-number-container {
     flex: 1;
     align-items: flex-start;
     margin-top: 0.1cm;
-    margin-left: 1cm;
+    margin-left: -6cm;
     margin-right: 0.1cm;
   }
     
-  
-    
-  .shanida-ticket-draw-number-text {
+  .jayoda-ticket-draw-number-text {
     background-color: #b4b4b4;
     /* clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%, 0 100%); */
     padding: 0.1cm 0.1cm;
@@ -45,8 +43,8 @@
     font-size: 0.15cm;
     text-align: center;
   }
-
-  .shanida-ticket-draw-number-text1 {
+  
+  .jayoda-ticket-draw-number-text1 {
     background-color: #eceef1;
     padding: 0.1cm 0.1cm;
     display: inline-block;
@@ -59,7 +57,7 @@
   
   /* Color Section */
   
-  .shanida-ticket-colour-text {
+  .jayoda-ticket-colour-text {
     background-color: #b4b4b4;
     /* clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%, 0 100%); */
     padding: 0.1cm 0.1cm;
@@ -70,8 +68,8 @@
     text-align: center;
     margin-left: 1cm;
   }
-
-  .shanida-ticket-colour-text1 {
+  
+  .jayoda-ticket-colour-text1 {
     background-color: #eceef1;
     padding: 0.1cm 0.1cm;
     display: inline-block;
@@ -83,54 +81,53 @@
   }
   
   /* Winning Numbers Section */
-  .shanida-ticket-winning-numbers {
+  .jayoda-ticket-winning-numbers {
     justify-content: center;
   }
   
-  .shanida-ticket-winning-numbers-title {
+  .jayoda-ticket-winning-numbers-title {
     color: white;
     font-size: 0.2cm;
     font-weight: 1000;
-    margin-left: -1.3cm;
+    margin-left: -0.25cm;
     margin-bottom: 0.05cm;
-    margin-top: 0.05cm;
   }
   
-  .shanida-ticket-winning-numbers-container {
+  .jayoda-ticket-winning-numbers-container {
     display: flex;
     justify-content: center;
     gap: 0.1cm;
     margin-bottom: 0.1cm;
-    margin-left: -1.2cm;
+    
   }
   
-  .shanida-ticket-winning-number {
+  .jayoda-ticket-winning-number {
     width: 0.4cm;
     height: 0.4cm;
     background-color: #ffffff;
     border-radius: 0.1cm;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
-
-  .shanida-ticket-winning-number:nth-child(5) {
+  
+  .jayoda-ticket-winning-number:nth-child(5) {
     margin-left: 0.2cm;
   }
   
-  .shanida-ticket-winning-number-text {
+  .jayoda-ticket-winning-number-text {
     font-size: 0.18cm;
     font-weight: 1000;
     text-align: center;
   }
   
   /* Bottom Section */
-  .shanida-ticket-bottom {
+  .jayoda-ticket-bottom {
     display: flex;
     align-items: flex-start;
-    margin-left: -1cm;
+    margin-left: -0.5cm;
     margin-right: 1cm;
     margin-bottom: 0.1cm;
-    width: auto;
-    height: 0.4cm;
+    width: 3.5cm;
+    height: auto;
     background-color: #2d3748;
     padding: 0.1cm 0.1cm;
     border-radius: 0.1cm;
@@ -139,33 +136,33 @@
     font-size: 0.14cm;
   }
   
-
-  .shanida-ticket-special {
+  .jayoda-ticket-special {
     display: flex;
    }
    
    /* Special Prize Section */
-   .shanida-ticket-special-prize-container {
+   .jayoda-ticket-special-prize-container {
     display: flex;
     background-color: #ffffff;
     border-radius: 0.1cm;
-    height: 0.4cm;
+    height: 0.5cm;
     width: auto;
     padding: 0.05cm 0.2cm 0.2cm;
    }
    
-   .shanida-ticket-special-prize-icon {
+   .jayoda-ticket-special-prize-icon {
     margin-left: -0.4cm;
     margin-top: -0.2cm;
     height: 0.4cm;
-    width: 0.6cm; 
+    width: 0.6cm;   
    }
    
    /* Additional Styling */
    .special-numbers {
     color: rgb(0, 0, 0);
     text-align: center;
-    font-size: 0.14cm;
+    font-size: 0.16cm;
     font-weight: 1000;
   }
+  
   

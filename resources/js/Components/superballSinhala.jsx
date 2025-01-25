@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "../../css/superball.css";
 
-const SuperballEnglish = ({ name = "Superball" }) => {
+const SuperballSinhala = ({ name = "Superball" }) => {
   const [lottery, setLottery] = useState({
     number: null,
     color: null,
@@ -50,6 +50,9 @@ const SuperballEnglish = ({ name = "Superball" }) => {
     }
     else if (color === "Purple" || color === "purple") {
       return "දම්";
+    }
+    else if (color === "Yellow" || color === "yellow") {
+      return "කහ";
     }
     else if (color === "Light Blue" || color === "light blue" || color === "Light blue") {
       return "ලා නිල්";
@@ -122,4 +125,4 @@ const SuperballEnglish = ({ name = "Superball" }) => {
   );
 };
 
-export default SuperballEnglish;
+export default SuperballSinhala;

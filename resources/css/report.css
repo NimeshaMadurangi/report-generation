@@ -1,12 +1,19 @@
-/* Button Style */
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.download-container {
+  display: flex;
+  width: 100%;
+  padding: 20px 0;
+}
+
 .download-button {
   background-color: #1e548d;
   color: white;
   padding: 12px 20px;
   border-radius: 8px;
-  margin-bottom: 16px;
-  margin-top: 32px;
-  margin-left: 20px;
   font-size: 16px;
   cursor: pointer;
   transition: background-color 0.3s ease;
@@ -16,76 +23,31 @@
   background-color: #0056b3;
 }
 
-/* Grid Styles */
+.report-wrapper {
+  width: 100%;
+  max-width: 297mm;
+}
+
 .report-sections {
   display: flex;
-  justify-content: center;
-  gap: 16px;
-  flex-wrap: wrap; /* Allows for responsiveness */
+  text-align: justify;
   width: 100%;
-  max-width: 1200px;
-  margin-top: 20px;
+  height: 100%;
 }
 
 .column {
-  width: 32%; /* Adjust width to create three columns */
-  padding: 10px;
-  box-sizing: border-box;
+  flex: 1;
   background-color: #f9f9f9;
-  border-radius: 8px;
-  border: 1px solid #ddd;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
 }
 
-.column > * {
-  margin-bottom: 20px;
-}
-
-/* Responsive Adjustments */
-@media (max-width: 1024px) {
-  .column {
-    width: 48%; /* For tablets and smaller devices */
-  }
-}
-
-@media (max-width: 768px) {
-  .column {
-    width: 100%; /* Stacks the columns on smaller screens */
-  }
-}
-
-/* General Styles for Content Wrappers */
-.section-wrapper {
-  padding: 16px;
-  background-color: #f9f9f9;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.section-wrapper > * {
-  margin-bottom: 8px;
-}
-
-.section-wrapper:last-child {
-  margin-bottom: 0;
-}
-
-/* Section Container with Grid for Smaller Screens */
 .section-container {
   display: grid;
-  gap: 0.2rem; /* Adjust spacing between grid items */
-  margin-top: 1rem;
-}
-
-.section-container.grid-cols-7 {
-  grid-template-columns: repeat(7, 1fr);
-}
-
-.section-container.sm\:grid-cols-2 {
-  grid-template-columns: repeat(2, 1fr);
-}
-
-.section-container.md\:grid-cols-1 {
+  gap: 10px;
+  margin: 0 auto;
   grid-template-columns: 1fr;
+  width: 100%;
+  height: 100%;
 }

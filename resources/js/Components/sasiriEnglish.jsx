@@ -44,17 +44,17 @@ const SasiriEnglish = ({ name = "Sasiri" }) => {
           </div>
           <div className="sasiri-ticket-draw-number-container">
             
-            <div className="lagna-ticket-draw-number-text">
+            <div className="sasiri-ticket-draw-number-text">
                 Draw Number
                 </div>
-                <div className="lagna-ticket-draw-number-text1">
+                <div className="sasiri-ticket-draw-number-text1">
                   {lottery.number || "Loading..."}
                 </div>
            
-                <div className="lagna-ticket-colour-text">
+                <div className="sasiri-ticket-colour-text">
                   Colour 
                 </div>
-                <div className="lagna-ticket-colour-text1">
+                <div className="sasiri-ticket-colour-text1">
                   {lottery.color || "Loading..."}
                 </div>
             
@@ -77,7 +77,7 @@ const SasiriEnglish = ({ name = "Sasiri" }) => {
                     ))
                   : "Loading..."}
                   <div className="sasiri-ticket-winner-container">
-                        Total no.of <br/> Rs. 200,000 winners : 
+                        Total no.of <br/> Rs. 200,000 winners
                   </div>
                   <div className="sasiri-ticket-winner-container1">
                     {lottery.count || "Loading..."}

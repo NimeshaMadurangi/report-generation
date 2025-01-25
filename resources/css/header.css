@@ -3,6 +3,7 @@
   height: 1.5cm;
   margin: 0 auto;
   display: flex;
+  align-items: center;
   background-color: rgb(255, 255, 255);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -19,13 +20,12 @@
   margin-top: 0.45cm;
   margin-left: 0.1cm;
   font-size: 0.27cm;
-  font-weight: 2000;
+  font-weight: 1000;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   color: #000;
 }
 
 .header-text2 {
-  margin-top: 0.1cm;
   margin-left: 3.2cm;
   font-size: 0.25cm;
   background-color: #5e5c5c;
@@ -36,7 +36,7 @@
 .date-container {
   width: 3cm;
   height: 1.5cm;
-  display: flex;
+  align-items: center;
   margin-left: auto;
   background-color: rgb(0, 0, 0);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -48,6 +48,6 @@
   font-family: 'Times New Roman', Times, serif;
   font-size: 0.25cm;
   font-weight: 1000;
-  margin-left: 0.5cm;
+  margin-left: 0.25cm;
   margin-top: 0.4cm;
 }
