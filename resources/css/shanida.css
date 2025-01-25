@@ -1,22 +1,22 @@
 .shanida-ticket-container {
-    width: 9.5cm;
-    height: auto;
-    max-height: 2cm;
-    margin: 0 auto;
-    display: flex;
-    background-color: rgba(20, 19, 20, 0.925);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 9.5cm;
+  height: auto;
+  max-height: 2cm;
+  margin: 0 auto;
+  display: flex;
+  background-color: black;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
     
     /* Header Section */
   .shanida-ticket-header {
     display: flex;
+    align-items: center;
   }
     
     /* Logo Section */
   .shanida-ticket-logo-container {
-      display: flex;
-      align-items: flex-start;
+    align-items: center;
     }
     
   .shanida-ticket-logo {
@@ -26,33 +26,31 @@
   
   /* Draw Number Section */
   .shanida-ticket-draw-number-container {
-    flex: 1;
-    align-items: flex-start;
+    align-items: center;
+    margin-left: 1.3cm;
     margin-top: 0.1cm;
-    margin-left: 1cm;
-    margin-right: 0.1cm;
   }
     
   
     
   .shanida-ticket-draw-number-text {
     background-color: #b4b4b4;
-    /* clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%, 0 100%); */
-    padding: 0.1cm 0.1cm;
+    padding: 0.05cm;
     display: inline-block;
-    color: #2d3748;
+    color: #000000;
     font-weight: 1000;
-    font-size: 0.15cm;
-    text-align: center;
+    font-size: 0.2cm;
+    font-family: 'Times New Roman', Times, serif;
   }
 
   .shanida-ticket-draw-number-text1 {
     background-color: #eceef1;
-    padding: 0.1cm 0.1cm;
+    padding: 0.05cm;
     display: inline-block;
-    color: #2d3748;
+    color: #000000;
     font-weight: 1000;
-    font-size: 0.15cm;
+    font-size: 0.2cm;
+    font-family: 'Times New Roman', Times, serif;
     text-align: center;
     border-left: 0.03cm solid #000000;
   }
@@ -61,23 +59,24 @@
   
   .shanida-ticket-colour-text {
     background-color: #b4b4b4;
-    /* clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%, 0 100%); */
-    padding: 0.1cm 0.1cm;
+    padding: 0.05cm;
     display: inline-block;
-    color: #2d3748;
+    color: #000000;
     font-weight: 1000;
-    font-size: 0.15cm;
+    font-size: 0.2cm;
+    font-family: 'Times New Roman', Times, serif;
     text-align: center;
-    margin-left: 1cm;
+    margin-left: 0.5cm;
   }
 
   .shanida-ticket-colour-text1 {
     background-color: #eceef1;
-    padding: 0.1cm 0.1cm;
+    padding: 0.05cm;
     display: inline-block;
-    color: #2d3748;
+    color: #000000;
     font-weight: 1000;
-    font-size: 0.15cm;
+    font-size: 0.2cm;
+    font-family: 'Times New Roman', Times, serif;
     text-align: center;
     border-left: 0.03cm solid #000000;
   }
@@ -89,19 +88,17 @@
   
   .shanida-ticket-winning-numbers-title {
     color: white;
-    font-size: 0.2cm;
+    font-size: 0.23cm;
     font-weight: 1000;
-    margin-left: -1.3cm;
-    margin-bottom: 0.05cm;
-    margin-top: 0.05cm;
+    margin-left: 0.4cm;
+    justify-content: center;
   }
   
   .shanida-ticket-winning-numbers-container {
     display: flex;
-    justify-content: center;
+    align-items: center;
     gap: 0.1cm;
-    margin-bottom: 0.1cm;
-    margin-left: -1.2cm;
+    margin-left: 0.5cm;
   }
   
   .shanida-ticket-winning-number {
@@ -117,31 +114,31 @@
   }
   
   .shanida-ticket-winning-number-text {
-    font-size: 0.18cm;
+    font-size: 0.27cm;
     font-weight: 1000;
     text-align: center;
   }
   
   /* Bottom Section */
   .shanida-ticket-bottom {
-    display: flex;
-    align-items: flex-start;
-    margin-left: -1cm;
-    margin-right: 1cm;
-    margin-bottom: 0.1cm;
+    align-items: center;
+    margin-left: -1.5cm;
+    margin-right: 0.5cm;
     width: auto;
-    height: 0.4cm;
+    height: 0.5cm;
     background-color: #2d3748;
-    padding: 0.1cm 0.1cm;
     border-radius: 0.1cm;
     display: flex;
+    padding: 0.05cm;
     color: white;
-    font-size: 0.14cm;
+    font-size: 0.2cm;
+    font-family: 'Times New Roman', Times, serif;
   }
   
 
   .shanida-ticket-special {
     display: flex;
+    margin-top: 0.1cm;
    }
    
    /* Special Prize Section */
@@ -149,23 +146,24 @@
     display: flex;
     background-color: #ffffff;
     border-radius: 0.1cm;
-    height: 0.4cm;
+    height: 0.5cm;
     width: auto;
-    padding: 0.05cm 0.2cm 0.2cm;
+    padding: 0.05cm 0.2cm;
    }
    
    .shanida-ticket-special-prize-icon {
     margin-left: -0.4cm;
     margin-top: -0.2cm;
-    height: 0.4cm;
-    width: 0.6cm; 
+    height: 0.5cm;
+    width: 0.8cm;
    }
    
    /* Additional Styling */
    .special-numbers {
     color: rgb(0, 0, 0);
     text-align: center;
-    font-size: 0.14cm;
+    font-size: 0.25cm;
     font-weight: 1000;
+    font-family: 'Times New Roman', Times, serif;
   }
   

@@ -7,7 +7,7 @@ import HeaderEnglish from "../Components/headerEnglish";
 import LagnaWasanaEnglish from "../Components/lagnawasanaEnglish";
 import SasiriEnglish from "../Components/sasiriEnglish";
 import KaprukaEnglish from "../Components/kaprukaEnglish";
-import ShanidaEnglish from "../Components/kaprukaEnglish";
+import ShanidaEnglish from "../Components/shanidaEnglish";
 import SuperballEnglish from "../Components/superballEnglish";
 import AdakotipathiEnglish from "../Components/adakotipathiEnglish";
 import SupiridanaEnglish from "../Components/supiridanaEnglish";

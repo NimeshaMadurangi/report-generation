@@ -14,6 +14,7 @@ const LagnaWasanaTamil = ({ name = "Lagna Wasanawa" }) => {
     ball5: null,
     next_super: null,
     special1: null,
+    special2: null,
   });
 
   // Fetch lottery data on component mount

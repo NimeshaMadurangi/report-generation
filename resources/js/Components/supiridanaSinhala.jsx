@@ -14,6 +14,8 @@ const SupiridanaSinhala = ({ name = "Supiri Dhana Sampatha" }) => {
     ball6: null,
     ball7: null,
     next_super: null,
+    special1: null,
+    special2: null,
   });
 
   useEffect(() => {
@@ -111,12 +113,30 @@ const SupiridanaSinhala = ({ name = "Supiri Dhana Sampatha" }) => {
                   : "Loading..."}
               </div>
             </div>
-            <div className="supiridana-ticket-special">
-              <div className="supiridana-ticket-bottom">
-                <div className="supiridana-ticket-next-jackpot">
-                    මීළඟ සුපිරි ජයමල්ල රු. {lottery.next_super || "Loading..."}
-                </div>
+            <div className="lagna-ticket-special">
+              <div className="lagna-ticket-bottom">
+                මීළඟ සුපිරි ජයමල්ල රු. {lottery.next_super || "Loading..."}
               </div>
+              {/* Special Numbers Section */}
+              {(lottery.special1 || lottery.special2) && (
+                <div className="lagna-ticket-special-prize-container">
+                  <img
+                    src="/images/sc.png"
+                    alt="Special Prize"
+                    className="lagna-ticket-special-prize-icon"
+                  />
+                  <div className="special-numbers">
+                    {lottery.special1 && (
+                      <>
+                        රු. 50,000/- සඳහා විශේෂ අංකය :{" "}
+                        {lottery.special1 || "Loading..."}
+                        <br />
+                      </>
+                    )}
+                    {lottery.special2 && <>රු. 40/-: {lottery.special2}</>}
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </div>

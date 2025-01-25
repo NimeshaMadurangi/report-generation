@@ -8,13 +8,13 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
   
-  /* Header Section */
+/* Header Section */
 .sasiri-ticket-header {
   display: flex;
   align-items: center;
 }
   
-  /* Logo Section */
+/* Logo Section */
 .sasiri-ticket-logo-container {
     display: flex;
     align-items: flex-start;
@@ -64,8 +64,6 @@
 }
 
 /* Color Section */
-
-
 .sasiri-ticket-colour-text {
   background-color: #b4b4b4;
   padding: 0.05cm;
@@ -153,7 +151,7 @@
   color: rgb(0, 0, 0);
   font-size: 0.3cm;
   font-weight: 1000;
-  border-left: 0.03cm solid #000000; /* Adjust color (#0000ff is blue) */
+  border-left: 0.03cm solid #000000;
 }
 
 .sasiri-ticket-winner-containertm {
@@ -164,10 +162,10 @@
   width: 2cm;
   background-color: #ffffff;
   padding: 0.1cm 0.1cm;
-  
   color: rgb(0, 0, 0);
   font-size: 0.1cm;
   font-weight: 1000;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 .sasiri-ticket-winner-containertm1 {
@@ -178,17 +176,15 @@
   width: 0.6cm;
   background-color: #ffffff;
   padding: 0.1cm 0.1cm;
-  
   color: rgb(0, 0, 0);
   font-size: 0.3cm;
   font-weight: 1000;
-
-  border-left: 0.03cm solid #000000; /* Adjust color (#0000ff is blue) */
+  border-left: 0.03cm solid #000000;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 
 /* Bottom Section */
-
 .sasiri-ticket-bottom {
   align-items: center;
   margin-left: -1cm;
@@ -201,6 +197,7 @@
   border-radius: 0.1cm;
   color: white;
   font-size: 0.2cm;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 .sasiri-ticket-bottomtm {
@@ -217,4 +214,5 @@
   display: flex;
   color: white;
   font-size: 0.17cm;
+  font-family: 'Times New Roman', Times, serif;
 }

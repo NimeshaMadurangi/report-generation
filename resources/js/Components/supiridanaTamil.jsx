@@ -14,6 +14,8 @@ const SupiridanaTamil = ({ name = "Supiri Dhana Sampatha" }) => {
     ball6: null,
     ball7: null,
     next_super: null,
+    special1: null,
+    special2: null,
   });
 
   useEffect(() => {
@@ -94,7 +96,7 @@ const SupiridanaTamil = ({ name = "Supiri Dhana Sampatha" }) => {
                 Colour
               </div>
               <div className="supiridana-ticket-colour-text1">
-                {lottery.color || "Loading..."}
+                  {translateColor(lottery.color) || "Loading..."}
               </div>
          
             <div className="supiridana-ticket-winning-numbers">
@@ -116,12 +118,27 @@ const SupiridanaTamil = ({ name = "Supiri Dhana Sampatha" }) => {
                   : "Loading..."}
               </div>
             </div>
-            <div className="supiridana-ticket-special">
-              <div className="supiridana-ticket-bottom">
-                <div className="supiridana-ticket-next-jackpot">
-                  Next Super Jackpot : Rs. {lottery.next_super || "Loading..."}
-                </div>
+            <div className="lagna-ticket-special">
+              <div className="lagna-ticket-bottom">
+                அடுத்த சுப்பர் ஐக்பொட் : ரூ.{lottery.next_super || "Loading..."}
               </div>
+              {(lottery.special1 || lottery.special2) && (
+                <div className="lagna-ticket-special-prize-container">
+                  <img
+                    src="/images/sc.png"
+                    alt="Special Prize"
+                    className="lagna-ticket-special-prize-icon"
+                  />
+                  <div className="special-numbers">
+                    {lottery.special1 && (
+                      <>
+                        ரூ 50,000/-: {lottery.special1 || "Loading..."}
+                      </>
+                    )}
+                    {lottery.special2 && <>ரூ 40/-: {lottery.special2}</>}
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </div>
