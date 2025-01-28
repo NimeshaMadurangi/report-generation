@@ -9,7 +9,11 @@ const ShanidaTamil = ({ name = "Shanida" }) => {
     ball1: null,
     ball2: null,
     ball3: null,
+    ball4: null,
+    ball5: null,
     next_super: null,
+    special1: null,
+    special2: null,
   });
 
   useEffect(() => {
@@ -71,7 +75,7 @@ const ShanidaTamil = ({ name = "Shanida" }) => {
         <div className="shanida-ticket-header">
           <div className="shanida-ticket-logo-container">
             <img
-              src="/images/shanida.png"
+              src="/images/shani.png"
               alt={name}
               className="shanida-ticket-logo"
             />
@@ -79,41 +83,38 @@ const ShanidaTamil = ({ name = "Shanida" }) => {
           <div className="shanida-ticket-draw-number-container">
             
               <div className="shanida-ticket-draw-number-text">
-                Draw Number
+                வெற்றி வாரம்
               </div>
-              <div className="shanida-ticket-draw-number-text1">
+              <div className="shanida-ticket-draw-number-text1-tm">
                 {lottery.number || "Loading..."}
               </div>
             
            
               <div className="shanida-ticket-colour-text">
-                Colour
+                வர்ணம்
               </div>
               <div className="shanida-ticket-colour-text1">
-                {lottery.color || "Loading..."}
+                {translateColor(lottery.color) || "Loading..."}
               </div>
             
             <div className="shanida-ticket-winning-numbers">
-              <div className="shanida-ticket-winning-numbers-title">
-                English Letter, Super Number & Winning Numbers
+              <div className="shanida-ticket-winning-numbers-titletm">
+              -- ஆங்கில எமுத்து, சுப்பர் இலக்கம் ம்ற்றும் வெற்றி இலக்கம் --
               </div>
               <div className="shanida-ticket-winning-numbers-container">
                 {balls.length > 0
                   ? balls.map((ball, index) => (
-                      <div
-                        key={index}
-                        className="shanida-ticket-winning-number"
-                      >
-                        <div className="shanida-ticket-winning-number-text">
+                      
+                        <div key={index} className="shanida-ticket-winning-number-text">
                           {ball}
                         </div>
-                      </div>
+                      
                     ))
                   : "Loading..."}
               </div>
             </div>
             <div className="shanida-ticket-special">
-            <div className="shanida-ticket-bottom">
+            <div className="shanida-ticket-bottomtm">
               அடுத்த சுப்பர் ஐக்பொட் : ரூ. {lottery.next_super || "Loading..."}
             </div>
             {/* Special Numbers Section */}
@@ -124,15 +125,17 @@ const ShanidaTamil = ({ name = "Shanida" }) => {
                   alt="Special Prize"
                   className="shanida-ticket-special-prize-icon"
                 />
-                <div className="special-numbers">
-                  ரூ 50,000/-: {lottery.special1 && (
-                    <>
-                         {lottery.special1}
-                      <br />
-                    </>
-                  )}
-                  {lottery.special2 && <>ரூ 40/-: {lottery.special2}</>}
-                </div>
+                <div className="special-numbers-tm">
+                    {lottery.special1 && (
+                      <>
+                        வீசேட இலக்கங்கள் {" "}
+                        <br />
+                        ரூ. 50,000/- : {lottery.special1 || "Loading..."}
+                      </>
+                    )}
+                    <> | </>
+                    {lottery.special2 && <>ரூ. 40/- : {lottery.special2}</>}
+                  </div>
               </div>
             )}
           </div>

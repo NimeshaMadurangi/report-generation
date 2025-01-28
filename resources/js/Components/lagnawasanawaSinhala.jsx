@@ -111,7 +111,7 @@ const LagnaWasanaSinhala = ({ name = "Lagna Wasanawa" }) => {
         <div className="lagna-ticket-header">
           <div className="lagna-ticket-logo-container">
             <img
-              src="/images/lag.png"
+              src="/images/lgs.png"
               alt={name}
               className="lagna-ticket-logo"
             />
@@ -126,7 +126,7 @@ const LagnaWasanaSinhala = ({ name = "Lagna Wasanawa" }) => {
               {translateColor(lottery.color) || "Loading..."}
             </div>
             <div className="lagna-ticket-winning-numbers">
-              <div className="lagna-ticket-winning-numbers-title">
+              <div className="lagna-ticket-winning-numbers-titles">
                 ---- ජයග්‍රාහී අංක ----
               </div>
               <div className="lagna-ticket-winning-numbers-container">
@@ -155,7 +155,7 @@ const LagnaWasanaSinhala = ({ name = "Lagna Wasanawa" }) => {
               </div>
             </div>
             <div className="lagna-ticket-special">
-              <div className="lagna-ticket-bottom">
+              <div className="lagna-ticket-bottoms">
                 මීළඟ සුපිරි ජයමල්ල රු. {lottery.next_super || "Loading..."}
               </div>
               {/* Special Numbers Section */}
@@ -169,12 +169,11 @@ const LagnaWasanaSinhala = ({ name = "Lagna Wasanawa" }) => {
                   <div className="special-numbers">
                     {lottery.special1 && (
                       <>
-                        රු. 50,000/- සඳහා විශේෂ අංකය :{" "}
-                        {lottery.special1 || "Loading..."}
-                        <br />
+                         විශේෂ අංකය {" "} <br />
+                         රු. 50,000/- : {lottery.special1 || "Loading..."} <> | </>
                       </>
                     )}
-                    {lottery.special2 && <>රු. 40,000/-: {lottery.special2}</>}
+                    {lottery.special2 && <>රු. 40/- : {lottery.special2}</>}
                   </div>
                 </div>
               )}

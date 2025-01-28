@@ -12,6 +12,8 @@ const SuperballEnglish = ({ name = "Superball" }) => {
     ball4: null,
     ball5: null,
     next_super: null,
+    special1: null,
+    special2: null,
   });
 
   useEffect(() => {
@@ -67,14 +69,11 @@ const SuperballEnglish = ({ name = "Superball" }) => {
               <div className="superball-ticket-winning-numbers-container">
                 {balls.length > 0
                   ? balls.map((ball, index) => (
-                      <div
-                        key={index}
-                        className="superball-ticket-winning-number"
-                      >
-                        <div className="superball-ticket-winning-number-text">
+                      
+                        <div key={index} className="superball-ticket-winning-number-text">
                           {ball}
                         </div>
-                      </div>
+                     
                     ))
                   : "Loading..."}
               </div>
@@ -90,14 +89,14 @@ const SuperballEnglish = ({ name = "Superball" }) => {
                       alt="Special Prize"
                       className="superball-ticket-special-prize-icon"
                     />
-                    <div className="special-numbers">
+                    <div className="superball-special-numbers">
                       {lottery.special1 && (
                         <>
-                          Special number for Rs. 50,000/-: {lottery.special1}
-                          <br />
+                          Special number for <br /> Rs. 50,000/- : {lottery.special1}
                         </>
                       )}
-                      {lottery.special2 && <>Rs. 40,000/-: {lottery.special2}</>}
+                      <> | </>
+                      {lottery.special2 && <>Rs. 40/-: {lottery.special2}</>}
                     </div>
                   </div>
                 )}

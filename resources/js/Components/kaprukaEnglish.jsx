@@ -14,6 +14,7 @@ const KaprukaEnglish = ({ name = "Kapruka" }) => {
     ball6: null,
     next_super: null,
     special1: null,
+    special2: null,
   });
 
   useEffect(() => {
@@ -40,7 +41,7 @@ const KaprukaEnglish = ({ name = "Kapruka" }) => {
         <div className="kapruka-ticket-header">
           <div className="kapruka-ticket-logo-container">
             <img
-              src="/images/logo/kapruka.png"
+              src="/images/kapruka.png"
               alt={name}
               className="kapruka-ticket-logo"
             />
@@ -70,38 +71,39 @@ const KaprukaEnglish = ({ name = "Kapruka" }) => {
               <div className="kapruka-ticket-winning-numbers-container">
                 {balls.length > 0
                   ? balls.map((ball, index) => (
-                      <div
-                        key={index}
-                        className="kapruka-ticket-winning-number"
-                      >
-                        <div className="kapruka-ticket-winning-number-text">
+                      
+                        <div key={index} className="kapruka-ticket-winning-number-text">
                           {ball}
                         </div>
-                      </div>
+                      
                     ))
                   : "Loading..."}
               </div>
             
               <div className="kapruka-ticket-special">
-                <div className="kapruka-ticket-bottom">
-                  Next Super Jackpot : Rs. {lottery.next_super || "Loading..."}
-                </div>
-                {lottery.special1 && (
-                  <div className="kapruka-ticket-special-prize-container">
-                    <img
-                      src="/images/sc.png"
-                      alt="Special Prize"
-                      className="kapruka-ticket-special-prize-icon"
-                    />
-                    <div className="special-numbers">
-                      Special number for Rs. 50,000/- cash prize :
+            <div className="kapruka-ticket-bottom">
+              Next Super Jackpot : Rs. {lottery.next_super || "Loading..."}
+            </div>
+            {/* Special Numbers Section */}
+            {(lottery.special1 || lottery.special2) && (
+              <div className="kapruka-ticket-special-prize-container">
+                <img
+                  src="/images/sc.png"
+                  alt="Special Prize"
+                  className="kapruka-ticket-special-prize-icon"
+                />
+                <div className="special-numbers">
+                  {lottery.special1 && (
+                    <>
+                      Special number for Rs. 50,000/-: {lottery.special1}
                       <br />
-                      {lottery.special1}
-                    </div>
-                  </div>
-                )}
+                    </>
+                  )}
+                  {lottery.special2 && <>Rs. 40/-: {lottery.special2}</>}
+                </div>
               </div>
-
+            )}
+            </div>
           </div>
         </div>
       </div>

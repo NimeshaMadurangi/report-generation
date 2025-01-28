@@ -42,7 +42,7 @@ const SupiridanaEnglish = ({ name = "Supiri Dhana Sampatha" }) => {
         <div className="supiridana-ticket-header">
           <div className="supiridana-ticket-logo-container">
             <img
-              src="/images/supiridana.png"
+              src="/images/sde.png"
               alt={name}
               className="supiridana-ticket-logo"
             />
@@ -71,37 +71,34 @@ const SupiridanaEnglish = ({ name = "Supiri Dhana Sampatha" }) => {
               <div className="supiridana-ticket-winning-numbers-container">
                 {balls.length > 0
                   ? balls.map((ball, index) => (
-                      <div
-                        key={index}
-                        className="supiridana-ticket-winning-number"
-                      >
-                        <div className="supiridana-ticket-winning-number-text">
+                      
+                        <div key={index} className="supiridana-ticket-winning-number-text">
                           {ball}
                         </div>
-                      </div>
+                      
                     ))
                   : "Loading..."}
               </div>
             </div>
-            <div className="lagna-ticket-special">
-            <div className="lagna-ticket-bottom">
+            <div className="supiridana-ticket-special">
+            <div className="supiridana-ticket-bottom">
               Next Super Jackpot : Rs. {lottery.next_super || "Loading..."}
             </div>
             {/* Special Numbers Section */}
             {(lottery.special1 || lottery.special2) && (
-              <div className="lagna-ticket-special-prize-container">
+              <div className="supiridana-ticket-special-prize-container">
                 <img
                   src="/images/sc.png"
                   alt="Special Prize"
-                  className="lagna-ticket-special-prize-icon"
+                  className="supiridana-ticket-special-prize-icon"
                 />
                 <div className="special-numbers">
                   {lottery.special1 && (
                     <>
-                      Special number for Rs. 50,000/-: {lottery.special1}
-                      <br />
+                      Special number for <br /> Rs. 50,000/- : {lottery.special1}
                     </>
                   )}
+                  <> | </>
                   {lottery.special2 && <>Rs. 40/-: {lottery.special2}</>}
                 </div>
               </div>

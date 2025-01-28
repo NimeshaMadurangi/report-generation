@@ -12,6 +12,8 @@ const JayodaEnglish = ({ name = "Jayoda" }) => {
     ball4: null,
     ball5: null,
     next_super: null,
+    special1: null,
+    special2: null,
   });
 
   useEffect(() => {
@@ -67,14 +69,11 @@ const JayodaEnglish = ({ name = "Jayoda" }) => {
               <div className="jayoda-ticket-winning-numbers-container">
                 {balls.length > 0
                   ? balls.map((ball, index) => (
-                      <div
-                        key={index}
-                        className="jayoda-ticket-winning-number"
-                      >
-                        <div className="jayoda-ticket-winning-number-text">
+                      
+                        <div key={index} className="jayoda-ticket-winning-number-text">
                           {ball}
                         </div>
-                      </div>
+                      
                     ))
                   : "Loading..."}
               </div>

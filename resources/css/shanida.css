@@ -1,169 +1,224 @@
 .shanida-ticket-container {
   width: 9.5cm;
   height: auto;
-  max-height: 2cm;
+  max-height: 2.5cm;
   margin: 0 auto;
   display: flex;
   background-color: black;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-    
-    /* Header Section */
-  .shanida-ticket-header {
+}
+  
+  /* Header Section */
+.shanida-ticket-header {
+  display: flex;
+  align-items: center;
+}
+  
+  /* Logo Section */
+.shanida-ticket-logo-container {
     display: flex;
-    align-items: center;
-  }
-    
-    /* Logo Section */
-  .shanida-ticket-logo-container {
-    align-items: center;
-    }
-    
-  .shanida-ticket-logo {
-    height: 2cm;
-    width: 2cm;
+    align-items: flex-start;
   }
   
-  /* Draw Number Section */
-  .shanida-ticket-draw-number-container {
-    align-items: center;
-    margin-left: 1.3cm;
-    margin-top: 0.1cm;
-  }
-    
-  
-    
-  .shanida-ticket-draw-number-text {
-    background-color: #b4b4b4;
-    padding: 0.05cm;
-    display: inline-block;
-    color: #000000;
-    font-weight: 1000;
-    font-size: 0.2cm;
-    font-family: 'Times New Roman', Times, serif;
-  }
+.shanida-ticket-logo {
+  height: 2.5cm;
+  width: 9.5cm;
+}
 
-  .shanida-ticket-draw-number-text1 {
-    background-color: #eceef1;
-    padding: 0.05cm;
-    display: inline-block;
-    color: #000000;
-    font-weight: 1000;
-    font-size: 0.2cm;
-    font-family: 'Times New Roman', Times, serif;
-    text-align: center;
-    border-left: 0.03cm solid #000000;
-  }
+/* Draw Number Section */
+.shanida-ticket-draw-number-container {
+  flex: 1;
+  align-items: flex-start;
+  margin-left: -6cm;
+  margin-right: 0.1cm;
+}
   
-  /* Color Section */
-  
-  .shanida-ticket-colour-text {
-    background-color: #b4b4b4;
-    padding: 0.05cm;
-    display: inline-block;
-    color: #000000;
-    font-weight: 1000;
-    font-size: 0.2cm;
-    font-family: 'Times New Roman', Times, serif;
-    text-align: center;
-    margin-left: 0.5cm;
-  }
+.shanida-ticket-draw-number-text {
+  background-color: #b4b4b4;
+  padding: 0.05cm;
+  display: inline-block;
+  color: #000000;
+  font-weight: 1000;
+  font-size: 0.2cm;
+  font-family: 'Times New Roman', Times, serif;
+}
 
-  .shanida-ticket-colour-text1 {
-    background-color: #eceef1;
-    padding: 0.05cm;
-    display: inline-block;
-    color: #000000;
-    font-weight: 1000;
-    font-size: 0.2cm;
-    font-family: 'Times New Roman', Times, serif;
-    text-align: center;
-    border-left: 0.03cm solid #000000;
-  }
-  
-  /* Winning Numbers Section */
-  .shanida-ticket-winning-numbers {
-    justify-content: center;
-  }
-  
-  .shanida-ticket-winning-numbers-title {
-    color: white;
-    font-size: 0.23cm;
-    font-weight: 1000;
-    margin-left: 0.4cm;
-    justify-content: center;
-  }
-  
-  .shanida-ticket-winning-numbers-container {
-    display: flex;
-    align-items: center;
-    gap: 0.1cm;
-    margin-left: 0.5cm;
-  }
-  
-  .shanida-ticket-winning-number {
-    width: 0.4cm;
-    height: 0.4cm;
-    background-color: #ffffff;
-    border-radius: 0.1cm;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
+.shanida-ticket-draw-number-text1 {
+  background-color: #eceef1;
+  padding: 0.05cm;
+  display: inline-block;
+  color: #000000;
+  font-weight: 1000;
+  font-size: 0.2cm;
+  font-family: 'Times New Roman', Times, serif;
+  text-align: center;
+  border-left: 0.03cm solid #000000;
+}
 
-  .shanida-ticket-winning-number:nth-child(5) {
-    margin-left: 0.2cm;
-  }
-  
-  .shanida-ticket-winning-number-text {
-    font-size: 0.27cm;
-    font-weight: 1000;
-    text-align: center;
-  }
-  
-  /* Bottom Section */
-  .shanida-ticket-bottom {
-    align-items: center;
-    margin-left: -1.5cm;
-    margin-right: 0.5cm;
-    width: auto;
-    height: 0.5cm;
-    background-color: #2d3748;
-    border-radius: 0.1cm;
-    display: flex;
-    padding: 0.05cm;
-    color: white;
-    font-size: 0.2cm;
-    font-family: 'Times New Roman', Times, serif;
-  }
-  
+.shanida-ticket-draw-number-text1-tm {
+  background-color: #eceef1;
+  padding: 0.05cm;
+  display: inline-block;
+  color: #000000;
+  font-weight: 1000;
+  font-size: 0.23cm;
+  font-family: 'Times New Roman', Times, serif;
+  text-align: center;
+  border-left: 0.03cm solid #000000;
+}
 
-  .shanida-ticket-special {
-    display: flex;
-    margin-top: 0.1cm;
-   }
-   
-   /* Special Prize Section */
-   .shanida-ticket-special-prize-container {
-    display: flex;
-    background-color: #ffffff;
-    border-radius: 0.1cm;
-    height: 0.5cm;
-    width: auto;
-    padding: 0.05cm 0.2cm;
-   }
-   
-   .shanida-ticket-special-prize-icon {
-    margin-left: -0.4cm;
-    margin-top: -0.2cm;
-    height: 0.5cm;
-    width: 0.8cm;
-   }
-   
-   /* Additional Styling */
-   .special-numbers {
-    color: rgb(0, 0, 0);
-    text-align: center;
-    font-size: 0.25cm;
-    font-weight: 1000;
-    font-family: 'Times New Roman', Times, serif;
-  }
-  
+/* Color Section */
+
+.shanida-ticket-colour-text {
+  background-color: #b4b4b4;
+  padding: 0.05cm;
+  display: inline-block;
+  color: #000000;
+  font-weight: 1000;
+  font-size: 0.2cm;
+  font-family: 'Times New Roman', Times, serif;
+  text-align: center;
+  margin-left: 0.5cm;
+}
+
+.shanida-ticket-colour-text1 {
+  background-color: #eceef1;
+  padding: 0.05cm;
+  display: inline-block;
+  color: #000000;
+  font-weight: 1000;
+  font-size: 0.2cm;
+  font-family: 'Times New Roman', Times, serif;
+  text-align: center;
+  border-left: 0.03cm solid #000000;
+}
+
+/* Winning Numbers Section */
+.shanida-ticket-winning-numbers {
+  justify-content: center;
+}
+
+.shanida-ticket-winning-numbers-title {
+  color: white;
+  font-size: 0.23cm;
+  font-weight: 1000;
+  margin-left: 0.45cm;
+  margin-top: 0.1cm;
+  margin-bottom: 0.1cm;
+  justify-content: center;
+}
+
+.shanida-ticket-winning-numbers-titletm {
+  color: white;
+  font-size: 0.18cm;
+  font-weight: 1000;
+  margin-left: -0.8cm;
+  margin-top: 0.1cm;
+  margin-bottom: 0.1cm;
+  justify-content: center;
+}
+
+.shanida-ticket-winning-numbers-container {
+  display: flex;
+  align-items: center;
+  gap: 0.1cm;
+  margin-left: 0.5cm;
+}
+
+/* .superball-ticket-winning-number {
+  width: 0.4cm;
+  height: 0.4cm;
+  background-color: #ffffff;
+  border-radius: 0.1cm;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+} */
+
+.shanida-ticket-winning-number-text:nth-child(5) {
+  margin-left: 0.2cm;
+}
+
+.shanida-ticket-winning-number-text {
+  width: 0.4cm;
+  height: 0.4cm;
+  background-color: #ffffff;
+  border-radius: 0.1cm;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-size: 0.3cm;
+  font-weight: 1000;
+  text-align: center;
+  color: #000;
+}
+
+/* Bottom Section */
+.shanida-ticket-bottom {
+  align-items: center;
+  margin-left: -1.75cm;
+  margin-right: 0.4cm;
+  margin-top: 0.2cm;
+  width: auto;
+  height: 0.5cm;
+  background-color: #2d3748;
+  border-radius: 0.1cm;
+  display: flex;
+  padding: 0.05cm;
+  color: white;
+  font-size: 0.2cm;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.shanida-ticket-bottomtm {
+  align-items: center;
+  margin-left: -1.5cm;
+  margin-right: 0.4cm;
+  margin-top: 0.1cm;
+  width: auto;
+  height: 0.5cm;
+  background-color: #2d3748;
+  border-radius: 0.1cm;
+  display: flex;
+  padding: 0.05cm;
+  color: white;
+  font-size: 0.15cm;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.shanida-ticket-special {
+  display: flex;
+  margin-top: 0.1cm;
+ }
+ 
+ /* Special Prize Section */
+ .shanida-ticket-special-prize-container {
+  display: flex;
+  background-color: #ffffff;
+  border-radius: 0.1cm;
+  height: 0.4cm;
+  width: auto;
+  padding: 0.05cm 0.2cm 0.2cm;
+  margin-top: 0.1cm;
+ }
+ 
+ .shanida-ticket-special-prize-icon {
+  margin-left: -0.4cm;
+  margin-top: -0.2cm;
+  height: 0.5cm;
+  width: 0.8cm;  
+ }
+ 
+ /* Additional Styling */
+ .special-numbers {
+  color: rgb(0, 0, 0);
+  text-align: center;
+  font-size: 0.25cm;
+  font-weight: 1000;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.special-numbers-tm {
+  color: rgb(0, 0, 0);
+  text-align: center;
+  font-size: 0.18cm;
+  font-weight: 1000;
+  font-family: 'Times New Roman', Times, serif;
+}
+

@@ -20,7 +20,7 @@ const HeaderEnglish = () => {
   }, []);
 
   return (
-    <div className="header-container">
+    <>
   
       <div className="image-container">
         <img
@@ -41,7 +41,7 @@ const HeaderEnglish = () => {
           </div>
         </div>
         </div>
-    </div>
+    </>
   );
 };
 

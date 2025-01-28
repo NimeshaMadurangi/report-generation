@@ -72,7 +72,7 @@ const KaprukaSinhala = ({ name = "Kapruka" }) => {
         <div className="kapruka-ticket-header">
           <div className="kapruka-ticket-logo-container">
             <img
-              src="/images/logo/kapruka.png"
+              src="/images/kapruka.png"
               alt={name}
               className="kapruka-ticket-logo"
             />
@@ -93,55 +93,50 @@ const KaprukaSinhala = ({ name = "Kapruka" }) => {
               <div className="kapruka-ticket-colour-text1">
                 {translateColor(lottery.color) || "Loading..."}
               </div>
-         
-            <div className="kapruka-ticket-winning-numbers">
+        
+              <div className="kapruka-ticket-winning-numbers">
               <div className="kapruka-ticket-winning-numbers-title">
-                ------- ඉංග්‍රීසි අකුර, සුපිරි අංකය සහ ජයග්‍රාහී අංක -------
+              ------- ඉංග්‍රීසි අකුර, සුපිරි අංකය සහ ජයග්‍රාහී අංක -------
               </div>
               </div>
               <div className="kapruka-ticket-winning-numbers-container">
-              <div className="kapruka-ticket-ball6">
-                  <div className="kapruka-ticket-ball6-number">
-                    <div className="kapruka-ticket-winning-number6-text">
-                      {lottery.ball5 || "Loading..."}
-                    </div>
-                  </div>
-                  <div className="kapruka-ticket-ball6-number">
-                    <div className="kapruka-ticket-winning-number6-text">
-                      {lottery.ball6 || "Loading..."}
-                    </div>
-                  </div>
-              </div>
                 {balls.length > 0
                   ? balls.map((ball, index) => (
-                      <div
-                        key={index}
-                        className="kapruka-ticket-winning-number"
-                      >
-                        <div className="kapruka-ticket-winning-number-text">
+                      
+                        <div key={index} className="kapruka-ticket-winning-number-text">
                           {ball}
                         </div>
-                      </div>
+                     
                     ))
                   : "Loading..."}
               </div>
+           
               <div className="kapruka-ticket-special">
-                <div className="kapruka-ticket-bottomsn">
-                  මීළඟ සුපිරි ජයමල්ල රු. {lottery.next_super || "Loading..."}
-                </div>
-                {lottery.special1 && (
-                  <div className="kapruka-ticket-special-prize-container">
-                    <img
-                      src="/images/sc.png"
-                      alt="Special Prize"
-                      className="kapruka-ticket-special-prize-icon"
-                    />
-                    <div className="special-numbers">
-                      රු. 50,000/- සඳහා <br /> විශේෂ අංකය : {lottery.special1 || "Loading..."}
-                    </div>
+            <div className="kapruka-ticket-bottom">
+                මීළඟ සුපිරි ජයමල්ල රු. {lottery.next_super || "Loading..."}
+            </div>
+            {/* Special Numbers Section */}
+            {(lottery.special1 || lottery.special2) && (
+              <div className="kapruka-ticket-special-prize-container">
+                <img
+                  src="/images/sc.png"
+                  alt="Special Prize"
+                  className="kapruka-ticket-special-prize-icon"
+                />
+                <div className="special-numbers">
+                    {lottery.special1 && (
+                      <>
+                        විශේෂ අංකය <br />
+                        රු. 50,000/- සඳහා :{" "}
+                        {lottery.special1 || "Loading..."}
+                        <br />
+                      </>
+                    )}
+                    {lottery.special2 && <>රු. 40/-: {lottery.special2}</>}
                   </div>
-                )}
               </div>
+            )}
+          </div>
           </div>
         </div>
       </div>

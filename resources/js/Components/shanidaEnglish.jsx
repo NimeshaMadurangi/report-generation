@@ -12,6 +12,8 @@ const ShanidaEnglish = ({ name = "Shanida" }) => {
     ball4: null,
     ball5: null,
     next_super: null,
+    special1: null,
+    special2: null,
   });
 
   useEffect(() => {
@@ -38,7 +40,7 @@ const ShanidaEnglish = ({ name = "Shanida" }) => {
         <div className="shanida-ticket-header">
           <div className="shanida-ticket-logo-container">
             <img
-              src="/images/shanida.png"
+              src="/images/shani.png"
               alt={name}
               className="shanida-ticket-logo"
             />
@@ -67,14 +69,11 @@ const ShanidaEnglish = ({ name = "Shanida" }) => {
               <div className="shanida-ticket-winning-numbers-container">
                 {balls.length > 0
                   ? balls.map((ball, index) => (
-                      <div
-                        key={index}
-                        className="shanida-ticket-winning-number"
-                      >
-                        <div className="shanida-ticket-winning-number-text">
+                     
+                        <div key={index} className="shanida-ticket-winning-number-text">
                           {ball}
                         </div>
-                      </div>
+                      
                     ))
                   : "Loading..."}
               </div>
@@ -94,11 +93,12 @@ const ShanidaEnglish = ({ name = "Shanida" }) => {
                 <div className="special-numbers">
                   {lottery.special1 && (
                     <>
-                      Special number for Rs. 50,000/-: {lottery.special1}
-                      <br />
+                      Special number for 
+                      <br /> Rs. 50,000/-: {lottery.special1}
+                      <> | </>
                     </>
                   )}
-                  {lottery.special2 && <>Rs. 40,000/-: {lottery.special2}</>}
+                  {lottery.special2 && <>Rs. 40/-: {lottery.special2}</>}
                 </div>
               </div>
             )}

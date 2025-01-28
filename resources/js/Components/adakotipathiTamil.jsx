@@ -12,6 +12,8 @@ const AdakotipathiTamil = ({ name = "Ada kotipathi" }) => {
     ball4: null,
     ball5: null,
     next_super: null,
+    special1: null,
+    special2: null,
   });
 
   useEffect(() => {
@@ -73,7 +75,7 @@ const AdakotipathiTamil = ({ name = "Ada kotipathi" }) => {
         <div className="adakotipathi-ticket-header">
           <div className="adakotipathi-ticket-logo-container">
             <img
-              src="/images/adakotipathi.png"
+              src="/images/AD.png"
               alt={name}
               className="adakotipathi-ticket-logo"
             />
@@ -83,7 +85,7 @@ const AdakotipathiTamil = ({ name = "Ada kotipathi" }) => {
               <div className="adakotipathi-ticket-draw-number-text">
                 வெற்றி வாரம்
               </div>
-              <div className="adakotipathi-ticket-draw-number-text1">
+              <div className="adakotipathi-ticket-draw-number-text1-tm">
                 {lottery.number || "Loading..."}
               </div>
            
@@ -96,26 +98,23 @@ const AdakotipathiTamil = ({ name = "Ada kotipathi" }) => {
               </div>
             
             <div className="adakotipathi-ticket-winning-numbers">
-              <div className="adakotipathi-ticket-winning-numbers-title">
+              <div className="adakotipathi-ticket-winning-numbers-title-tm">
                 ----- வெற்றி எண்கள் -----
               </div>
               <div className="adakotipathi-ticket-winning-numbers-container">
                 {balls.length > 0
                   ? balls.map((ball, index) => (
-                      <div
-                        key={index}
-                        className="adakotipathi-ticket-winning-number"
-                      >
-                        <div className="adakotipathi-ticket-winning-number-text">
+                      
+                        <div key={index} className="adakotipathi-ticket-winning-number-text">
                           {ball}
                         </div>
-                      </div>
+                      
                     ))
                   : "Loading..."}
               </div>
             </div>
             <div className="adakotipathi-ticket-special">
-            <div className="adakotipathi-ticket-bottom">
+            <div className="adakotipathi-ticket-bottomtm">
               அடுத்த சுப்பர் ஐக்பொட் : ரூ. {lottery.next_super || "Loading..."}
             </div>
             {/* Special Numbers Section */}

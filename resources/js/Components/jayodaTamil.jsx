@@ -12,6 +12,8 @@ const JayodaTamil = ({ name = "Jayoda" }) => {
     ball4: null,
     ball5: null,
     next_super: null,
+    special1: null,
+    special2: null,
   });
 
   useEffect(() => {
@@ -83,7 +85,7 @@ const JayodaTamil = ({ name = "Jayoda" }) => {
               <div className="jayoda-ticket-draw-number-text">
                 வெற்றி வாரம்
               </div>
-              <div className="jayoda-ticket-draw-number-text1">
+              <div className="jayoda-ticket-draw-number-text1-tm">
                 {lottery.number || "Loading..."}
               </div>
            
@@ -102,25 +104,40 @@ const JayodaTamil = ({ name = "Jayoda" }) => {
               <div className="jayoda-ticket-winning-numbers-container">
                 {balls.length > 0
                   ? balls.map((ball, index) => (
-                      <div
-                        key={index}
-                        className="jayoda-ticket-winning-number"
-                      >
-                        <div className="jayoda-ticket-winning-number-text">
+                      
+                        <div key={index} className="jayoda-ticket-winning-number-text">
                           {ball}
                         </div>
-                      </div>
+                      
                     ))
                   : "Loading..."}
               </div>
             </div>
             <div className="jayoda-ticket-special">
-              <div className="jayoda-ticket-bottom">
-                <div className="jayoda-ticket-next-jackpot">
-                  அடுத்த சுப்பர் ஐக்பொட் : ரூ. {lottery.next_super || "Loading..."}
-                </div>
-              </div>
+            <div className="jayoda-ticket-bottom">
+              அடுத்த சுப்பர் ஐக்பொட் : ரூ. {lottery.next_super || "Loading..."}
             </div>
+            {/* Special Numbers Section */}
+            {(lottery.special1 || lottery.special2) && (
+              <div className="jayoda-ticket-special-prize-container">
+                <img
+                  src="/images/sc.png"
+                  alt="Special Prize"
+                  className="jayoda-ticket-special-prize-icon"
+                />
+                <div className="special-numbers">
+                    {lottery.special1 && (
+                      <>
+                        ரூ. 50,000/- பணம் பரிசுகான <br/> வீசேட இலக்கங்கள் :{" "}
+                        {lottery.special1 || "Loading..."}
+                        <br />
+                      </>
+                    )}
+                    {lottery.special2 && <>ரூ. 40/- : {lottery.special2}</>}
+                  </div>
+              </div>
+            )}
+          </div>
           </div>
         </div>
       </div>

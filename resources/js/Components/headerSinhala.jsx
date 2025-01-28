@@ -11,7 +11,7 @@ const HeaderSinhala = () => {
         Monday: "සඳුදා",
         Tuesday: "අඟහරුවාදා",
         Wednesday: "බදාදා",
-        Thursday: "ගුරුදා",
+        Thursday: "බ්‍රහස්පතින්දා",
         Friday: "සිකුරාදා",
         Saturday: "සෙනසුරාදා",
       };

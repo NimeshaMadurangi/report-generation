@@ -12,6 +12,8 @@ const AdakotipathiEnglish = ({ name = "Ada kotipathi" }) => {
     ball4: null,
     ball5: null,
     next_super: null,
+    special1: null,
+    special2: null,
   });
 
   useEffect(() => {
@@ -38,7 +40,7 @@ const AdakotipathiEnglish = ({ name = "Ada kotipathi" }) => {
         <div className="adakotipathi-ticket-header">
           <div className="adakotipathi-ticket-logo-container">
             <img
-              src="/images/adakotipathi.png"
+              src="/images/AD.png"
               alt={name}
               className="adakotipathi-ticket-logo"
             />
@@ -67,14 +69,11 @@ const AdakotipathiEnglish = ({ name = "Ada kotipathi" }) => {
               <div className="adakotipathi-ticket-winning-numbers-container">
                 {balls.length > 0
                   ? balls.map((ball, index) => (
-                      <div
-                        key={index}
-                        className="adakotipathi-ticket-winning-number"
-                      >
-                        <div className="adakotipathi-ticket-winning-number-text">
+                      
+                        <div key={index} className="adakotipathi-ticket-winning-number-text">
                           {ball}
                         </div>
-                      </div>
+                      
                     ))
                   : "Loading..."}
               </div>

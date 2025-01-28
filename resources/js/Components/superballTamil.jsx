@@ -12,6 +12,8 @@ const SuperballTamil = ({ name = "Superball" }) => {
     ball4: null,
     ball5: null,
     next_super: null,
+    special1: null,
+    special2: null,
   });
 
   useEffect(() => {
@@ -80,7 +82,7 @@ const SuperballTamil = ({ name = "Superball" }) => {
               <div className="superball-ticket-draw-number-text">
                 வெற்றி வாரம்
               </div>
-              <div className="superball-ticket-draw-number-text1">
+              <div className="superball-ticket-draw-number-text1-tm">
                 {lottery.number || "Loading..."}
               </div>
            
@@ -99,25 +101,40 @@ const SuperballTamil = ({ name = "Superball" }) => {
               <div className="superball-ticket-winning-numbers-container">
                 {balls.length > 0
                   ? balls.map((ball, index) => (
-                      <div
-                        key={index}
-                        className="superball-ticket-winning-number"
-                      >
-                        <div className="superball-ticket-winning-number-text">
+                      
+                        <div key={index} className="superball-ticket-winning-number-text">
                           {ball}
                         </div>
-                      </div>
+                     
                     ))
                   : "Loading..."}
               </div>
             </div>
             <div className="superball-ticket-special">
-              <div className="superball-ticket-bottom">
-                <div className="superball-ticket-next-jackpot">
-                  அடுத்த சுப்பர் ஐக்பொட் : ரூ. {lottery.next_super || "Loading..."}
-                </div>
-              </div>
+            <div className="superball-ticket-bottomtm">
+              அடுத்த சுப்பர் ஐக்பொட் : ரூ. {lottery.next_super || "Loading..."}
             </div>
+            {/* Special Numbers Section */}
+            {(lottery.special1 || lottery.special2) && (
+              <div className="superball-ticket-special-prize-container">
+                <img
+                  src="/images/sc.png"
+                  alt="Special Prize"
+                  className="superball-ticket-special-prize-icon"
+                />
+                <div className="special-numbers-tm">
+                    {lottery.special1 && (
+                      <>
+                         வீசேட இலக்கங்கள் <br />
+                         ரூ. 50,000/- : {lottery.special1 || "Loading..."}
+                      </>
+                    )}
+                    <> | </>
+                    {lottery.special2 && <>ரூ. 40/- : {lottery.special2}</>}
+                  </div>
+              </div>
+            )}
+          </div>
           </div>
         </div>
       </div>

@@ -77,7 +77,7 @@ const SupiridanaTamil = ({ name = "Supiri Dhana Sampatha" }) => {
         <div className="supiridana-ticket-header">
           <div className="supiridana-ticket-logo-container">
             <img
-              src="/images/supiridana.png"
+              src="/images/sdt.png"
               alt={name}
               className="supiridana-ticket-logo"
             />
@@ -85,61 +85,62 @@ const SupiridanaTamil = ({ name = "Supiri Dhana Sampatha" }) => {
           <div className="supiridana-ticket-draw-number-container">
             
               <div className="supiridana-ticket-draw-number-text">
-                Draw Number
+                வெற்றி வாரம்
               </div>
-              <div className="supiridana-ticket-draw-number-text1">
+              <div className="supiridana-ticket-draw-number-text1-tm">
                 {lottery.number || "Loading..."}
               </div>
            
             
               <div className="supiridana-ticket-colour-text">
-                Colour
+                வர்ணம்
               </div>
               <div className="supiridana-ticket-colour-text1">
                   {translateColor(lottery.color) || "Loading..."}
               </div>
          
             <div className="supiridana-ticket-winning-numbers">
-              <div className="supiridana-ticket-winning-numbers-title">
-                English Letter, Super Number & Winning Numbers
+              <div className="supiridana-ticket-winning-numbers-titletm">
+              -- ஆங்கில எமுத்து, சுப்பர் இலக்கம் ம்ற்றும் வெற்றி இலக்கம் --
               </div>
               <div className="supiridana-ticket-winning-numbers-container">
                 {balls.length > 0
                   ? balls.map((ball, index) => (
-                      <div
-                        key={index}
-                        className="supiridana-ticket-winning-number"
-                      >
-                        <div className="supiridana-ticket-winning-number-text">
+                      
+                        <div key={index} className="supiridana-ticket-winning-number-text">
                           {ball}
                         </div>
-                      </div>
+                      
                     ))
                   : "Loading..."}
               </div>
             </div>
-            <div className="lagna-ticket-special">
-              <div className="lagna-ticket-bottom">
-                அடுத்த சுப்பர் ஐக்பொட் : ரூ.{lottery.next_super || "Loading..."}
-              </div>
-              {(lottery.special1 || lottery.special2) && (
-                <div className="lagna-ticket-special-prize-container">
-                  <img
-                    src="/images/sc.png"
-                    alt="Special Prize"
-                    className="lagna-ticket-special-prize-icon"
-                  />
-                  <div className="special-numbers">
+            <div className="supiridana-ticket-special">
+            <div className="supiridana-ticket-bottomtm">
+              அடுத்த சுப்பர் ஐக்பொட் : ரூ. {lottery.next_super || "Loading..."}
+            </div>
+            {/* Special Numbers Section */}
+            {(lottery.special1 || lottery.special2) && (
+              <div className="supiridana-ticket-special-prize-container">
+                <img
+                  src="/images/sc.png"
+                  alt="Special Prize"
+                  className="supiridana-ticket-special-prize-icon"
+                />
+                <div className="supiridana-special-numbers-tm">
                     {lottery.special1 && (
                       <>
-                        ரூ 50,000/-: {lottery.special1 || "Loading..."}
+                        வீசேட இலக்கங்கள் <br />
+                        ரூ. 50,000/- : {lottery.special1 || "Loading..."}
+                        
                       </>
                     )}
-                    {lottery.special2 && <>ரூ 40/-: {lottery.special2}</>}
+                    <> | </>
+                    {lottery.special2 && <>ரூ. 40/- : {lottery.special2}</>}
                   </div>
-                </div>
-              )}
-            </div>
+              </div>
+            )}
+          </div>
           </div>
         </div>
       </div>

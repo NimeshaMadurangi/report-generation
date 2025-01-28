@@ -97,14 +97,11 @@ const SasiriSinhala = ({ name = "Sasiri" }) => {
               <div className="sasiri-ticket-winning-numbers-container">
                 {balls.length > 0
                   ? balls.map((ball, index) => (
-                      <div
-                        key={index}
-                        className="sasiri-ticket-winning-number"
-                      >
-                        <div className="sasiri-ticket-winning-number-text">
+                     
+                        <div key={index} className="sasiri-ticket-winning-number-text">
                           {ball}
                         </div>
-                      </div>
+                     
                     ))
                   : "Loading..."}
                   <div className="sasiri-ticket-winner-container">  

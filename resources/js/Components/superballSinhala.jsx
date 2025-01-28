@@ -12,6 +12,8 @@ const SuperballSinhala = ({ name = "Superball" }) => {
     ball4: null,
     ball5: null,
     next_super: null,
+    special1: null,
+    special2: null,
   });
 
   useEffect(() => {
@@ -99,24 +101,39 @@ const SuperballSinhala = ({ name = "Superball" }) => {
               <div className="superball-ticket-winning-numbers-container">
                 {balls.length > 0
                   ? balls.map((ball, index) => (
-                      <div
-                        key={index}
-                        className="superball-ticket-winning-number"
-                      >
-                        <div className="superball-ticket-winning-number-text">
+                      
+                        <div key={index} className="superball-ticket-winning-number-text">
                           {ball}
                         </div>
-                      </div>
+                   
                     ))
                   : "Loading..."}
               </div>
             </div>
             <div className="superball-ticket-special">
               <div className="superball-ticket-bottom">
-                <div className="superball-ticket-next-jackpot">
-                  මීළඟ සුපිරි ජයමල්ල රු. {lottery.next_super || "Loading..."}
-                </div>
+                මීළඟ සුපිරි ජයමල්ල රු. {lottery.next_super || "Loading..."}
               </div>
+              {/* Special Numbers Section */}
+              {(lottery.special1 || lottery.special2) && (
+                <div className="superball-ticket-special-prize-container">
+                  <img
+                    src="/images/sc.png"
+                    alt="Special Prize"
+                    className="superball-ticket-special-prize-icon"
+                  />
+                  <div className="superball-special-numbers">
+                    {lottery.special1 && (
+                      <>
+                        විශේෂ අංකය <br /> රු. 50,000/- : {" "}
+                        {lottery.special1 || "Loading..."}
+                        <br />
+                      </>
+                    )}
+                    {lottery.special2 && <>රු. 40/-: {lottery.special2}</>}
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </div>

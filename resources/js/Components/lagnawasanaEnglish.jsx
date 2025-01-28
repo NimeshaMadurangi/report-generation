@@ -57,7 +57,7 @@ const LagnaWasanaEnglish = ({ name = "Lagna Wasanawa" }) => {
         <div className="lagna-ticket-header">
           <div className="lagna-ticket-logo-container">
             <img
-              src="/images/lag.png"
+              src="/images/lge.png"
               alt={name}
               className="lagna-ticket-logo"
             />
@@ -121,11 +121,10 @@ const LagnaWasanaEnglish = ({ name = "Lagna Wasanawa" }) => {
                 <div className="special-numbers">
                   {lottery.special1 && (
                     <>
-                      Special number for Rs. 50,000/-: {lottery.special1}
-                      <br />
+                      Special number for <br /> Rs. 50,000/-: {lottery.special1} <> | </>
                     </>
                   )}
-                  {lottery.special2 && <>Rs. 40,000/-: {lottery.special2}</>}
+                   {lottery.special2 && <>Rs. 40/-: {lottery.special2}</>}
                 </div>
               </div>
             )}

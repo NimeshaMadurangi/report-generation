@@ -1,7 +1,7 @@
 .superball-ticket-container {
   width: 9.5cm;
   height: auto;
-  max-height: 2cm;
+  max-height: 2.5cm;
   margin: 0 auto;
   display: flex;
   background-color: black;
@@ -21,7 +21,7 @@
   }
   
 .superball-ticket-logo {
-  height: 2cm;
+  height: 2.5cm;
   width: 9.5cm;
 }
 
@@ -55,6 +55,19 @@
   text-align: center;
   border-left: 0.03cm solid #000000;
 }
+
+.superball-ticket-draw-number-text1-tm {
+  background-color: #eceef1;
+  padding: 0.05cm;
+  display: inline-block;
+  color: #000000;
+  font-weight: 1000;
+  font-size: 0.23cm;
+  font-family: 'Times New Roman', Times, serif;
+  text-align: center;
+  border-left: 0.03cm solid #000000;
+}
+
 
 /* Color Section */
 
@@ -91,7 +104,9 @@
   color: white;
   font-size: 0.23cm;
   font-weight: 1000;
-  margin-left: 0.4cm;
+  margin-left: 0.5cm;
+  margin-top: 0.1cm;
+  margin-bottom: 0.1cm;
   justify-content: center;
 }
 
@@ -102,29 +117,36 @@
   margin-left: 0.5cm;
 }
 
-.superball-ticket-winning-number {
+/* .superball-ticket-winning-number {
   width: 0.4cm;
   height: 0.4cm;
   background-color: #ffffff;
   border-radius: 0.1cm;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
+} */
 
-.superball-ticket-winning-number:nth-child(5) {
+.superball-ticket-winning-number-text:nth-child(5) {
   margin-left: 0.2cm;
 }
 
 .superball-ticket-winning-number-text {
-  font-size: 0.27cm;
+  width: 0.4cm;
+  height: 0.4cm;
+  background-color: #ffffff;
+  border-radius: 0.1cm;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-size: 0.3cm;
   font-weight: 1000;
   text-align: center;
+  color: #000;
 }
 
 /* Bottom Section */
 .superball-ticket-bottom {
   align-items: center;
-  margin-left: -1.5cm;
-  margin-right: 0.5cm;
+  margin-left: -2cm;
+  margin-right: 0.4cm;
+  margin-top: 0.25cm;
   width: auto;
   height: 0.5cm;
   background-color: #2d3748;
@@ -133,6 +155,21 @@
   padding: 0.05cm;
   color: white;
   font-size: 0.2cm;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.superball-ticket-bottomtm {
+  align-items: center;
+  margin-left: -1.5cm;
+  margin-right: 0.5cm;
+  width: auto;
+  height: 0.4cm;
+  background-color: #2d3748;
+  border-radius: 0.1cm;
+  display: flex;
+  padding: 0.05cm 0.1cm 0.1cm;
+  color: white;
+  font-size: 0.16cm;
   font-family: 'Times New Roman', Times, serif;
 }
 
@@ -148,7 +185,8 @@
   border-radius: 0.1cm;
   height: 0.5cm;
   width: auto;
-  padding: 0.05cm 0.2cm;
+  padding: 0.05cm 0.2cm 0.1cm;
+  margin-top: 0.1cm;
  }
  
  .superball-ticket-special-prize-icon {
@@ -159,10 +197,18 @@
  }
  
  /* Additional Styling */
- .special-numbers {
+ .superball-special-numbers {
   color: rgb(0, 0, 0);
   text-align: center;
-  font-size: 0.25cm;
+  font-size: 0.19cm;
+  font-weight: 1000;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.special-numbers-tm {
+  color: rgb(0, 0, 0);
+  text-align: center;
+  font-size: 0.18cm;
   font-weight: 1000;
   font-family: 'Times New Roman', Times, serif;
 }

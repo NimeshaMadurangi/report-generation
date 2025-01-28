@@ -116,14 +116,14 @@ const LagnaWasanaTamil = ({ name = "Lagna Wasanawa" }) => {
         <div className="lagna-ticket-header">
           <div className="lagna-ticket-logo-container">
             <img
-              src="/images/lagnatamil.png"
+              src="/images/lgt.png"
               alt={name}
               className="lagna-ticket-logo"
             />
           </div>
           <div className="lagna-ticket-draw-number-container">
             <div className="lagna-ticket-draw-number-text">வெற்றி வாரம்</div>
-            <div className="lagna-ticket-draw-number-text1">
+            <div className="lagna-ticket-draw-number-text1-tm">
               {lottery.number || "Loading..."}
             </div>
 
@@ -163,7 +163,7 @@ const LagnaWasanaTamil = ({ name = "Lagna Wasanawa" }) => {
             </div>
 
             <div className="lagna-ticket-special">
-              <div className="lagna-ticket-bottom">
+              <div className="lagna-ticket-bottomtm">
                 அடுத்த சுப்பர் ஐக்பொட் : ரூ.{lottery.next_super || "Loading..."}
               </div>
               {(lottery.special1 || lottery.special2) && (
@@ -173,12 +173,15 @@ const LagnaWasanaTamil = ({ name = "Lagna Wasanawa" }) => {
                     alt="Special Prize"
                     className="lagna-ticket-special-prize-icon"
                   />
-                  <div className="special-numbers">
+                  <div className="special-numbers-tamil">
                     {lottery.special1 && (
                       <>
-                        ரூ 50,000/-: {lottery.special1 || "Loading..."}
+                       வீசேட இலக்கங்கள் <br /> 
+                       ரூ 50,000/- : {lottery.special1 || "Loading..."}
                       </>
                     )}
+                    
+                    <> | </>
                     {lottery.special2 && <>ரூ 40/-: {lottery.special2}</>}
                   </div>
                 </div>
