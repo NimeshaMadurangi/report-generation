@@ -80,7 +80,7 @@ const LagnaWasanaSinhala = ({ name = "Lagna Wasanawa" }) => {
       ARIES: "මේශ",
       TAURUS: "වෘෂභ",
       GEMINI: "මිථුන",
-      CANCER: "කර්ක",
+      CANCER: "කටක",
       LEO: "සින්හ",
       VIRGO: "කන්‍යා",
       LIBRA: "තුලා",
@@ -105,20 +105,24 @@ const LagnaWasanaSinhala = ({ name = "Lagna Wasanawa" }) => {
     SAGITTARIUS: "/images/lagnaimages/sagittarius.png",
   };
 
+  const formatCurrency = (amount) => {
+    return "රු. " + Number(amount).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  };
+
   return (
-    <div className="lagna-ticket-container">
+    <div className="lagna-ticket-containersn">
       <div className="lagna-ticket-card">
         <div className="lagna-ticket-header">
           <div className="lagna-ticket-logo-container">
             <img
-              src="/images/lgs.png"
+              src="/images/logo/lagnasinhala.png"
               alt={name}
-              className="lagna-ticket-logo"
+              className="lagna-ticket-logosn"
             />
           </div>
-          <div className="lagna-ticket-draw-number-container">
+          <div className="lagna-ticket-draw-number-containersn">
             <div className="lagna-ticket-draw-number-text">දිනුම් වාරය</div>
-            <div className="lagna-ticket-draw-number-text1">
+            <div className="lagna-ticket-draw-number-text1-sn">
               {lottery.number || "Loading..."}
             </div>
             <div className="lagna-ticket-colour-text">වර්ණය</div>
@@ -138,9 +142,9 @@ const LagnaWasanaSinhala = ({ name = "Lagna Wasanawa" }) => {
                             <img
                               src={ballImageMap[ball]}
                               alt={`Ball ${ball}`}
-                              className="lagna-ticket-ball-image"
+                              className="lagna-ticket-ball-images"
                             />
-                            <div className="lagna-ticket-ball-name">
+                            <div className="lagna-ticket-ball-names">
                               {translateBallName(ball)}
                             </div>
                           </>
@@ -154,9 +158,9 @@ const LagnaWasanaSinhala = ({ name = "Lagna Wasanawa" }) => {
                   : "Loading..."}
               </div>
             </div>
-            <div className="lagna-ticket-special">
+            <div className="lagna-ticket-special-sn">
               <div className="lagna-ticket-bottoms">
-                මීළඟ සුපිරි ජයමල්ල රු. {lottery.next_super || "Loading..."}
+                මීළඟ සුපිරි ජයමල්ල : {formatCurrency(lottery.next_super) || "Loading..."}
               </div>
               {/* Special Numbers Section */}
               {(lottery.special1 || lottery.special2) && (
@@ -166,16 +170,26 @@ const LagnaWasanaSinhala = ({ name = "Lagna Wasanawa" }) => {
                     alt="Special Prize"
                     className="lagna-ticket-special-prize-icon"
                   />
-                  <div className="special-numbers">
-                    {lottery.special1 && (
-                      <>
-                         විශේෂ අංකය {" "} <br />
-                         රු. 50,000/- : {lottery.special1 || "Loading..."} <> | </>
-                      </>
-                    )}
-                    {lottery.special2 && <>රු. 40/- : {lottery.special2}</>}
+
+                 <div className="lagna-special-numbers">
+                  {lottery.special1 && (
+                    <>
+                      <div className="lagna-special-numbers-text-pp"> 
+                      විශේෂ අංකය <br /> රු. 50,000/- සඳහා
+                      </div>
+                      <div className="lagna-special-txt"> {lottery.special1} </div>
+                    </>
+                  )}
                   </div>
+                  
+                  <div className="lagna-special-numbers">
+                      <div className="lagna-special-numbers-text-pp"> 
+                      විශේෂ අංකය <br /> රු. 40/- සඳහා
+                      </div>
+                      <div className="lagna-special-txt"> {lottery.special2 && <>{lottery.special2}</>} </div>
                 </div>
+              </div> 
+                 
               )}
             </div>
           </div>

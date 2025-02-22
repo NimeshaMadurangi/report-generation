@@ -1,57 +1,11 @@
 .footertm-image-container {
-  width: 9.5cm;
-  max-height: 1.5cm;
+  width: 10.8cm;
+  max-height: 1.2cm;
   margin: 0 auto;
   display: flex;
-  background-color: rgb(255, 255, 255);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
  
 .footertm-logo {
-  margin-top: 0.1cm;
-  margin-left: 0.1cm;
-  width: 1.5cm;
-  height: 1.3cm;
+  width: 10.8cm;
+  height: 100%;
 }
-  
-.footertm-header-text {
-  color: #000;
-  font-size: 0.15cm;
-  font-weight: 1000;
-  font-family: 'Times New Roman', Times, serif;
-  margin-left: 0.1cm;
-  margin-top: 0.1cm;
-}
-
-.footertm-header-text1 {
-  color: #000;
-  font-size: 0.1cm;
-  font-weight: 500;
-  font-family: 'Times New Roman', Times, serif;
-}
-
-.footertm-header-text2 {
-  color: #000;
-  font-size: 0.1cm;
-  font-weight: 1000;
-  font-family: 'Times New Roman', Times, serif;
-}
-
-.footertm-date-container {
-  width: 4cm;
-  height: 1.5cm;
-  display: flex;
-  margin-left: auto;
-  background-color: rgb(0, 0, 0);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  clip-path: polygon(10% 0, 100% 0, 100% 100%, 10% 100%, 0 100%);
-  }
-
-  .footertm-date-text {
-    color: #ffffff;
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 0.15cm;
-    font-weight: 1000;
-    margin-left: 0.45cm;
-  }
-

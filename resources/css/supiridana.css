@@ -1,17 +1,22 @@
 .supiridana-ticket-container {
-  width: 9.5cm;
+  width: 10.8cm;
   height: auto;
-  max-height: 2.5cm;
+  max-height: 2.4cm;
   margin: 0 auto;
   display: flex;
-  background-color: black;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.supiridana-ticket-containersn {
+  width: 9.3cm;
+  height: auto;
+  max-height: 2.4cm;
+  margin: 0 auto;
+  display: flex;
 }
   
   /* Header Section */
 .supiridana-ticket-header {
   display: flex;
-  align-items: center;
 }
   
   /* Logo Section */
@@ -21,8 +26,13 @@
   }
   
 .supiridana-ticket-logo {
-  height: 2.5cm;
-  width: 9.5cm;
+  height: 2.4cm;
+  width: 10.8cm;
+}
+
+.supiridana-ticket-logosn {
+  height: 2.4cm;
+  width: 9.3cm;
 }
 
 /* Draw Number Section */
@@ -31,25 +41,43 @@
   align-items: flex-start;
   margin-left: -6cm;
   margin-right: 0.1cm;
+  margin-top: 0.05cm;
+}
+
+.supiridana-ticket-draw-number-containersn {
+  flex: 1;
+  align-items: flex-start;
+  margin-left: -4.8cm;
+  margin-right: 0.1cm;
+  margin-top: 0.05cm;
+}
+
+.supiridana-ticket-draw-number-containertm {
+  flex: 1;
+  align-items: flex-start;
+  margin-left: -7cm;
+  margin-top: 0.05cm;
 }
   
 .supiridana-ticket-draw-number-text {
   background-color: #b4b4b4;
-  padding: 0.05cm;
+  padding: 0.04cm 0.04cm 0.04cm 0.04cm;
   display: inline-block;
   color: #000000;
   font-weight: 1000;
-  font-size: 0.2cm;
+  font-size: 0.26cm;
+  letter-spacing: 0.01cm;
   font-family: 'Times New Roman', Times, serif;
 }
 
 .supiridana-ticket-draw-number-text1 {
   background-color: #eceef1;
-  padding: 0.05cm;
+  padding: 0.04cm 0.2cm 0.04cm;
   display: inline-block;
   color: #000000;
   font-weight: 1000;
-  font-size: 0.2cm;
+  font-size: 0.26cm;
+  letter-spacing: 0.05cm;
   font-family: 'Times New Roman', Times, serif;
   text-align: center;
   border-left: 0.03cm solid #000000;
@@ -57,11 +85,11 @@
 
 .supiridana-ticket-draw-number-text1-tm {
   background-color: #eceef1;
-  padding: 0.05cm;
+  padding: 0.06cm 0.1cm 0.0cm;
   display: inline-block;
   color: #000000;
   font-weight: 1000;
-  font-size: 0.23cm;
+  font-size: 0.31cm;
   font-family: 'Times New Roman', Times, serif;
   text-align: center;
   border-left: 0.03cm solid #000000;
@@ -72,11 +100,12 @@
 
 .supiridana-ticket-colour-text {
   background-color: #b4b4b4;
-  padding: 0.05cm;
+  padding: 0.04cm 0.04cm 0.04cm 0.04cm;
   display: inline-block;
   color: #000000;
   font-weight: 1000;
-  font-size: 0.2cm;
+  font-size: 0.26cm;
+  letter-spacing: 0.01cm;
   font-family: 'Times New Roman', Times, serif;
   text-align: center;
   margin-left: 0.5cm;
@@ -84,11 +113,12 @@
 
 .supiridana-ticket-colour-text1 {
   background-color: #eceef1;
-  padding: 0.05cm;
+  padding: 0.04cm 0.2cm 0.04cm;
   display: inline-block;
   color: #000000;
   font-weight: 1000;
-  font-size: 0.2cm;
+  font-size: 0.26cm;
+  letter-spacing: 0.01cm;
   font-family: 'Times New Roman', Times, serif;
   text-align: center;
   border-left: 0.03cm solid #000000;
@@ -103,17 +133,27 @@
   color: white;
   font-size: 0.23cm;
   font-weight: 1000;
-  margin-left: 0.1cm;
-  margin-top: 0.1cm;
-  margin-bottom: 0.1cm;
+  margin-left: -1.34cm;
+  margin-top: 0.05cm;
+  margin-bottom: 0.05cm;
+  justify-content: center;
+}
+
+.supiridana-ticket-winning-numbers-titles {
+  color: white;
+  font-size: 0.2cm;
+  font-weight: 1000;
+  margin-left: -1cm;
+  margin-top: 0.05cm;
+  margin-bottom: 0.08cm;
   justify-content: center;
 }
 
 .supiridana-ticket-winning-numbers-titletm {
   color: white;
-  font-size: 0.18cm;
+  font-size: 0.15cm;
   font-weight: 1000;
-  margin-left: -0.8cm;
+  margin-left: -1.2cm;
   margin-top: 0.1cm;
   margin-bottom: 0.1cm;
   justify-content: center;
@@ -123,16 +163,25 @@
   display: flex;
   align-items: center;
   gap: 0.1cm;
-  margin-left: 0.5cm;
+  margin-left: -1.2cm;
+  margin-top: -0.05cm;
 }
 
-/* .superball-ticket-winning-number {
-  width: 0.4cm;
-  height: 0.4cm;
-  background-color: #ffffff;
-  border-radius: 0.1cm;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-} */
+.supiridana-ticket-winning-numbers-container-sn {
+  display: flex;
+  align-items: center;
+  gap: 0.1cm;
+  margin-left: -1.2cm;
+  margin-top: -0.05cm;
+}
+
+.supiridana-ticket-winning-numbers-container-tm {
+  display: flex;
+  align-items: center;
+  gap: 0.1cm;
+  margin-left: -1.2cm;
+  margin-top: -0.05cm;
+}
 
 .supiridana-ticket-winning-number-text:nth-child(1) {
   margin-right: 0.2cm;
@@ -142,54 +191,89 @@
   margin-right: 0.2cm;
 }
 
-.supiridana-ticket-winning-number-text {
-  width: 0.4cm;
-  height: 0.4cm;
+.supiridana-ticket-winning-number {
+  width: 0.65cm;
+  height: 0.65cm;
   background-color: #ffffff;
-  border-radius: 0.1cm;
+  border-radius: 50%;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  font-size: 0.3cm;
-  font-weight: 1000;
+  display: flex;  /* Enables flexbox */
+  justify-content: center; /* Centers horizontally */
+  align-items: center; /* Centers vertically */
   text-align: center;
-  color: #000;
 }
 
+.supiridana-ticket-winning-number-text {
+  font-size: 0.47cm; /* Slightly reduce if needed */
+  font-weight: 1000;
+  color: #000;
+  line-height: 1.5; /* Ensures text doesn't push down */
+  margin-left: 0.21cm;
+}
 /* Bottom Section */
 .supiridana-ticket-bottom {
   align-items: center;
-  margin-left: -2cm;
+  margin-left: -3.5cm;
   margin-right: 0.3cm;
-  margin-top: 0.15cm;
+  margin-top: 0.1cm;
   width: auto;
-  height: 0.5cm;
+  height: 0.45cm;
   background-color: #2d3748;
   border-radius: 0.1cm;
   display: flex;
-  padding: 0.05cm;
+  padding: 0.05cm 0.05cm 0.05cm 0.05cm;
   color: white;
-  font-size: 0.2cm;
+  font-size: 0.32cm;
+  font-weight: bold;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.supiridana-ticket-bottom-sn {
+  align-items: center;
+  margin-left: -2.8cm;
+  margin-right: 0.3cm;
+  margin-top: 0.1cm;
+  width: auto;
+  height: 0.4cm;
+  background-color: #2d3748;
+  border-radius: 0.1cm;
+  display: flex;
+  padding: 0.05cm 0.05cm 0.05cm 0.05cm;
+  color: white;
+  font-size: 0.26cm;
+  font-weight: bold;
   font-family: 'Times New Roman', Times, serif;
 }
 
 .supiridana-ticket-bottomtm {
   align-items: center;
-  margin-left: -1.5cm;
+  margin-left: -2.5cm;
   margin-right: 0.5cm;
-  margin-top: 0.15cm;
+  margin-top: 0.1cm;
   width: auto;
   height: 0.4cm;
   background-color: #2d3748;
   border-radius: 0.1cm;
   display: flex;
-  padding: 0.05cm;
+  padding: 0.05cm 0.05cm 0.05cm 0.05cm;
   color: white;
-  font-size: 0.15cm;
+  font-size: 0.14cm;
+  font-weight: bold;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.supiridana-ticket-bottomtm-txt {
+  margin-left: 0.05cm;
+  color: white;
+  font-size: 0.24cm;
+  font-weight: bold;
   font-family: 'Times New Roman', Times, serif;
 }
 
 .supiridana-ticket-special {
   display: flex;
-  margin-top: 0.2cm;
+  margin-top: 0.1cm;
+  margin-left: -0.7cm;
  }
  
  /* Special Prize Section */
@@ -197,32 +281,49 @@
   display: flex;
   background-color: #ffffff;
   border-radius: 0.1cm;
-  height: 0.5cm;
+  height: 0.4cm;
   width: auto;
-  padding: 0.05cm 0.2cm 0.2cm;
+  padding: 0.03cm 0.05cm 0.24cm;
+  margin-top: 0.05cm;
  }
  
  .supiridana-ticket-special-prize-icon {
   margin-left: -0.4cm;
-  margin-top: -0.2cm;
+  margin-top: -0.1cm;
   height: 0.5cm;
   width: 0.8cm;  
  }
  
  /* Additional Styling */
- .special-numbers {
+ .supiridana-special-numbers {
   color: rgb(0, 0, 0);
   text-align: center;
-  font-size: 0.25cm;
-  font-weight: 1000;
+  margin-left: 0.3cm;
+  font-size: 0.26cm;
+  font-weight: bold;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.supiridana-special-numbers-text {
+  color: rgb(0, 0, 0);
+  text-align: start;
+  font-size: 0.12cm;
+  font-weight: bold;
   font-family: 'Times New Roman', Times, serif;
 }
 
 .supiridana-special-numbers-tm {
   color: rgb(0, 0, 0);
   text-align: center;
-  font-size: 0.18cm;
+  font-size: 0.2cm;
   font-weight: 1000;
   font-family: 'Times New Roman', Times, serif;
 }
 
+.supiridana-special-numbers-text-pptm {
+  color: rgb(0, 0, 0);
+  text-align: start;
+  font-size: 0.12cm;
+  font-weight: bold;
+  font-family: 'Times New Roman', Times, serif;
+}

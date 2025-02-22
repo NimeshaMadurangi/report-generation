@@ -69,6 +69,10 @@ const KaprukaTamil = ({ name = "Kapruka" }) => {
     return color;
 };
 
+const formatCurrency = (amount) => {
+  return "ரூ. " + Number(amount).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+};
+
 
   return (
     <div className="kapruka-ticket-container">
@@ -76,12 +80,12 @@ const KaprukaTamil = ({ name = "Kapruka" }) => {
         <div className="kapruka-ticket-header">
           <div className="kapruka-ticket-logo-container">
             <img
-              src="/images/kapruka.png"
+              src="/images/logo/kapruka.png"
               alt={name}
               className="kapruka-ticket-logo"
             />
           </div>
-          <div className="kapruka-ticket-draw-number-container">
+          <div className="kapruka-ticket-draw-number-containertm">
             
               <div className="kapruka-ticket-draw-number-text">
                 வெற்றி வாரம்
@@ -103,20 +107,24 @@ const KaprukaTamil = ({ name = "Kapruka" }) => {
                 -- ஆங்கில எமுத்து, சுப்பர் இலக்கம் ம்ற்றும் வெற்றி இலக்கம் --
               </div>
               </div>
-              <div className="kapruka-ticket-winning-numbers-container">
+              <div className="kapruka-ticket-winning-numbers-containertm">
                 {balls.length > 0
                   ? balls.map((ball, index) => (
                       
-                        <div key={index} className="kapruka-ticket-winning-number-text">
-                          {ball}
+                        <div key={index} className="kapruka-ticket-winning-number">
+                          <div className="kapruka-ticket-winning-number-text">
+                            {ball}
+                          </div>
                         </div>
                      
                     ))
                   : "Loading..."}
               </div>
               <div className="kapruka-ticket-special">
-            <div className="kapruka-ticket-bottom">
-                அடுத்த சுப்பர் ஐக்பொட் : ரூ. {lottery.next_super || "Loading..."}
+            <div className="kapruka-ticket-bottomtm">
+                அடுத்த சுப்பர் ஐக்பொட் : <div className="kapruka-ticket-bottomtm-txt">
+                  {formatCurrency(lottery.next_super) || "Loading..."}
+                </div>
             </div>
             {/* Special Numbers Section */}
             {(lottery.special1 || lottery.special2) && (

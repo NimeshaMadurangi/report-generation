@@ -29,6 +29,8 @@ class Lottery extends Model
         'ball7',
         'special1',
         'special2',
+        'special3',
+        'special4',
         'total',
         'count',
     ];

@@ -69,18 +69,22 @@ const ShanidaTamil = ({ name = "Shanida" }) => {
     (ball) => ball !== null
   );
 
+  const formatCurrency = (amount) => {
+    return "ரூ. " + Number(amount).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  };
+
   return (
     <div className="shanida-ticket-container">
       <div className="shanida-ticket-card">
         <div className="shanida-ticket-header">
           <div className="shanida-ticket-logo-container">
             <img
-              src="/images/shani.png"
+              src="/images/logo/shanida.png"
               alt={name}
               className="shanida-ticket-logo"
             />
           </div>
-          <div className="shanida-ticket-draw-number-container">
+          <div className="shanida-ticket-draw-number-containertm">
             
               <div className="shanida-ticket-draw-number-text">
                 வெற்றி வாரம்
@@ -101,12 +105,14 @@ const ShanidaTamil = ({ name = "Shanida" }) => {
               <div className="shanida-ticket-winning-numbers-titletm">
               -- ஆங்கில எமுத்து, சுப்பர் இலக்கம் ம்ற்றும் வெற்றி இலக்கம் --
               </div>
-              <div className="shanida-ticket-winning-numbers-container">
+              <div className="shanida-ticket-winning-numbers-container-tm">
                 {balls.length > 0
                   ? balls.map((ball, index) => (
                       
-                        <div key={index} className="shanida-ticket-winning-number-text">
-                          {ball}
+                        <div key={index} className="shanida-ticket-winning-number">
+                          <div className="shanida-ticket-winning-number-text">
+                            {ball}
+                          </div>
                         </div>
                       
                     ))
@@ -115,7 +121,10 @@ const ShanidaTamil = ({ name = "Shanida" }) => {
             </div>
             <div className="shanida-ticket-special">
             <div className="shanida-ticket-bottomtm">
-              அடுத்த சுப்பர் ஐக்பொட் : ரூ. {lottery.next_super || "Loading..."}
+              அடுத்த சுப்பர் ஐக்பொட் : 
+              <div className="shanida-ticket-bottomtm-txt">
+                {formatCurrency(lottery.next_super) || "Loading..."}
+              </div>
             </div>
             {/* Special Numbers Section */}
             {(lottery.special1 || lottery.special2) && (
@@ -124,18 +133,24 @@ const ShanidaTamil = ({ name = "Shanida" }) => {
                   src="/images/sc.png"
                   alt="Special Prize"
                   className="shanida-ticket-special-prize-icon"
-                />
-                <div className="special-numbers-tm">
-                    {lottery.special1 && (
-                      <>
-                        வீசேட இலக்கங்கள் {" "}
-                        <br />
-                        ரூ. 50,000/- : {lottery.special1 || "Loading..."}
-                      </>
-                    )}
-                    <> | </>
-                    {lottery.special2 && <>ரூ. 40/- : {lottery.special2}</>}
+                />		
+		          <div className="shanida-special-numbers">
+                  {lottery.special1 && (
+                    <>
+                      <div className="shanida-special-numbers-text-pp"> 
+                          வீசேட இலக்கங்கள் <br /> ரூ 50,000/-
+                      </div>
+                      <div className="shanida-special-txt"> {lottery.special1} </div>
+                    </>
+                  )}
                   </div>
+                  
+                  {/* <div className="shanida-special-numbers">
+                      <div className="lagna-special-numbers-text-pp"> 
+                          	ரூ 40/-
+                      </div>
+                      <div className="shanida-special-txt"> {lottery.special2 && <>{lottery.special2}</>} </div>
+                </div> */}
               </div>
             )}
           </div>

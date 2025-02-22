@@ -12,8 +12,7 @@ const AdakotipathiTamil = ({ name = "Ada kotipathi" }) => {
     ball4: null,
     ball5: null,
     next_super: null,
-    special1: null,
-    special2: null,
+    special4: null,
   });
 
   useEffect(() => {
@@ -68,6 +67,10 @@ const AdakotipathiTamil = ({ name = "Ada kotipathi" }) => {
     return color;
 };
 
+const formatCurrency = (amount) => {
+  return "ரூ. " + Number(amount).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+};
+
 
   return (
     <div className="adakotipathi-ticket-container">
@@ -75,12 +78,12 @@ const AdakotipathiTamil = ({ name = "Ada kotipathi" }) => {
         <div className="adakotipathi-ticket-header">
           <div className="adakotipathi-ticket-logo-container">
             <img
-              src="/images/AD.png"
+              src="/images/logo/adakotipathi.png"
               alt={name}
               className="adakotipathi-ticket-logo"
             />
           </div>
-          <div className="adakotipathi-ticket-draw-number-container">
+          <div className="adakotipathi-ticket-draw-number-container-tm">
             
               <div className="adakotipathi-ticket-draw-number-text">
                 வெற்றி வாரம்
@@ -101,12 +104,14 @@ const AdakotipathiTamil = ({ name = "Ada kotipathi" }) => {
               <div className="adakotipathi-ticket-winning-numbers-title-tm">
                 ----- வெற்றி எண்கள் -----
               </div>
-              <div className="adakotipathi-ticket-winning-numbers-container">
+              <div className="adakotipathi-ticket-winning-numbers-container-tm">
                 {balls.length > 0
                   ? balls.map((ball, index) => (
                       
-                        <div key={index} className="adakotipathi-ticket-winning-number-text">
-                          {ball}
+                        <div key={index} className="adakotipathi-ticket-winning-number">
+                          <div className="adakotipathi-ticket-winning-number-text">
+                            {ball}
+                          </div>
                         </div>
                       
                     ))
@@ -115,25 +120,31 @@ const AdakotipathiTamil = ({ name = "Ada kotipathi" }) => {
             </div>
             <div className="adakotipathi-ticket-special">
             <div className="adakotipathi-ticket-bottomtm">
-              அடுத்த சுப்பர் ஐக்பொட் : ரூ. {lottery.next_super || "Loading..."}
+              அடுத்த சுப்பர் ஐக்பொட் : <div className="adakotipathi-ticket-bottomtm-txt">
+                {formatCurrency(lottery.next_super) || "Loading..."}
+              </div>
             </div>
-            {/* Special Numbers Section */}
-            {(lottery.special1 || lottery.special2) && (
+                {/* Special Numbers Section */}
+            {(lottery.special4) && (
               <div className="adakotipathi-ticket-special-prize-container">
                 <img
                   src="/images/sc.png"
                   alt="Special Prize"
                   className="adakotipathi-ticket-special-prize-icon"
                 />
-                <div className="special-numbers">
-                  {lottery.special1 && (
-                    <>
-                      ரூ. 50,000/- பணம் பரிசுகான <br/> வீசேட இலக்கங்கள் : {lottery.special1 || "Loading..."}
-                      <br />
-                    </>
-                  )}
-                  {lottery.special2 && <>ரூ. 40/-: {lottery.special2}</>}
-                </div>
+
+                  <div className="superball-special-numbers">
+                      {lottery.special4 && (
+                      <>
+                        <div className="superball-special-numbers-text"> 
+                          வீசேட இலக்கங்கள் <br /> ரூ. 100,000/- 
+                        </div>
+                        <div className="lagna-special-txt">
+                          {lottery.special4}
+                        </div>
+                      </>
+                    )}
+                    </div>
               </div>
             )}
           </div>

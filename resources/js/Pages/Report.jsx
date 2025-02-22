@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { jsPDF } from "jspdf";
 import html2canvas from "html2canvas";
-import "../../css/report.css"
+import "../../css/report.css";
 
 // English Components
 import HeaderEnglish from "../Components/headerEnglish";
@@ -45,60 +45,65 @@ const Report = () => {
   const tamilReportRef = useRef(null);
 
   const today = new Date().getDay();
-  const isMondayOrWednesday = today === 1 || today === 2;
-  const isSasiriDay = [0, 3, 4, 5, 6].includes(today);
+  const isMondayOrWednesday = today === 1 || today === 2; //change
+  const isSasiriDay = [2, 3, 4, 5, 6].includes(today); //change
 
   const generatePDF = async () => {
-    const pdf = new jsPDF("portrait", "mm", "a4");
+    const pdf = new jsPDF({
+      orientation: "portrait",
+      unit: "mm",
+      format: "a4",
+      compress: true,
+    });
 
-    // Generate English Report
-    if (englishReportRef.current) {
-      const canvas = await html2canvas(englishReportRef.current, {
-        scale: 2,
-        useCORS: true,
-        backgroundColor: "#ffffff",
+    const captureAndAddToPDF = async (elementRef, addPage) => {
+      if (!elementRef.current) return;
+
+      const element = elementRef.current;
+      element.style.opacity = "1";
+      element.style.display = "block";
+
+      window.scrollTo(0, 0); // Ensure page is fully rendered
+
+      await new Promise((resolve) => setTimeout(resolve, 500));
+
+      // Increased scale for better resolution
+      const scale = 7; // Higher scale (e.g., 3 for better quality)
+
+      // Capture the image with html2canvas
+      const canvas = await html2canvas(element, {
+        scale: scale,  // Higher scale for better resolution
+        useCORS: true,  // Ensures CORS handling
+        logging: false, // Set to `true` if you want to debug issues
+        willReadFrequently: true,
+        backgroundColor: "white", // Ensure background color is white (avoid transparency)
+        scrollX: 0, // Ensure we capture the full content
+        scrollY: 0, // Ensure we capture the full content
       });
-      const imgData = canvas.toDataURL("image/png");
-      const pdfWidth = 210;
-      const pdfHeight = 297;
-      const imgHeight = (canvas.height * pdfWidth) / canvas.width;
-      const verticalOffset = imgHeight < pdfHeight ? (pdfHeight - imgHeight) / 2 : 0;
-      pdf.addImage(imgData, "PNG", 10, verticalOffset, pdfWidth - 20, imgHeight);
-      pdf.addPage();
-    }
 
-    // Generate Sinhala Report
-    if (sinhalaReportRef.current) {
-      const canvas = await html2canvas(sinhalaReportRef.current, {
-        scale: 2,
-        useCORS: true,
-        backgroundColor: "#ffffff",
-      });
       const imgData = canvas.toDataURL("image/png");
-      const pdfWidth = 210;
-      const pdfHeight = 297; 
-      const imgHeight = (canvas.height * pdfWidth) / canvas.width;
-      const verticalOffset = imgHeight < pdfHeight ? (pdfHeight - imgHeight) / 2 : 0;
-      pdf.addImage(imgData, "PNG", 10, verticalOffset, pdfWidth - 20, imgHeight);
-      pdf.addPage();
-    }
 
-    // Generate Tamil Report
-    if (tamilReportRef.current) {
-      const canvas = await html2canvas(tamilReportRef.current, {
-        scale: 2,
-        useCORS: true,
-        backgroundColor: "#ffffff",
-      });
-      const imgData = canvas.toDataURL("image/png");
-      const pdfWidth = 210;
-      const pdfHeight = 297;
-      const imgHeight = (canvas.height * pdfWidth) / canvas.width;
-      const verticalOffset = imgHeight < pdfHeight ? (pdfHeight - imgHeight) / 2 : 0;
-      pdf.addImage(imgData, "PNG", 10, verticalOffset, pdfWidth - 20, imgHeight);
-    }
+      const pxWidth = canvas.width;
+      const pxHeight = canvas.height;
 
-   
+      // Convert to mm using scale factor
+      const mmWidth = (pxWidth * 0.264583) / scale;
+      const mmHeight = (pxHeight * 0.264583) / scale;
+
+      // Add image to PDF with adjusted resolution
+      pdf.addImage(imgData, "PNG", 0, 0, mmWidth, mmHeight);
+
+      if (addPage) {
+        pdf.addPage();
+      }
+    };
+
+    // Generate PDF sections for each language
+    await captureAndAddToPDF(englishReportRef, true);
+    await captureAndAddToPDF(sinhalaReportRef, true);
+    await captureAndAddToPDF(tamilReportRef, false);
+
+    // Save the PDF
     pdf.save("lottery-reports.pdf");
   };
 
@@ -109,31 +114,30 @@ const Report = () => {
         .map((Component, index) => (
           <div
             key={index}
-            className="component"
+            className={`component ${index === 0 ? 'first-component' : ''} ${index === components.length - 1 ? 'last-component' : ''}`}
           >
             <Component />
           </div>
         ))}
     </div>
   );
+  
 
   return (
     <div className="report-container">
+
       {/* English Report */}
-      <div
-        ref={englishReportRef}
-        className="section-padding report-section"
-      >
+      <div ref={englishReportRef} className="section-padding report-section">
         {renderSection([
           HeaderEnglish,
-          LagnaWasanaEnglish,
-          isSasiriDay && SasiriEnglish,
           KaprukaEnglish,
+          LagnaWasanaEnglish,
+          AdakotipathiEnglish,
           ShanidaEnglish,
           SuperballEnglish,
-          AdakotipathiEnglish,
-          SupiridanaEnglish,
+          isSasiriDay && SasiriEnglish,
           isMondayOrWednesday && JayodaEnglish,
+          SupiridanaEnglish,
           FooterEnglish,
         ])}
       </div>
@@ -144,14 +148,14 @@ const Report = () => {
       <div ref={sinhalaReportRef} className="section-padding report-section">
         {renderSection([
           HeaderSinhala,
-          LagnaWasanaSinhala,
-          isSasiriDay && SasiriSinhala,
           KaprukaSinhala,
+          LagnaWasanaSinhala,
+          AdakotipathiSinhala,
           ShanidaSinhala,
           SuperballSinhala,
-          AdakotipathiSinhala,
-          SupiridanaSinhala,
+          isSasiriDay && SasiriSinhala,
           isMondayOrWednesday && JayodaSinhala,
+          SupiridanaSinhala,
           FooterSinhala,
         ])}
       </div>
@@ -162,24 +166,20 @@ const Report = () => {
       <div ref={tamilReportRef} className="section-padding report-section">
         {renderSection([
           HeaderTamil,
-          LagnaWasanaTamil,
-          isSasiriDay && SasiriTamil,
           KaprukaTamil,
+          LagnaWasanaTamil,
+          AdakotipathiTamil,
           ShanidaTamil,
           SuperballTamil,
-          AdakotipathiTamil,
-          SupiridanaTamil,
+          isSasiriDay && SasiriTamil,
           isMondayOrWednesday && JayodaTamil,
+          SupiridanaTamil,
           FooterTamil,
         ])}
       </div>
 
       <div className="report-button-container">
-        <button
-          onClick={generatePDF}
-          className="report-button"
-          aria-label="Download all reports as a single PDF"
-        >
+        <button onClick={generatePDF} className="report-button">
           Download All Reports
         </button>
       </div>

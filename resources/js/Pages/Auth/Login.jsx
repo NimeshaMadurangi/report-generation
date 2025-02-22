@@ -6,12 +6,14 @@ import InputLabel from '@/Components/InputLabel';
 import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
 import { Head, Link, useForm } from '@inertiajs/react';
+import "../../../css/login.css";
+
 
 export default function Login({ status, canResetPassword }) {
     const { data, setData, post, processing, errors, reset } = useForm({
         email: '',
         password: '',
-        remember: '',
+        remember: false,
     });
 
     useEffect(() => {
@@ -26,72 +28,74 @@ export default function Login({ status, canResetPassword }) {
 
     const submit = (e) => {
         e.preventDefault();
-
         post(route('login'));
     };
 
     return (
         <GuestLayout>
             <Head title="Log in" />
+            <section className="container">
+                <div className="login-box">
+                    <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
+                        <h1 className="login-title">Sign in to your account</h1>
+                        {status && <div className="mb-4 font-medium text-sm text-green-300">{status}</div>}
+                        <form className="space-y-4 md:space-y-6" onSubmit={submit}>
+                            <div>
+                                <InputLabel htmlFor="email" value="Your email" className="block mb-2 text-sm font-medium text-white" />
+                                <TextInput
+                                    id="email"
+                                    type="email"
+                                    name="email"
+                                    value={data.email}
+                                    className="input-field"
+                                    placeholder="name@company.com"
+                                    autoComplete="username"
+                                    isFocused={true}
+                                    onChange={handleOnChange}
+                                />
+                                <InputError message={errors.email} className="input-error" />
+                            </div>
 
-            {status && <div className="mb-4 font-medium text-sm text-green-600">{status}</div>}
+                            <div>
+                                <InputLabel htmlFor="password" value="Password" className="block mb-2 text-sm font-medium text-white" />
+                                <TextInput
+                                    id="password"
+                                    type="password"
+                                    name="password"
+                                    value={data.password}
+                                    className="input-field"
+                                    placeholder="••••••••"
+                                    autoComplete="current-password"
+                                    onChange={handleOnChange}
+                                />
+                                <InputError message={errors.password} className="input-error" />
+                            </div>
 
-            <form onSubmit={submit}>
-                <div>
-                    <InputLabel htmlFor="email" value="Email" />
+                            <div className="flex items-center justify-between">
+                                <label className="flex items-center remember-label">
+                                    <Checkbox name="remember" checked={data.remember} onChange={handleOnChange} className="checkbox" />
+                                    <span className="ml-2 text-sm">Remember me</span>
+                                </label>
+                                <br />
+                                {canResetPassword && (
+                                    <Link
+                                        href={route('password.request')}
+                                        className="forgot-password"
+                                    >
+                                        Forgot password?
+                                    </Link>
+                                )}
+                            </div>
 
-                    <TextInput
-                        id="email"
-                        type="email"
-                        name="email"
-                        value={data.email}
-                        className="mt-1 block w-full"
-                        autoComplete="username"
-                        isFocused={true}
-                        onChange={handleOnChange}
-                    />
+                            <br />
 
-                    <InputError message={errors.email} className="mt-2" />
+                            <PrimaryButton className="submit-button" disabled={processing}>
+                                Sign in
+                            </PrimaryButton>
+                        </form>
+                    </div>
                 </div>
-
-                <div className="mt-4">
-                    <InputLabel htmlFor="password" value="Password" />
-
-                    <TextInput
-                        id="password"
-                        type="password"
-                        name="password"
-                        value={data.password}
-                        className="mt-1 block w-full"
-                        autoComplete="current-password"
-                        onChange={handleOnChange}
-                    />
-
-                    <InputError message={errors.password} className="mt-2" />
-                </div>
-
-                <div className="block mt-4">
-                    <label className="flex items-center">
-                        <Checkbox name="remember" value={data.remember} onChange={handleOnChange} />
-                        <span className="ml-2 text-sm text-gray-600">Remember me</span>
-                    </label>
-                </div>
-
-                <div className="flex items-center justify-end mt-4">
-                    {canResetPassword && (
-                        <Link
-                            href={route('password.request')}
-                            className="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                        >
-                            Forgot your password?
-                        </Link>
-                    )}
-
-                    <PrimaryButton className="ml-4" disabled={processing}>
-                        Log in
-                    </PrimaryButton>
-                </div>
-            </form>
+            </section>
         </GuestLayout>
     );
 }

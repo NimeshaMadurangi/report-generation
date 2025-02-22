@@ -65,6 +65,10 @@ const SasiriTamil = ({ name = "Sasiri" }) => {
     return color;
 };
 
+const formatCurrency = (amount) => {
+  return "ரூ. " + Number(amount).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+};
+
 
   return (
     <div className="sasiri-ticket-container">
@@ -72,17 +76,17 @@ const SasiriTamil = ({ name = "Sasiri" }) => {
         <div className="sasiri-ticket-header">
           <div className="sasiri-ticket-logo-container">
             <img
-              src="/images/sasiritamil.png"
+              src="/images/logo/sasiritamil.png"
               alt={name}
               className="sasiri-ticket-logo"
             />
           </div>
-          <div className="sasiri-ticket-draw-number-container">
+          <div className="sasiri-ticket-draw-number-containertm">
             
               <div className="sasiri-ticket-draw-number-text">
                 வெற்றி வாரம்
               </div>
-              <div className="sasiri-ticket-draw-number-text1">
+              <div className="sasiri-ticket-draw-number-text1tm">
                 {lottery.number || "Loading..."}
               </div>
            
@@ -95,15 +99,17 @@ const SasiriTamil = ({ name = "Sasiri" }) => {
               </div>
           
             <div className="sasiri-ticket-winning-numbers">
-              <div className="sasiri-ticket-winning-numbers-title">
+              <div className="sasiri-ticket-winning-numbers-titletm">
               ---- வெற்றி எண்கள் ----
               </div>
-              <div className="sasiri-ticket-winning-numbers-container">
+              <div className="sasiri-ticket-winning-numbers-containertm">
                 {balls.length > 0
                   ? balls.map((ball, index) => (
                       
-                        <div key={index} className="sasiri-ticket-winning-number-text">
-                          {ball}
+                        <div key={index} className="sasiri-ticket-winning-number">
+                          <div className="sasiri-ticket-winning-number-text">
+                            {ball}
+                          </div>
                         </div>
                       
                     ))
@@ -119,7 +125,10 @@ const SasiriTamil = ({ name = "Sasiri" }) => {
             <div className="sasiri-ticket-special">
               <div className="sasiri-ticket-bottomtm">
                
-                  வெல்லப்பட்ட மொத்த பரிசுத் தொகை : ரூ. {lottery.total || "Loading..."}
+                  வெல்லப்பட்ட மொத்த பரிசுத் தொகை : 
+                  <div className="sasiri-ticket-bottomtm-txt">
+                    {formatCurrency(lottery.total) || "Loading..."}
+                  </div>
               
               </div>
             </div>

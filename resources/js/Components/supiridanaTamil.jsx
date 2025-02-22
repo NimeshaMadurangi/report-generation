@@ -71,18 +71,22 @@ const SupiridanaTamil = ({ name = "Supiri Dhana Sampatha" }) => {
     (ball) => ball !== null
   );
 
+  const formatCurrency = (amount) => {
+    return "ரூ. " + Number(amount).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  };
+
   return (
     <div className="supiridana-ticket-container">
       <div className="supiridana-ticket-card">
         <div className="supiridana-ticket-header">
           <div className="supiridana-ticket-logo-container">
             <img
-              src="/images/sdt.png"
+              src="/images/logo/supiridana.png"
               alt={name}
               className="supiridana-ticket-logo"
             />
           </div>
-          <div className="supiridana-ticket-draw-number-container">
+          <div className="supiridana-ticket-draw-number-containertm">
             
               <div className="supiridana-ticket-draw-number-text">
                 வெற்றி வாரம்
@@ -103,12 +107,14 @@ const SupiridanaTamil = ({ name = "Supiri Dhana Sampatha" }) => {
               <div className="supiridana-ticket-winning-numbers-titletm">
               -- ஆங்கில எமுத்து, சுப்பர் இலக்கம் ம்ற்றும் வெற்றி இலக்கம் --
               </div>
-              <div className="supiridana-ticket-winning-numbers-container">
+              <div className="supiridana-ticket-winning-numbers-container-tm">
                 {balls.length > 0
                   ? balls.map((ball, index) => (
                       
-                        <div key={index} className="supiridana-ticket-winning-number-text">
-                          {ball}
+                        <div key={index} className="supiridana-ticket-winning-number">
+                          <div className="supiridana-ticket-winning-number-text">
+                            {ball}
+                          </div>
                         </div>
                       
                     ))
@@ -117,7 +123,10 @@ const SupiridanaTamil = ({ name = "Supiri Dhana Sampatha" }) => {
             </div>
             <div className="supiridana-ticket-special">
             <div className="supiridana-ticket-bottomtm">
-              அடுத்த சுப்பர் ஐக்பொட் : ரூ. {lottery.next_super || "Loading..."}
+              அடுத்த சுப்பர் ஐக்பொட் : 
+              <div className="supiridana-ticket-bottomtm-txt">
+                {formatCurrency(lottery.next_super) || "Loading..."}
+              </div>
             </div>
             {/* Special Numbers Section */}
             {(lottery.special1 || lottery.special2) && (
@@ -127,17 +136,23 @@ const SupiridanaTamil = ({ name = "Supiri Dhana Sampatha" }) => {
                   alt="Special Prize"
                   className="supiridana-ticket-special-prize-icon"
                 />
-                <div className="supiridana-special-numbers-tm">
-                    {lottery.special1 && (
-                      <>
-                        வீசேட இலக்கங்கள் <br />
-                        ரூ. 50,000/- : {lottery.special1 || "Loading..."}
-                        
-                      </>
-                    )}
-                    <> | </>
-                    {lottery.special2 && <>ரூ. 40/- : {lottery.special2}</>}
+                <div className="supiridana-special-numbers">
+                  {lottery.special1 && (
+                    <>
+                      <div className="supiridana-special-numbers-text-pptm"> 
+                          வீசேட இலக்கங்கள் ரூ 50,000/-
+                      </div>
+                      <div className="supiridana-special-txt"> {lottery.special1} </div>
+                    </>
+                  )}
                   </div>
+                  
+                  <div className="supiridana-special-numbers">
+                      <div className="supiridana-special-numbers-text-pptm"> 
+                          வீசேட இலக்கங்கள் ரூ 40/-
+                      </div>
+                      <div className="supiridana-special-txt"> {lottery.special2 && <>{lottery.special2}</>} </div>
+                </div>
               </div>
             )}
           </div>

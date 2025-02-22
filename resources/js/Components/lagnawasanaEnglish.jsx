@@ -15,6 +15,7 @@ const LagnaWasanaEnglish = ({ name = "Lagna Wasanawa" }) => {
     next_super: null,
     special1: null,
     special2: null,
+    special3: null,
   });
 
   
@@ -51,13 +52,17 @@ const LagnaWasanaEnglish = ({ name = "Lagna Wasanawa" }) => {
     SAGITTARIUS: "/images/lagnaimages/sagittarius.png",
   };
 
+  const formatCurrency = (amount) => {
+    return "Rs. " + Number(amount).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+};
+
   return (
     <div className="lagna-ticket-container">
       <div className="lagna-ticket-card">
         <div className="lagna-ticket-header">
           <div className="lagna-ticket-logo-container">
             <img
-              src="/images/lge.png"
+              src="/images/logo/lagnaenglish.png"
               alt={name}
               className="lagna-ticket-logo"
             />
@@ -108,7 +113,7 @@ const LagnaWasanaEnglish = ({ name = "Lagna Wasanawa" }) => {
             </div>
             <div className="lagna-ticket-special">
             <div className="lagna-ticket-bottom">
-              Next Super Jackpot : Rs. {lottery.next_super || "Loading..."}
+              Next Super Jackpot : {formatCurrency(lottery.next_super) || "Loading..."}
             </div>
             {/* Special Numbers Section */}
             {(lottery.special1 || lottery.special2) && (
@@ -118,14 +123,34 @@ const LagnaWasanaEnglish = ({ name = "Lagna Wasanawa" }) => {
                   alt="Special Prize"
                   className="lagna-ticket-special-prize-icon"
                 />
-                <div className="special-numbers">
+                
+                <div className="lagna-special-numbers">
                   {lottery.special1 && (
                     <>
-                      Special number for <br /> Rs. 50,000/-: {lottery.special1} <> | </>
+                      <div className="lagna-special-numbers-text-pp"> 
+                        Special number <br /> for Rs. 50,000/-
+                      </div>
+                      <div className="lagna-special-txt"> {lottery.special1} </div>
                     </>
                   )}
-                   {lottery.special2 && <>Rs. 40/-: {lottery.special2}</>}
+                  </div>
+                  
+                  <div className="lagna-special-numbers">
+                      <div className="lagna-special-numbers-text-pp"> 
+                          Special number <br /> for Rs. 40/-
+                      </div>
+                      <div className="lagna-special-txt"> {lottery.special2 && <>{lottery.special2}</>} </div>
                 </div>
+
+                <div className="superball-special-numbers">
+                    {lottery.special3 && (
+                      <div className="superball-special-numbers-text">
+                        Special number <br /> for Rs. 200/- <br />
+                        <div className="lagna-special-txt"> {lottery.special3 && <>{lottery.special3}</>} </div>
+                      </div>
+                    )}
+                  </div>
+
               </div>
             )}
           </div>

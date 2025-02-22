@@ -35,13 +35,17 @@ const KaprukaEnglish = ({ name = "Kapruka" }) => {
     (ball) => ball !== null
   );
 
+  const formatCurrency = (amount) => {
+    return "Rs. " + Number(amount).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+};
+
   return (
     <div className="kapruka-ticket-container">
       <div className="kapruka-ticket-card">
         <div className="kapruka-ticket-header">
           <div className="kapruka-ticket-logo-container">
             <img
-              src="/images/kapruka.png"
+              src="/images/logo/kapruka.png"
               alt={name}
               className="kapruka-ticket-logo"
             />
@@ -72,8 +76,10 @@ const KaprukaEnglish = ({ name = "Kapruka" }) => {
                 {balls.length > 0
                   ? balls.map((ball, index) => (
                       
-                        <div key={index} className="kapruka-ticket-winning-number-text">
-                          {ball}
+                        <div key={index} className="kapruka-ticket-winning-number">
+                          <div key={index} className="kapruka-ticket-winning-number-text">
+                            {ball}
+                          </div>
                         </div>
                       
                     ))
@@ -82,7 +88,7 @@ const KaprukaEnglish = ({ name = "Kapruka" }) => {
             
               <div className="kapruka-ticket-special">
             <div className="kapruka-ticket-bottom">
-              Next Super Jackpot : Rs. {lottery.next_super || "Loading..."}
+              Next Super Jackpot : {formatCurrency(lottery.next_super) || "Loading..."}
             </div>
             {/* Special Numbers Section */}
             {(lottery.special1 || lottery.special2) && (

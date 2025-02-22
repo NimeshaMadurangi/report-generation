@@ -12,8 +12,7 @@ const AdakotipathiSinhala = ({ name = "Ada kotipathi" }) => {
     ball4: null,
     ball5: null,
     next_super: null,
-    special1: null,
-    special2: null,
+    special4: null,
   });
 
   useEffect(() => {
@@ -68,23 +67,27 @@ const AdakotipathiSinhala = ({ name = "Ada kotipathi" }) => {
     return color;
   };
 
+  const formatCurrency = (amount) => {
+    return "රු. " + Number(amount).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  };
+
   return (
-    <div className="adakotipathi-ticket-container">
+    <div className="adakotipathi-ticket-containersn">
       <div className="adakotipathi-ticket-card">
         <div className="adakotipathi-ticket-header">
           <div className="adakotipathi-ticket-logo-container">
             <img
-              src="/images/AD.png"
+              src="/images/logo/adakotipathi.png"
               alt={name}
-              className="adakotipathi-ticket-logo"
+              className="adakotipathi-ticket-logo-sn"
             />
           </div>
-          <div className="adakotipathi-ticket-draw-number-container">
+          <div className="adakotipathi-ticket-draw-number-container-sn">
             
               <div className="adakotipathi-ticket-draw-number-text">
                 දිනුම් වාරය
               </div>
-              <div className="adakotipathi-ticket-draw-number-text1">
+              <div className="adakotipathi-ticket-draw-number-text1-sn">
                 {lottery.number || "Loading..."}
               </div>
             
@@ -97,15 +100,17 @@ const AdakotipathiSinhala = ({ name = "Ada kotipathi" }) => {
               </div>
          
             <div className="adakotipathi-ticket-winning-numbers">
-              <div className="adakotipathi-ticket-winning-numbers-title">
+              <div className="adakotipathi-ticket-winning-numbers-titles">
                 ----- ජයග්‍රාහී අංක -----
               </div>
-              <div className="adakotipathi-ticket-winning-numbers-container">
+              <div className="adakotipathi-ticket-winning-numbers-containersn">
                 {balls.length > 0
                   ? balls.map((ball, index) => (
                       
-                        <div key={index} className="adakotipathi-ticket-winning-number-text">
-                          {ball}
+                        <div key={index} className="adakotipathi-ticket-winning-number">
+                          <div className="adakotipathi-ticket-winning-number-text">
+                            {ball}
+                          </div>
                         </div>
                      
                     ))
@@ -114,26 +119,30 @@ const AdakotipathiSinhala = ({ name = "Ada kotipathi" }) => {
             </div>
             <div className="adakotipathi-ticket-special">
             <div className="adakotipathi-ticket-bottom">
-              මීළඟ සුපිරි ජයමල්ල රු. {lottery.next_super || "Loading..."}
+              මීළඟ සුපිරි ජයමල්ල : {formatCurrency(lottery.next_super) || "Loading..."}
             </div>
-            {/* Special Numbers Section */}
-            {(lottery.special1 || lottery.special2) && (
+                {/* Special Numbers Section */}
+            {(lottery.special4) && (
               <div className="adakotipathi-ticket-special-prize-container">
                 <img
                   src="/images/sc.png"
                   alt="Special Prize"
                   className="adakotipathi-ticket-special-prize-icon"
                 />
-                <div className="special-numbers">
-                  {lottery.special1 && (
-                    <>
-                      රු. 50,000/- සඳහා <br /> විශේෂ අංකය : {lottery.special1 || "Loading..."}
-                      <br />
-                    </>
-                  )}
-                  {lottery.special2 && <>රු. 40,000/-: {lottery.special2}</>}
-                </div>
-              </div>
+
+                  <div className="superball-special-numbers">
+                      {lottery.special4 && (
+                      <>
+                        <div className="superball-special-numbers-text"> 
+                          විශේෂ අංකය <br /> රු. 100,000/- සඳහා
+                        </div>
+                        <div className="lagna-special-txt">
+                          {lottery.special4}
+                        </div>
+                      </>
+                    )}
+                    </div>
+              </div> 
             )}
           </div>
           </div>

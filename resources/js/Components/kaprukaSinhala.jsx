@@ -66,23 +66,27 @@ const KaprukaSinhala = ({ name = "Kapruka" }) => {
     return color;
   };
 
+  const formatCurrency = (amount) => {
+    return "රු. " + Number(amount).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  };
+
   return (
-    <div className="kapruka-ticket-container">
+    <div className="kapruka-ticket-containersn">
       <div className="kapruka-ticket-card">
         <div className="kapruka-ticket-header">
           <div className="kapruka-ticket-logo-container">
             <img
-              src="/images/kapruka.png"
+              src="/images/logo/kapruka.png"
               alt={name}
-              className="kapruka-ticket-logo"
+              className="kapruka-ticket-logosn"
             />
           </div>
-          <div className="kapruka-ticket-draw-number-container">
+          <div className="kapruka-ticket-draw-number-containersn">
             
               <div className="kapruka-ticket-draw-number-text">
                 දිනුම් වාරය
               </div>
-              <div className="kapruka-ticket-draw-number-text1">
+              <div className="kapruka-ticket-draw-number-text1-sn">
                 {lottery.number || "Loading..."}
               </div>
             
@@ -95,16 +99,18 @@ const KaprukaSinhala = ({ name = "Kapruka" }) => {
               </div>
         
               <div className="kapruka-ticket-winning-numbers">
-              <div className="kapruka-ticket-winning-numbers-title">
-              ------- ඉංග්‍රීසි අකුර, සුපිරි අංකය සහ ජයග්‍රාහී අංක -------
+              <div className="kapruka-ticket-winning-numbers-titles">
+              ------- ඉංග්‍රීසි අක්ෂරය, සුපිරි අංකය සහ ජයග්‍රාහී අංක -------
               </div>
               </div>
-              <div className="kapruka-ticket-winning-numbers-container">
+              <div className="kapruka-ticket-winning-numbers-containersn">
                 {balls.length > 0
                   ? balls.map((ball, index) => (
                       
-                        <div key={index} className="kapruka-ticket-winning-number-text">
-                          {ball}
+                        <div key={index} className="kapruka-ticket-winning-number">
+                          <div className="kapruka-ticket-winning-number-text-sn">
+                            {ball}
+                          </div>
                         </div>
                      
                     ))
@@ -112,8 +118,8 @@ const KaprukaSinhala = ({ name = "Kapruka" }) => {
               </div>
            
               <div className="kapruka-ticket-special">
-            <div className="kapruka-ticket-bottom">
-                මීළඟ සුපිරි ජයමල්ල රු. {lottery.next_super || "Loading..."}
+            <div className="kapruka-ticket-bottoms">
+                මීළඟ සුපිරි ජයමල්ල : {formatCurrency(lottery.next_super) || "Loading..."}
             </div>
             {/* Special Numbers Section */}
             {(lottery.special1 || lottery.special2) && (
@@ -123,18 +129,24 @@ const KaprukaSinhala = ({ name = "Kapruka" }) => {
                   alt="Special Prize"
                   className="kapruka-ticket-special-prize-icon"
                 />
-                <div className="special-numbers">
-                    {lottery.special1 && (
-                      <>
-                        විශේෂ අංකය <br />
-                        රු. 50,000/- සඳහා :{" "}
-                        {lottery.special1 || "Loading..."}
-                        <br />
-                      </>
-                    )}
-                    {lottery.special2 && <>රු. 40/-: {lottery.special2}</>}
+                <div className="lagna-special-numbers">
+                  {lottery.special1 && (
+                    <>
+                      <div className="lagna-special-numbers-text-pp"> 
+                      විශේෂ අංකය <br /> රු. 50,000/- සඳහා
+                      </div>
+                      <div className="lagna-special-txt"> {lottery.special1} </div>
+                    </>
+                  )}
                   </div>
-              </div>
+                  
+                  <div className="lagna-special-numbers">
+                      <div className="lagna-special-numbers-text-pp"> 
+                      විශේෂ අංකය <br /> රු. 40/- සඳහා
+                      </div>
+                      <div className="lagna-special-txt"> {lottery.special2 && <>{lottery.special2}</>} </div>
+                </div>
+              </div> 
             )}
           </div>
           </div>

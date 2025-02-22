@@ -65,24 +65,28 @@ const JayodaSinhala = ({ name = "Jayoda" }) => {
     return color;
   };
 
+  const formatCurrency = (amount) => {
+    return "රු. " + Number(amount).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  };
+
 
   return (
-    <div className="jayoda-ticket-container">
+    <div className="jayoda-ticket-containersn">
       <div className="jayoda-ticket-card">
         <div className="jayoda-ticket-header">
           <div className="jayoda-ticket-logo-container">
             <img
-              src="/images/jayoda.png"
+              src="/images/logo/jayoda.png"
               alt={name}
-              className="jayoda-ticket-logo"
+              className="jayoda-ticket-logosn"
             />
           </div>
-          <div className="jayoda-ticket-draw-number-container">
+          <div className="jayoda-ticket-draw-number-containersn">
             
               <div className="jayoda-ticket-draw-number-text">
                 දිනුම් වාරය
               </div>
-              <div className="jayoda-ticket-draw-number-text1">
+              <div className="jayoda-ticket-draw-number-text1-sn">
                 {lottery.number || "Loading..."}
               </div>
            
@@ -95,15 +99,17 @@ const JayodaSinhala = ({ name = "Jayoda" }) => {
               </div>
             
             <div className="jayoda-ticket-winning-numbers">
-              <div className="jayoda-ticket-winning-numbers-title">
+              <div className="jayoda-ticket-winning-numbers-titles">
                 ------- ජයග්‍රාහී අංක -------
               </div>
               <div className="jayoda-ticket-winning-numbers-container">
                 {balls.length > 0
                   ? balls.map((ball, index) => (
                       
-                        <div key={index} className="jayoda-ticket-winning-number-text">
-                          {ball}
+                        <div key={index} className="jayoda-ticket-winning-number">
+                          <div className="jayoda-ticket-winning-number-text">
+                            {ball}
+                          </div>
                         </div>
                       
                     ))
@@ -111,8 +117,8 @@ const JayodaSinhala = ({ name = "Jayoda" }) => {
               </div>
             </div>
             <div className="jayoda-ticket-special">
-            <div className="jayoda-ticket-bottom">
-                මීළඟ සුපිරි ජයමල්ල රු. {lottery.next_super || "Loading..."}
+            <div className="jayoda-ticket-bottom-sn">
+                මීළඟ සුපිරි ජයමල්ල : {formatCurrency(lottery.next_super) || "Loading..."}
             </div>
             {/* Special Numbers Section */}
             {(lottery.special1 || lottery.special2) && (
@@ -122,18 +128,24 @@ const JayodaSinhala = ({ name = "Jayoda" }) => {
                   alt="Special Prize"
                   className="jayoda-ticket-special-prize-icon"
                 />
-                <div className="special-numbers">
-                    {lottery.special1 && (
-                      <>
-                        විශේෂ අංකය <br />
-                        රු. 50,000/- සඳහා :{" "}
-                        {lottery.special1 || "Loading..."}
-                        <br />
-                      </>
-                    )}
-                    {lottery.special2 && <>රු. 40/-: {lottery.special2}</>}
+                <div className="lagna-special-numbers">
+                  {lottery.special1 && (
+                    <>
+                      <div className="lagna-special-numbers-text-pp"> 
+                      විශේෂ අංකය <br /> රු. 50,000/- සඳහා
+                      </div>
+                      <div className="lagna-special-txt"> {lottery.special1} </div>
+                    </>
+                  )}
                   </div>
-              </div>
+                  
+                  {/* <div className="lagna-special-numbers">
+                      <div className="lagna-special-numbers-text-pp"> 
+                      විශේෂ අංකය <br /> රු. 40/- සඳහා
+                      </div>
+                      <div className="lagna-special-txt"> {lottery.special2 && <>{lottery.special2}</>} </div>
+                </div> */}
+              </div> 
             )}
           </div>
           </div>

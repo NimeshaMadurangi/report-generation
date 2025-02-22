@@ -13,7 +13,7 @@ const HeaderEnglish = () => {
       const day = String(date.getDate()).padStart(2, "0");
       const weekday = date.toLocaleDateString("en-US", options);
 
-      return `${year}-${month}-${day} ${weekday}`;
+      return `${year}.${month}.${day} ${weekday}`;
     };
 
     setCurrentDate(formatDate());
@@ -24,22 +24,15 @@ const HeaderEnglish = () => {
   
       <div className="image-container">
         <img
-          src="/images/logo.png"
+          src="./images/logo/headeren.png"
           alt="Company Logo"
           className="header-logo"
         />
-        <div className="header-text-container">
-          DEVELOPMENT LOTTERIES BOARD
-          <div className="header-text2">www.dlb.lk</div>
-        </div>
-      
 
-        <div className="date-container">
-          <div className="date-text">
-            OFFICIAL RESULTS 
-            <div className="date-text-1">{currentDate || "Loading..."}</div>
+          <div className="header-date-text">
+            {currentDate || "Loading..."}
           </div>
-        </div>
+          
         </div>
     </>
   );

@@ -1,44 +1,62 @@
-/* Container Styles */
+/* Improve image quality and ensure proper section layout */
 .report-container {
-  max-width: 200mm;
-  height: 290mm;
-  margin: 0 auto;
-  padding: 1px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  background: white;
 }
-
-/* Section Styling for Padding */
-/* .section-padding {
-  width: 400px;
-  height: 100%;
-  padding: 10mm;
-} */
 
 .report-section {
-  margin-bottom: 10px;
-  padding: 10px;
-  background-color: #f9f9f9;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 11cm;
+  min-height: 17cm; /* Adjust to fit A4 proportions */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: white;
+  padding: 2px;
+  page-break-after: always; /* Ensure each section is on a separate page */
+  margin-top: 0.5cm;
 }
 
-/* Button Container */
+.component {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background: white;
+  margin-bottom: 0.05cm; /* Bottom margin for all components */
+}
+
+/* Remove margin-top for the first component */
+.report-section .component:first-child {
+  margin-bottom: 0;
+}
+
+/* Remove margin-bottom for the last component */
+.report-section .component:last-child {
+  margin-top: -0.05cm;
+}
+
+
 .report-button-container {
   display: flex;
   justify-content: center;
   margin-top: 20px;
 }
 
-/* Button Styling */
 .report-button {
-  background-color: #3498db;
-  border: none;
+  background-color: #007bff;
   color: white;
-  padding: 12px 24px;
-  font-size: 16px;
-  border-radius: 8px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  font-size: 16px;
 }
 
 .report-button:hover {
-  background-color: #2980b9;
+  background-color: #0056b3;
 }

@@ -36,13 +36,17 @@ const SupiridanaEnglish = ({ name = "Supiri Dhana Sampatha" }) => {
     (ball) => ball !== null
   );
 
+  const formatCurrency = (amount) => {
+    return "Rs. " + Number(amount).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  };
+
   return (
     <div className="supiridana-ticket-container">
       <div className="supiridana-ticket-card">
         <div className="supiridana-ticket-header">
           <div className="supiridana-ticket-logo-container">
             <img
-              src="/images/sde.png"
+              src="/images/logo/supiridana.png"
               alt={name}
               className="supiridana-ticket-logo"
             />
@@ -72,8 +76,10 @@ const SupiridanaEnglish = ({ name = "Supiri Dhana Sampatha" }) => {
                 {balls.length > 0
                   ? balls.map((ball, index) => (
                       
-                        <div key={index} className="supiridana-ticket-winning-number-text">
-                          {ball}
+                        <div key={index} className="supiridana-ticket-winning-number">
+                          <div className="supiridana-ticket-winning-number-text">
+                            {ball}
+                          </div>
                         </div>
                       
                     ))
@@ -82,7 +88,7 @@ const SupiridanaEnglish = ({ name = "Supiri Dhana Sampatha" }) => {
             </div>
             <div className="supiridana-ticket-special">
             <div className="supiridana-ticket-bottom">
-              Next Super Jackpot : Rs. {lottery.next_super || "Loading..."}
+              Next Super Jackpot : {formatCurrency(lottery.next_super) || "Loading..."}
             </div>
             {/* Special Numbers Section */}
             {(lottery.special1 || lottery.special2) && (
@@ -92,14 +98,28 @@ const SupiridanaEnglish = ({ name = "Supiri Dhana Sampatha" }) => {
                   alt="Special Prize"
                   className="supiridana-ticket-special-prize-icon"
                 />
-                <div className="special-numbers">
+                
+                <div className="shanida-special-numbers">
                   {lottery.special1 && (
                     <>
-                      Special number for <br /> Rs. 50,000/- : {lottery.special1}
+                      <div className="shanida-special-numbers-text">
+                        Special number <br /> for Rs. 50,000/-
+                      </div>
+                      <div className="lagna-special-txt">
+                        {lottery.special1}
+                      </div>
                     </>
                   )}
-                  <> | </>
-                  {lottery.special2 && <>Rs. 40/-: {lottery.special2}</>}
+                  </div>
+                  <div className="shanida-special-numbers">
+                  {lottery.special2 && (
+                    <div className="shanida-special-numbers-text">
+                      Special number <br /> for Rs. 40/- <br />
+                      <div className="lagna-special-txt">
+                        {lottery.special2}
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
             )}

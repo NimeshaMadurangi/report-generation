@@ -1,53 +1,20 @@
 .image-container2 {
-  width: 9.5cm;
-  height: 1.5cm;
+  width: 10.8cm;
+  height: 100%;
   margin: 0 auto;
   display: flex;
-  background-color: rgb(255, 255, 255);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
  
 .headertamil-logo {
-  margin-top: 0.1cm;
-  margin-left: 0.1cm;
-  width: 1.5cm;
-  height: 1.2cm;
+  width: 10.8cm;
+  height: 100%;
 }
   
- 
-.headertamil-text-container {
-  margin-top: 0.45cm;
-  margin-left: 0.1cm;
-  font-size: 0.3cm;
-  font-weight: 1000;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  color: #000;
-}
-
-.headertamil-text2 {
-  margin-top: 0.1cm;
-  margin-left: 3.2cm;
-  font-size: 0.25cm;
-  background-color: #5e5c5c;
-  color: #ffffff;
-  align-items: center;
-}
-
-.date-container2 {
-  width: 3cm;
-  height: 1.5cm;
-  display: flex;
-  margin-left: auto;
-  background-color: rgb(0, 0, 0);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  clip-path: polygon(10% 0, 100% 0, 100% 100%, 10% 100%, 0 100%);
-}
-
-  .date-text2 {
+.date-text2 {
     color: #ffffff;
     font-family: 'Times New Roman', Times, serif;
-    font-size: 0.18cm;
+    font-size: 0.28cm;
     font-weight: 1000;
-    margin-left: 0.5cm;
-    margin-top: 0.4cm;
+    margin-left: -4.3cm;
+    margin-top: 0.6cm;
   }

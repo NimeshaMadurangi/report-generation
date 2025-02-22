@@ -14,6 +14,7 @@ const SuperballEnglish = ({ name = "Superball" }) => {
     next_super: null,
     special1: null,
     special2: null,
+    special3: null,
   });
 
   useEffect(() => {
@@ -34,13 +35,17 @@ const SuperballEnglish = ({ name = "Superball" }) => {
     (ball) => ball !== null
   );
 
+  const formatCurrency = (amount) => {
+    return "Rs. " + Number(amount).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  };
+
   return (
     <div className="superball-ticket-container">
       <div className="superball-ticket-card">
         <div className="superball-ticket-header">
           <div className="superball-ticket-logo-container">
             <img
-              src="/images/superball.png"
+              src="/images/logo/superball.png"
               alt={name}
               className="superball-ticket-logo"
             />
@@ -70,8 +75,10 @@ const SuperballEnglish = ({ name = "Superball" }) => {
                 {balls.length > 0
                   ? balls.map((ball, index) => (
                       
-                        <div key={index} className="superball-ticket-winning-number-text">
-                          {ball}
+                        <div key={index} className="superball-ticket-winning-number">
+                          <div className="superball-ticket-winning-number-text">
+                            {ball}
+                          </div>
                         </div>
                      
                     ))
@@ -80,7 +87,7 @@ const SuperballEnglish = ({ name = "Superball" }) => {
             </div>
             <div className="superball-ticket-special">
                 <div className="superball-ticket-bottom">
-                  Next Super Jackpot : Rs. {lottery.next_super || "Loading..."}
+                  Next Super Jackpot : {formatCurrency(lottery.next_super) || "Loading..."}
                 </div>
                 {lottery.special1 && (
                   <div className="superball-ticket-special-prize-container">
@@ -91,14 +98,35 @@ const SuperballEnglish = ({ name = "Superball" }) => {
                     />
                     <div className="superball-special-numbers">
                       {lottery.special1 && (
-                        <>
-                          Special number for <br /> Rs. 50,000/- : {lottery.special1}
-                        </>
-                      )}
-                      <> | </>
-                      {lottery.special2 && <>Rs. 40/-: {lottery.special2}</>}
+                      <>
+                        <div className="superball-special-numbers-text"> 
+                          Special number <br /> for Rs. 50,000/-
+                        </div>
+                        <div className="lagna-special-txt">
+                          {lottery.special1}
+                        </div>
+                      </>
+                    )}
                     </div>
+                  
+                    <div className="superball-special-numbers">
+                    {lottery.special2 && (
+                      <div className="superball-special-numbers-text">
+                        Special number <br /> for Rs. 40/- <br />
+                        <div className="lagna-special-txt"> {lottery.special2} </div>
+                      </div>
+                    )}
                   </div>
+
+                  <div className="superball-special-numbers">
+                    {lottery.special3 && (
+                      <div className="superball-special-numbers-text">
+                        Special number <br /> for Rs. 40/- <br />
+                        <div className="lagna-special-txt"> {lottery.special3} </div>
+                      </div>
+                    )}
+                  </div>
+                </div>
                 )}
               </div>
           </div>

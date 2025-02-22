@@ -68,19 +68,23 @@ const JayodaTamil = ({ name = "Jayoda" }) => {
     return color;
 };
 
+const formatCurrency = (amount) => {
+  return "ரூ. " + Number(amount).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+};
+
 
   return (
-    <div className="jayoda-ticket-container">
+    <div className="jayoda-ticket-container-tm">
       <div className="jayoda-ticket-card">
         <div className="jayoda-ticket-header">
           <div className="jayoda-ticket-logo-container">
             <img
-              src="/images/jayoda.png"
+              src="/images/logo/jayoda.png"
               alt={name}
               className="jayoda-ticket-logo"
             />
           </div>
-          <div className="jayoda-ticket-draw-number-container">
+          <div className="jayoda-ticket-draw-number-container-tm">
             
               <div className="jayoda-ticket-draw-number-text">
                 வெற்றி வாரம்
@@ -98,15 +102,17 @@ const JayodaTamil = ({ name = "Jayoda" }) => {
               </div>
           
             <div className="jayoda-ticket-winning-numbers">
-              <div className="jayoda-ticket-winning-numbers-title">
+              <div className="jayoda-ticket-winning-numbers-titlet">
                 ------ வெற்றி எண்கள் ------
               </div>
               <div className="jayoda-ticket-winning-numbers-container">
                 {balls.length > 0
                   ? balls.map((ball, index) => (
                       
-                        <div key={index} className="jayoda-ticket-winning-number-text">
-                          {ball}
+                        <div key={index} className="jayoda-ticket-winning-number">
+                          <div className="jayoda-ticket-winning-number-text">
+                            {ball}
+                          </div>
                         </div>
                       
                     ))
@@ -114,8 +120,11 @@ const JayodaTamil = ({ name = "Jayoda" }) => {
               </div>
             </div>
             <div className="jayoda-ticket-special">
-            <div className="jayoda-ticket-bottom">
-              அடுத்த சுப்பர் ஐக்பொட் : ரூ. {lottery.next_super || "Loading..."}
+            <div className="jayoda-ticket-bottomtm">
+              அடுத்த சுப்பர் ஐக்பொட் : 
+              <div className="jayoda-ticket-bottomtm-txt">
+                {formatCurrency(lottery.next_super) || "Loading..."}
+              </div>
             </div>
             {/* Special Numbers Section */}
             {(lottery.special1 || lottery.special2) && (

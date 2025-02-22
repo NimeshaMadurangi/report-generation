@@ -30,6 +30,8 @@ return new class extends Migration
             $table->date('next_date')->nullable();
             $table->string('special1')->nullable(); // SP_50,000_NO value
             $table->string('special2')->nullable(); // SP_40_NO value
+            $table->string('special3')->nullable(); // SP_200_NO value
+            $table->string('special4')->nullable(); // SP_100,000_NO value
             $table->decimal('total', 15, 2)->nullable(); // Total prize value
             $table->integer('count')->nullable();
             $table->timestamps();

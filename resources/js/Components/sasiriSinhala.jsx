@@ -62,23 +62,27 @@ const SasiriSinhala = ({ name = "Sasiri" }) => {
     return color;
   };
 
+  const formatCurrency = (amount) => {
+    return "රු. " + Number(amount).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  };
+
   return (
-    <div className="sasiri-ticket-container">
+    <div className="sasiri-ticket-containersn">
       <div className="sasiri-ticket-card">
         <div className="sasiri-ticket-header">
           <div className="sasiri-ticket-logo-container">
             <img
-              src="/images/sasirisin.png"
+              src="/images/logo/sasirisinhala.png"
               alt={name}
-              className="sasiri-ticket-logo"
+              className="sasiri-ticket-logosn"
             />
           </div>
-          <div className="sasiri-ticket-draw-number-container">
+          <div className="sasiri-ticket-draw-number-containersn">
             
               <div className="sasiri-ticket-draw-number-text">
                 දිනුම් වාරය
               </div>
-              <div className="sasiri-ticket-draw-number-text1">
+              <div className="sasiri-ticket-draw-number-text1-sn">
                 {lottery.number || "Loading..."}
               </div>
             
@@ -91,20 +95,22 @@ const SasiriSinhala = ({ name = "Sasiri" }) => {
               </div>
            
             <div className="sasiri-ticket-winning-numbers">
-              <div className="sasiri-ticket-winning-numbers-title">
+              <div className="sasiri-ticket-winning-numbers-titles">
                 -------- ජයග්‍රාහී  අංක --------
               </div>
-              <div className="sasiri-ticket-winning-numbers-container">
+              <div className="sasiri-ticket-winning-numbers-containersn">
                 {balls.length > 0
                   ? balls.map((ball, index) => (
                      
-                        <div key={index} className="sasiri-ticket-winning-number-text">
-                          {ball}
+                        <div key={index} className="sasiri-ticket-winning-number">
+                          <div className="sasiri-ticket-winning-number-text">
+                            {ball}
+                          </div>
                         </div>
                      
                     ))
                   : "Loading..."}
-                  <div className="sasiri-ticket-winner-container">  
+                  <div className="sasiri-ticket-winner-container-text">  
                       අද බිහි වූ දෙලක්ෂපතියන් ගණන
                   </div>
                   
@@ -114,8 +120,8 @@ const SasiriSinhala = ({ name = "Sasiri" }) => {
               </div>
             </div>
             <div className="sasiri-ticket-special">
-              <div className="sasiri-ticket-bottom">
-                  දිනා ඇති මුළු මුදල රු. {lottery.total || "Loading..."}  
+              <div className="sasiri-ticket-bottomsn">
+                  දිනා ඇති මුළු මුදල : {formatCurrency(lottery.total) || "Loading..."}
               </div>
             </div>
           </div>

@@ -1,17 +1,22 @@
 .adakotipathi-ticket-container {
-  width: 9.5cm;
+  width: 10.8cm;
   height: auto;
-  max-height: 2.5cm;
+  max-height: 2.4cm;
   margin: 0 auto;
   display: flex;
-  background-color: black;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.adakotipathi-ticket-containersn {
+  width: 9.3cm;
+  height: auto;
+  max-height: 2.4cm;
+  margin: 0 auto;
+  display: flex;
 }
   
   /* Header Section */
 .adakotipathi-ticket-header {
   display: flex;
-  align-items: center;
 }
   
   /* Logo Section */
@@ -21,35 +26,71 @@
   }
   
 .adakotipathi-ticket-logo {
-  height: 2.5cm;
-  width: 9.5cm;
+  height: 2.4cm;
+  width: 10.8cm;
+}
+
+.adakotipathi-ticket-logo-sn {
+  height: 2.4cm;
+  width: 9.3cm;
 }
 
 /* Draw Number Section */
 .adakotipathi-ticket-draw-number-container {
   flex: 1;
   align-items: flex-start;
-  margin-left: -6cm;
+  margin-left: -5.5cm;
+  margin-right: 0.1cm;
+  margin-top: 0.05cm;
+}
+
+.adakotipathi-ticket-draw-number-container-sn { 
+  flex: 1;
+  align-items: flex-start;
+  margin-left: -5.5cm;
+  margin-right: 0.1cm;
+  margin-top: -0.05cm;
+} 
+
+.adakotipathi-ticket-draw-number-container-tm {
+  flex: 1;
+  align-items: flex-start;
+  margin-left: -7.5cm;
   margin-right: 0.1cm;
 }
   
 .adakotipathi-ticket-draw-number-text {
   background-color: #b4b4b4;
-  padding: 0.05cm;
+  padding: 0.04cm 0.04cm 0.04cm 0.04cm;
   display: inline-block;
   color: #000000;
   font-weight: 1000;
-  font-size: 0.2cm;
+  font-size: 0.26cm;
+  letter-spacing: 0.01cm;
   font-family: 'Times New Roman', Times, serif;
 }
 
 .adakotipathi-ticket-draw-number-text1 {
   background-color: #eceef1;
-  padding: 0.05cm;
+  padding: 0.04cm 0.2cm 0.04cm;
   display: inline-block;
   color: #000000;
   font-weight: 1000;
-  font-size: 0.2cm;
+  font-size: 0.26cm;
+  font-family: 'Times New Roman', Times, serif;
+  text-align: center;
+  letter-spacing: 0.02cm;
+  border-left: 0.03cm solid #000000;
+}
+
+.adakotipathi-ticket-draw-number-text1-sn {
+background-color: #eceef1;
+  padding: 0.04cm 0.2cm 0.04cm;
+  display: inline-block;
+  color: #000000;
+  font-weight: 1000;
+  font-size: 0.26cm;
+  letter-spacing: 0.02cm;
   font-family: 'Times New Roman', Times, serif;
   text-align: center;
   border-left: 0.03cm solid #000000;
@@ -57,11 +98,12 @@
 
 .adakotipathi-ticket-draw-number-text1-tm {
   background-color: #eceef1;
-  padding: 0.05cm;
+  padding: 0.04cm 0.2cm 0.0cm;
   display: inline-block;
   color: #000000;
   font-weight: 1000;
-  font-size: 0.23cm;
+  font-size: 0.32cm;
+  letter-spacing: 0.02cm;
   font-family: 'Times New Roman', Times, serif;
   text-align: center;
   border-left: 0.03cm solid #000000;
@@ -71,11 +113,12 @@
 
 .adakotipathi-ticket-colour-text {
   background-color: #b4b4b4;
-  padding: 0.05cm;
+  padding: 0.04cm 0.04cm 0.04cm 0.04cm;
   display: inline-block;
   color: #000000;
   font-weight: 1000;
-  font-size: 0.2cm;
+  font-size: 0.26cm;
+  letter-spacing: 0.01cm;
   font-family: 'Times New Roman', Times, serif;
   text-align: center;
   margin-left: 0.5cm;
@@ -83,11 +126,12 @@
 
 .adakotipathi-ticket-colour-text1 {
   background-color: #eceef1;
-  padding: 0.05cm;
+  padding: 0.04cm 0.2cm 0.04cm;
   display: inline-block;
   color: #000000;
   font-weight: 1000;
-  font-size: 0.2cm;
+  font-size: 0.26cm;
+  letter-spacing: 0.01cm;
   font-family: 'Times New Roman', Times, serif;
   text-align: center;
   border-left: 0.03cm solid #000000;
@@ -102,67 +146,92 @@
   color: white;
   font-size: 0.23cm;
   font-weight: 1000;
+  margin-left: -0.5cm;
+  margin-top: 0.05cm;
+  margin-bottom: 0.05cm;
+  justify-content: center;
+}
+
+.adakotipathi-ticket-winning-numbers-titles {
+  color: white;
+  font-size: 0.2cm;
+  font-weight: 1000;
   margin-left: 0.5cm;
-  margin-top: 0.1cm;
-  margin-bottom: 0.1cm;
+  margin-top: 0.05cm;
+  margin-bottom: 0.05cm;
   justify-content: center;
 }
 
 .adakotipathi-ticket-winning-numbers-title-tm {
   color: white;
-  font-size: 0.23cm;
+  font-size: 0.2cm;
   font-weight: 1000;
-  margin-left: 0.35cm;
-  margin-top: 0.1cm;
-  margin-bottom: 0.1cm;
+  margin-left: 1.5cm;
+  margin-top: 0.01cm;
+  margin-bottom: 0.03cm;
   justify-content: center;
 }
 
 .adakotipathi-ticket-winning-numbers-container {
   display: flex;
   align-items: center;
-  gap: 0.1cm;
-  margin-left: 0.5cm;
+  gap: 0.15cm;
+  margin-left: -1.5cm;
 }
 
-/* .superball-ticket-winning-number {
-  width: 0.4cm;
-  height: 0.4cm;
-  background-color: #ffffff;
-  border-radius: 0.1cm;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-} */
+.adakotipathi-ticket-winning-numbers-containersn {
+  display: flex;
+  align-items: center;
+  gap: 0.1cm;
+  margin-left: -0.2cm;
+}
 
-.adakotipathi-ticket-winning-number-text:nth-child(5) {
+.adakotipathi-ticket-winning-numbers-container-tm {
+  display: flex;
+  align-items: center;
+  gap: 0.1cm;
+  margin-left: 0.8cm;
+}
+
+.adakotipathi-ticket-winning-number:nth-child(5) {
   margin-left: 0.2cm;
 }
 
-.adakotipathi-ticket-winning-number-text {
-  width: 0.4cm;
-  height: 0.4cm;
+.adakotipathi-ticket-winning-number {
+  width: 0.65cm;
+  height: 0.65cm;
   background-color: #ffffff;
-  border-radius: 0.1cm;
+  border-radius: 50%;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  font-size: 0.3cm;
-  font-weight: 1000;
+  display: flex;  /* Enables flexbox */
+  justify-content: center; /* Centers horizontally */
+  align-items: center; /* Centers vertically */
   text-align: center;
-  color: #000;
 }
+
+.adakotipathi-ticket-winning-number-text {
+  font-size: 0.47cm; /* Slightly reduce if needed */
+  font-weight: 1000;
+  color: #000;
+  line-height: 1.5; /* Ensures text doesn't push down */
+}
+
 
 /* Bottom Section */
 .adakotipathi-ticket-bottom {
   align-items: center;
-  margin-left: -1.5cm;
+  margin-left: -3cm;
   margin-right: 0.5cm;
-  margin-top: 0.2cm;
+  margin-top: 0.1cm;
   width: auto;
   height: 0.5cm;
   background-color: #2d3748;
   border-radius: 0.1cm;
   display: flex;
-  padding: 0.05cm;
+  padding: 0.05cm 0.05cm 0.05cm 0.05cm;
   color: white;
-  font-size: 0.2cm;
+  font-size: 0.32cm;
+  font-weight: bold;
   font-family: 'Times New Roman', Times, serif;
 }
 
@@ -170,20 +239,30 @@
   align-items: center;
   margin-left: -1.5cm;
   margin-right: 0.5cm;
+  margin-top: 0.1cm;
   width: auto;
-  height: 0.5cm;
+  height: 0.4cm;
   background-color: #2d3748;
   border-radius: 0.1cm;
   display: flex;
   padding: 0.05cm;
   color: white;
-  font-size: 0.15cm;
+  font-size: 0.18cm;
+  font-weight: bold;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.adakotipathi-ticket-bottomtm-txt {
+  margin-left: 0.2cm;
+  color: white;
+  font-size: 0.29cm;
+  font-weight: bold;
   font-family: 'Times New Roman', Times, serif;
 }
 
 .adakotipathi-ticket-special {
   display: flex;
-  margin-top: 0.1cm;
+  margin-top: 0.05cm;
  }
  
  /* Special Prize Section */
@@ -191,14 +270,15 @@
   display: flex;
   background-color: #ffffff;
   border-radius: 0.1cm;
-  height: 0.5cm;
+  height: 0.45cm;
   width: auto;
-  padding: 0.05cm 0.2cm;
+  padding: 0.05cm 0.25cm 0.25cm 0.05cm;
+  margin-top: 0.02cm;
  }
  
  .adakotipathi-ticket-special-prize-icon {
   margin-left: -0.4cm;
-  margin-top: -0.2cm;
+  margin-top: -0.02cm;
   height: 0.5cm;
   width: 0.8cm;  
  }

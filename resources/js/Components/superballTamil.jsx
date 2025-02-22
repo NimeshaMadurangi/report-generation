@@ -65,6 +65,10 @@ const SuperballTamil = ({ name = "Superball" }) => {
     return color;
 };
 
+const formatCurrency = (amount) => {
+  return "ரூ. " + Number(amount).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+};
+
 
   return (
     <div className="superball-ticket-container">
@@ -72,12 +76,12 @@ const SuperballTamil = ({ name = "Superball" }) => {
         <div className="superball-ticket-header">
           <div className="superball-ticket-logo-container">
             <img
-              src="/images/superball.png"
+              src="/images/logo/superball.png"
               alt={name}
               className="superball-ticket-logo"
             />
           </div>
-          <div className="superball-ticket-draw-number-container">
+          <div className="superball-ticket-draw-number-containertm">
             
               <div className="superball-ticket-draw-number-text">
                 வெற்றி வாரம்
@@ -95,15 +99,17 @@ const SuperballTamil = ({ name = "Superball" }) => {
               </div>
           
             <div className="superball-ticket-winning-numbers">
-              <div className="superball-ticket-winning-numbers-title">
+              <div className="superball-ticket-winning-numbers-titlet">
                 ---- வெற்றி எண்கள் ----
               </div>
-              <div className="superball-ticket-winning-numbers-container">
+              <div className="superball-ticket-winning-numbers-container-tm">
                 {balls.length > 0
                   ? balls.map((ball, index) => (
                       
-                        <div key={index} className="superball-ticket-winning-number-text">
-                          {ball}
+                        <div key={index} className="superball-ticket-winning-number">
+                          <div className="superball-ticket-winning-number-text">
+                            {ball}
+                          </div>
                         </div>
                      
                     ))
@@ -112,7 +118,10 @@ const SuperballTamil = ({ name = "Superball" }) => {
             </div>
             <div className="superball-ticket-special">
             <div className="superball-ticket-bottomtm">
-              அடுத்த சுப்பர் ஐக்பொட் : ரூ. {lottery.next_super || "Loading..."}
+              அடுத்த சுப்பர் ஐக்பொட் : 
+              <div className="superball-ticket-bottomtm-txt">
+                {formatCurrency(lottery.next_super) || "Loading..."}
+              </div>
             </div>
             {/* Special Numbers Section */}
             {(lottery.special1 || lottery.special2) && (
@@ -122,16 +131,23 @@ const SuperballTamil = ({ name = "Superball" }) => {
                   alt="Special Prize"
                   className="superball-ticket-special-prize-icon"
                 />
-                <div className="special-numbers-tm">
-                    {lottery.special1 && (
-                      <>
-                         வீசேட இலக்கங்கள் <br />
-                         ரூ. 50,000/- : {lottery.special1 || "Loading..."}
-                      </>
-                    )}
-                    <> | </>
-                    {lottery.special2 && <>ரூ. 40/- : {lottery.special2}</>}
+                <div className="superball-special-numbers">
+                  {lottery.special1 && (
+                    <>
+                      <div className="lagna-special-numbers-text-pptm"> 
+                          வீசேட இலக்கங்கள் ரூ 50,000/-
+                      </div>
+                      <div className="lagna-special-txt"> {lottery.special1} </div>
+                    </>
+                  )}
                   </div>
+                  
+                  {/* <div className="superball-special-numbers">
+                      <div className="lagna-special-numbers-text-pptm"> 
+                          வீசேட இலக்கங்கள் ரூ 40/-
+                      </div>
+                      <div className="lagna-special-txt"> {lottery.special2 && <>{lottery.special2}</>} </div>
+                </div> */}
               </div>
             )}
           </div>

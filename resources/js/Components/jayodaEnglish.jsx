@@ -34,13 +34,17 @@ const JayodaEnglish = ({ name = "Jayoda" }) => {
     (ball) => ball !== null
   );
 
+  const formatCurrency = (amount) => {
+    return "Rs. " + Number(amount).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  };
+
   return (
     <div className="jayoda-ticket-container">
       <div className="jayoda-ticket-card">
         <div className="jayoda-ticket-header">
           <div className="jayoda-ticket-logo-container">
             <img
-              src="/images/jayoda.png"
+              src="/images/logo/jayoda.png"
               alt={name}
               className="jayoda-ticket-logo"
             />
@@ -63,15 +67,17 @@ const JayodaEnglish = ({ name = "Jayoda" }) => {
               </div>
             
             <div className="jayoda-ticket-winning-numbers">
-              <div className="superball-ticket-winning-numbers-title">
+              <div className="jayoda-ticket-winning-numbers-title">
                 ------ Winning Numbers ------
               </div>
               <div className="jayoda-ticket-winning-numbers-container">
                 {balls.length > 0
                   ? balls.map((ball, index) => (
                       
-                        <div key={index} className="jayoda-ticket-winning-number-text">
-                          {ball}
+                        <div key={index} className="jayoda-ticket-winning-number">
+                          <div className="jayoda-ticket-winning-number-text">
+                            {ball}
+                          </div>
                         </div>
                       
                     ))
@@ -80,7 +86,7 @@ const JayodaEnglish = ({ name = "Jayoda" }) => {
             </div>
             <div className="jayoda-ticket-special">
             <div className="jayoda-ticket-bottom">
-              Next Super Jackpot : Rs. {lottery.next_super || "Loading..."}
+              Next Super Jackpot : {formatCurrency(lottery.next_super) || "Loading..."}
             </div>
             {/* Special Numbers Section */}
             {(lottery.special1 || lottery.special2) && (
@@ -97,7 +103,9 @@ const JayodaEnglish = ({ name = "Jayoda" }) => {
                       <br />
                     </>
                   )}
-                  {lottery.special2 && <>Rs. 40/-: {lottery.special2}</>}
+                    <div className="lagna-special-txt">
+                      {lottery.special2 && <>Rs. 40/-: {lottery.special2}</>}
+                    </div>
                 </div>
               </div>
             )}

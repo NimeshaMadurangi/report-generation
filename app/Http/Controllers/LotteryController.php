@@ -91,6 +91,8 @@ class LotteryController extends Controller
         // Extract special attributes
         $special1 = $this->extractSpecialValue($data, 'SP_50,000_NO');
         $special2 = $this->extractSpecialValue($data, 'SP_40_NO');
+        $special3 = $this->extractSpecialValue($data, 'SP_200_NO');
+        $special4 = $this->extractSpecialValue($data, 'SP_100,000_NO');
 
         // Extract total value from the <total> tag
         $totalValue = isset($data['total']) ? (float) str_replace(',', '', $data['total']) : null;
@@ -114,6 +116,8 @@ class LotteryController extends Controller
             'ball7' => $balls[6] ?? null,
             'special1' => $special1,
             'special2' => $special2,
+            'special3' => $special3,
+            'special4' => $special4,
             'total' => $totalValue,  // The extracted total value
             'count' => $prizeData['winner_count'], // Winner count for 200000.00 prize
             'created_at' => now(),

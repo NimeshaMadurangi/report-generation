@@ -27,7 +27,7 @@ const HeaderSinhala = () => {
       const weekday = date.toLocaleDateString("en-US", options);
       const weekdaySinhala = translateWeekdayToSinhala(weekday);
 
-      return `${year}-${month}-${day} ${weekdaySinhala}`;
+      return `${year}.${month}.${day} ${weekdaySinhala}`;
     };
 
     setCurrentDate(formatDate());
@@ -37,18 +37,14 @@ const HeaderSinhala = () => {
     <div className="headersin-container">
       <div className="image-container1">
         <img
-          src="/images/logo.png"
+          src="./images/logo/headersn.png"
           alt="Company Logo"
           className="headersin-logo"
         />
-        <div className="headersin-text-container">
-          සංවර්ධන ලොතරැයි මණ්ඩලය
-          <div className="headersin-text2">www.dlb.lk</div>
-        </div>
+        
         <div className="date-container1">
           <div className="date-text1">
             {currentDate || "Loading..."}
-            <br /> නිල ප්‍රතිඵල
           </div>
         </div>
       </div>

@@ -31,13 +31,17 @@ const SasiriEnglish = ({ name = "Sasiri" }) => {
     (ball) => ball !== null
   );
 
+  const formatCurrency = (amount) => {
+    return "Rs. " + Number(amount).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  };
+
   return (
     <div className="sasiri-ticket-container">
       <div className="sasiri-ticket-card">
         <div className="sasiri-ticket-header">
           <div className="sasiri-ticket-logo-container">
             <img
-              src="/images/sasirienglish.png"
+              src="/images/logo/sasirienglish.png"
               alt={name}
               className="sasiri-ticket-logo"
             />
@@ -67,16 +71,18 @@ const SasiriEnglish = ({ name = "Sasiri" }) => {
                 {balls.length > 0
                   ? balls.map((ball, index) => (
                       
-                        <div key={index} className="sasiri-ticket-winning-number-text">
-                          {ball}
+                        <div key={index} className="sasiri-ticket-winning-number">
+                          <div className="sasiri-ticket-winning-number-text">
+                            {ball}
+                          </div>
                         </div>
                       
                     ))
                   : "Loading..."}
-                  <div className="sasiri-ticket-winner-container">
+                  <div className="sasiri-ticket-winner-containeren">
                         Total no.of <br/> Rs. 200,000 winners
                   </div>
-                  <div className="sasiri-ticket-winner-container1">
+                  <div className="sasiri-ticket-winner-container1en">
                     {lottery.count || "Loading..."}
                   </div>
                 
@@ -85,7 +91,7 @@ const SasiriEnglish = ({ name = "Sasiri" }) => {
             <div className="sasiri-ticket-special">
               <div className="sasiri-ticket-bottom">
                 
-                  Total Value of Prize : {lottery.total || "Loading..."}
+                  Total Value of Prize : {formatCurrency(lottery.total) || "Loading..."}
                
               </div>
             </div>
